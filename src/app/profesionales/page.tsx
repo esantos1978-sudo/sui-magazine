@@ -135,13 +135,13 @@ export default function ProfesionalesPage() {
       {/* 1. Hero de sección: enfoque institucional sin perder el aire editorial. */}
       <section className="flex h-[50vh] min-h-[400px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 text-eyebrow uppercase text-stone-500">
             Soluciones Profesionales · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             Eficiencia, Ahorro y Dignidad Asistencial
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             La innovación tecnológica que resuelve problemas estructurales en
             el sector sociosanitario sin perder de vista lo más importante: las
             personas.
@@ -151,10 +151,10 @@ export default function ProfesionalesPage() {
 
       {/* 2. El problema: los costes invisibles de la rutina de aseo. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           La carga invisible del baño en residencias
         </h2>
-        <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+        <p className="mb-8 font-sans text-body-lg text-stone-700">
           Asistir a una persona dependiente en el aseo íntimo es uno de los
           procesos que más recursos consume en cualquier centro. Si desglosamos
           esta rutina, los costes ocultos son evidentes:
@@ -184,10 +184,10 @@ export default function ProfesionalesPage() {
       {/* 3. La solución: beneficios operativos y asistenciales medibles. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             Beneficios cuantificables del Inodoro Japonés
           </h2>
-          <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mb-8 font-sans text-body-lg text-stone-700">
             Implementar inodoros inteligentes transforma radicalmente este
             escenario, aportando ventajas operativas y asistenciales que se
             pueden medir:
@@ -196,10 +196,10 @@ export default function ProfesionalesPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {benefits.map((benefit) => (
               <article key={benefit.title} className="bg-white p-8 shadow-sm">
-                <h3 className="mb-2 font-serif text-xl leading-snug text-stone-900">
+                <h3 className="mb-2 font-serif text-h3 text-stone-900">
                   {benefit.title}
                 </h3>
-                <p className="font-sans text-sm leading-relaxed text-stone-600">
+                <p className="font-sans text-body-base text-stone-600">
                   {benefit.text}
                 </p>
               </article>
@@ -210,10 +210,10 @@ export default function ProfesionalesPage() {
 
       {/* 4. ROI: tabla orientativa de ahorros anuales. */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <h2 className="mb-8 text-balance text-center font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
           Retorno de la Inversión (ROI): Un cálculo orientativo
         </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center font-sans text-lg leading-relaxed text-stone-700">
+        <p className="mx-auto mb-12 max-w-2xl text-center font-sans text-body-lg text-stone-700">
           La amortización de un inodoro japonés en un entorno profesional es
           excepcionalmente rápida. Tomemos como ejemplo un centro que instale
           modelos de alta calidad-precio:
@@ -262,7 +262,7 @@ export default function ProfesionalesPage() {
 
       {/* 5. FAQ: dudas de adopción para gerencia y prescriptores. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Preguntas frecuentes para gerencia
         </h2>
 
@@ -286,7 +286,7 @@ export default function ProfesionalesPage() {
       {/* 6. CTA B2B: contacto directo para presupuestos y colaboraciones. */}
       <section className="bg-stone-100 px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Interesado en equipar tu centro o colaborar con nosotros?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">
@@ -296,7 +296,7 @@ export default function ProfesionalesPage() {
           </p>
           <a
             href="mailto:info@sui-magazine.com"
-            className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Contactar para presupuestos
           </a>

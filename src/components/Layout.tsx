@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="font-sans text-[0.65rem] uppercase tracking-[0.22em] text-stone-500 transition-colors duration-300 hover:text-stone-900 sm:text-xs"
+                    className="font-sans text-sm uppercase tracking-wide text-stone-500 transition-colors duration-300 hover:text-stone-900"
                   >
                     {item.label}
                   </Link>
@@ -63,7 +63,7 @@ export default function Layout({ children }: LayoutProps) {
             </span>
             <Link
               href="/profesionales"
-              className="transition-colors hover:text-stone-900"
+              className="text-xs transition-colors hover:text-stone-900"
             >
               Soluciones para profesionales
             </Link>

@@ -69,13 +69,13 @@ export default function BienestarPage() {
       {/* 1. Hero de sección: mismo ritmo visual que la guía y la selección. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 text-[0.65rem] uppercase tracking-[0.35em] text-stone-400">
+          <p className="mb-6 text-eyebrow uppercase text-stone-400">
             Bienestar · Sui Magazine
           </p>
-          <h1 className="text-balance font-serif text-5xl leading-tight tracking-tight text-stone-900 md:text-6xl">
+          <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
             Bienestar y Dignidad
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto mt-4 max-w-2xl font-sans text-body-lg text-stone-600">
             Cuando la tecnología se pone al servicio de las personas. Recupera
             la intimidad, alivia la carga del cuidador y transforma el día a
             día.
@@ -85,7 +85,7 @@ export default function BienestarPage() {
 
       {/* 2. Introducción emocional: el porqué humano de la tecnología. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           La dignidad de la intimidad
         </h2>
         <p className="font-serif text-xl leading-relaxed text-stone-700 md:text-2xl">
@@ -100,11 +100,11 @@ export default function BienestarPage() {
 
       {/* 3. Dependencia y autonomía: lo que se recupera. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Recuperando la autonomía
         </h2>
 
-        <p className="font-sans text-lg leading-relaxed text-stone-600">
+        <p className="font-sans text-body-lg text-stone-600">
           Ir al baño es el acto más privado que realizamos. Cuando la movilidad
           se reduce, este momento íntimo se convierte en un reto físico y
           psicológico. El inodoro japonés lo cambia todo:
@@ -138,11 +138,11 @@ export default function BienestarPage() {
       {/* 4. El cuidador: alivio físico y emocional. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             Para ti, que cuidas
           </h2>
 
-          <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mb-8 font-sans text-body-lg text-stone-700">
             Cuidar de un familiar es uno de los mayores actos de amor, pero
             también uno de los más agotadores. Acompañar a un ser querido al
             baño suele ser el momento de mayor tensión del día. Instalar un
@@ -154,10 +154,10 @@ export default function BienestarPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {caregiverCards.map((card) => (
               <article key={card.title} className="bg-white p-8 shadow-sm">
-                <h3 className="font-serif text-xl text-stone-900">
+                <h3 className="font-serif text-h3 text-stone-900">
                   {card.title}
                 </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-stone-600">
+                <p className="mt-3 font-sans text-body-base text-stone-600">
                   {card.text}
                 </p>
               </article>
@@ -168,7 +168,7 @@ export default function BienestarPage() {
 
       {/* 5. Residencias y centros sociosanitarios. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Eficiencia y dignidad en residencias
         </h2>
 
@@ -204,13 +204,13 @@ export default function BienestarPage() {
       {/* 6. CTA de cierre: recomendaciones según el perfil de cada hogar. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             Cada situación es única. Encuentra el modelo que mejor se adapta a
             vuestras necesidades.
           </h2>
           <Link
             href="/seleccion"
-            className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Ver recomendaciones por perfil
           </Link>

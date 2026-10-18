@@ -103,13 +103,13 @@ export default function GuiaPage() {
       {/* 1. Hero de sección: fondo plano para mantener la calma editorial. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 text-[0.65rem] uppercase tracking-[0.35em] text-stone-400">
+          <p className="mb-6 text-eyebrow uppercase text-stone-400">
             Guía · Sui Magazine
           </p>
-          <h1 className="text-balance font-serif text-5xl leading-tight tracking-tight text-stone-900 md:text-6xl">
+          <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
             La Guía Esencial
           </h1>
-          <p className="mx-auto mt-4 max-w-xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto mt-4 max-w-xl font-sans text-body-lg text-stone-600">
             Todo lo que necesitas saber sobre los inodoros inteligentes
             japoneses
           </p>
@@ -131,7 +131,7 @@ export default function GuiaPage() {
 
       {/* 3. Qué es un washlet y cuáles son sus tres formatos. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           ¿Qué es exactamente un bidé japonés?
         </h2>
 
@@ -161,10 +161,10 @@ export default function GuiaPage() {
                 {format.icon}
               </span>
               <div>
-                <h3 className="font-serif text-lg text-stone-900">
+                <h3 className="font-serif text-h3 text-stone-900">
                   {format.title}
                 </h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
+                <p className="mt-2 font-sans text-body-base text-stone-600">
                   {format.description}
                 </p>
               </div>
@@ -176,10 +176,10 @@ export default function GuiaPage() {
       {/* 4. La experiencia sensorial, paso a paso. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-balance text-center font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
             ¿Cómo funciona? La experiencia paso a paso
           </h2>
-          <div className="mt-8 space-y-6 font-serif text-lg leading-relaxed text-stone-700">
+          <div className="mt-8 space-y-6 font-serif text-body-lg text-stone-700">
             <p>
               Imagina por un momento la escena en una fría mañana de invierno:
               entras al baño, la tapa se levanta sola al detectar que te acercas
@@ -211,7 +211,7 @@ export default function GuiaPage() {
 
       {/* 5. Contexto español: cinco razones de su popularidad. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           ¿Por qué se ha vuelto tan popular en España?
         </h2>
 
@@ -243,11 +243,11 @@ export default function GuiaPage() {
       {/* 6. Ventajas reales en formato de tarjetas. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mx-auto max-w-2xl text-balance text-center font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mx-auto max-w-2xl text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
             ¿Qué ventajas reales aporta a tu día a día?
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-center font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mx-auto mt-4 max-w-2xl text-center font-sans text-body-lg text-stone-700">
             Si aún te lo estás pensando, estos son los beneficios directos que
             notarás desde el primer uso:
           </p>
@@ -261,17 +261,17 @@ export default function GuiaPage() {
                 <span className="text-2xl" aria-hidden="true">
                   {advantage.icon}
                 </span>
-                <h3 className="mt-4 font-serif text-xl text-stone-900">
+                <h3 className="mt-4 font-serif text-h3 text-stone-900">
                   {advantage.title}
                 </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-stone-600">
+                <p className="mt-3 font-sans text-body-base text-stone-600">
                   {advantage.text}
                 </p>
               </article>
             ))}
           </div>
 
-          <p className="mx-auto mt-8 max-w-2xl text-center font-sans text-xs leading-relaxed text-stone-500">
+          <p className="mx-auto mt-8 max-w-2xl text-center font-sans text-caption text-stone-500">
             La información de esta guía es divulgativa y no sustituye la
             consulta con un profesional de la salud.
           </p>
@@ -281,12 +281,12 @@ export default function GuiaPage() {
       {/* 7. CTA hacia la selección de modelos. */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-xl">
-          <h2 className="text-balance font-serif text-2xl leading-tight text-stone-900 md:text-3xl">
+          <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Listo para descubrir el modelo perfecto para ti?
           </h2>
           <Link
             href="/seleccion"
-            className="mt-8 inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="mt-8 inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Ver nuestra selección
           </Link>

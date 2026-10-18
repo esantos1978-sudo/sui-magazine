@@ -195,13 +195,13 @@ export default function PerfilesPage() {
       {/* 1. Hero: presentación del criterio humano de la guía. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-500">
             Guía de perfiles · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             El modelo perfecto para cada necesidad
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             Cada persona es un mundo. Te ayudamos a encontrar el bidé japonés
             que mejor se adapta a vuestra situación.
           </p>
@@ -229,20 +229,20 @@ export default function PerfilesPage() {
             index > 0 ? "border-t border-stone-200 pt-16" : ""
           }`}
         >
-          <p className="mb-4 font-sans text-xs uppercase tracking-widest text-stone-400">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-400">
             {profile.label}
           </p>
-          <h2 className="mb-6 text-balance font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
             {profile.title}
           </h2>
           <p className="mb-8 font-sans italic leading-relaxed text-stone-500">
             {profile.situation}
           </p>
-          <p className="mb-8 font-sans text-lg font-medium leading-relaxed text-stone-800">
+          <p className="mb-8 font-sans text-body-lg font-medium text-stone-800">
             {profile.recommendation}
           </p>
 
-          <h3 className="mb-4 font-sans text-xs uppercase tracking-widest text-stone-400">
+          <h3 className="mb-4 font-sans text-eyebrow uppercase text-stone-400">
             Funciones clave a buscar
           </h3>
           <ul className="mb-8 space-y-2 font-sans text-stone-700">
@@ -268,7 +268,7 @@ export default function PerfilesPage() {
 
       {/* 4. Tabla resumen: comparación rápida de los cinco perfiles. */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <h2 className="mb-12 text-center font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-12 text-center font-serif text-h2 tracking-tight text-stone-900">
           Resumen rápido por perfiles
         </h2>
 
@@ -333,7 +333,7 @@ export default function PerfilesPage() {
 
       {/* 5. Consejos del asesor antes de comprar. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-8 font-serif text-h2 tracking-tight text-stone-900">
           Antes de dar el paso final
         </h2>
 
@@ -354,7 +354,7 @@ export default function PerfilesPage() {
 
       {/* 6. FAQ: dudas habituales al combinar perfiles y soluciones. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Dudas habituales sobre perfiles específicos
         </h2>
 
@@ -378,7 +378,7 @@ export default function PerfilesPage() {
       {/* 7. CTA de cierre: enlace al ranking completo. */}
       <section className="bg-stone-100 px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Ya tienes claro qué perfil encaja con tu familiar?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">
@@ -387,7 +387,7 @@ export default function PerfilesPage() {
           </p>
           <Link
             href="/seleccion"
-            className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Ver el Ranking 2026
           </Link>

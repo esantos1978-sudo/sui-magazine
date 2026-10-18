@@ -189,13 +189,13 @@ export default function SeleccionPage() {
       {/* 1. Hero de sección: fondo plano, misma calma editorial que la guía. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 text-[0.65rem] uppercase tracking-[0.35em] text-stone-400">
+          <p className="mb-6 text-eyebrow uppercase text-stone-400">
             Selección · Sui Magazine
           </p>
-          <h1 className="text-balance font-serif text-5xl leading-tight tracking-tight text-stone-900 md:text-6xl">
+          <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
             La Selección 2026
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto mt-4 max-w-2xl font-sans text-body-lg text-stone-600">
             Análisis riguroso y honesto de los inodoros inteligentes que sí
             merecen la pena en España.
           </p>
@@ -204,7 +204,7 @@ export default function SeleccionPage() {
 
       {/* 2. Criterios editoriales que ordenan el ranking. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Nuestros criterios de selección
         </h2>
 
@@ -233,10 +233,10 @@ export default function SeleccionPage() {
 
       {/* 3. Ranking: una ficha editorial por modelo. */}
       <section className="mx-auto max-w-4xl px-6 py-10">
-        <p className="text-center text-[0.65rem] uppercase tracking-[0.35em] text-stone-400">
+        <p className="text-center text-eyebrow uppercase text-stone-400">
           Ranking 2026
         </p>
-        <h2 className="mb-16 mt-4 text-balance text-center font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-16 mt-4 text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
           Los 7 mejores modelos del mercado
         </h2>
 
@@ -265,7 +265,7 @@ export default function SeleccionPage() {
                 </span>
 
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-serif text-2xl leading-snug text-stone-900">
+                  <h3 className="font-serif text-h3 text-stone-900">
                     {product.name}
                   </h3>
                   <p className="mb-6 mt-2 font-sans italic text-stone-500">
@@ -274,26 +274,26 @@ export default function SeleccionPage() {
 
                   <dl className="grid grid-cols-1 gap-x-8 gap-y-5 border-y border-stone-200/80 py-6 sm:grid-cols-2">
                     <div>
-                      <dt className="text-[0.6rem] uppercase tracking-[0.25em] text-stone-400">
+                      <dt className="text-eyebrow uppercase text-stone-400">
                         Tipo
                       </dt>
-                      <dd className="mt-2 font-sans text-sm leading-relaxed text-stone-700">
+                      <dd className="mt-2 font-sans text-caption text-stone-700">
                         {product.type}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-[0.6rem] uppercase tracking-[0.25em] text-stone-400">
+                      <dt className="text-eyebrow uppercase text-stone-400">
                         Precio orientativo
                       </dt>
-                      <dd className="mt-2 font-sans text-sm leading-relaxed text-stone-700">
+                      <dd className="mt-2 font-sans text-caption text-stone-700">
                         {product.price}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-[0.6rem] uppercase tracking-[0.25em] text-stone-400">
+                      <dt className="text-eyebrow uppercase text-stone-400">
                         Puntuación
                       </dt>
-                      <dd className="mt-2 font-sans text-sm leading-relaxed text-stone-700">
+                      <dd className="mt-2 font-sans text-caption text-stone-700">
                         <span role="img" aria-label={product.ratingLabel}>
                           {product.rating}
                         </span>
@@ -301,7 +301,7 @@ export default function SeleccionPage() {
                     </div>
                   </dl>
 
-                  <dl className="mt-6 space-y-4 font-sans text-sm leading-relaxed">
+                  <dl className="mt-6 space-y-4 font-sans text-body-base">
                     <div>
                       <dt className="font-bold text-stone-800">Lo mejor:</dt>
                       <dd className="mt-1 text-stone-600">{product.best}</dd>
@@ -335,7 +335,7 @@ export default function SeleccionPage() {
       {/* 4. CTA de cierre: vuelta a la guía de formatos. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Quieres afinar aún más tu búsqueda?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">
@@ -344,7 +344,7 @@ export default function SeleccionPage() {
           </p>
           <Link
             href="/guia"
-            className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Volver a la Guía
           </Link>

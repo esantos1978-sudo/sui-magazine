@@ -202,13 +202,13 @@ export default function FuncionalidadesPage() {
       {/* 1. Hero de sección. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-500">
             Guía técnica · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             La Guía Definitiva por Funcionalidades
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             Afinar el tiro. Descubre qué características marcan la diferencia
             entre una buena compra y la compra perfecta para tu estilo de vida.
           </p>
@@ -235,10 +235,10 @@ export default function FuncionalidadesPage() {
             index > 0 ? " border-t border-stone-200 pt-16" : ""
           }`}
         >
-          <p className="mb-4 font-sans text-xs uppercase tracking-widest text-stone-400">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-400">
             {feature.label}
           </p>
-          <h2 className="mb-6 text-balance font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
             {feature.title}
           </h2>
           <p className="mb-6 font-sans leading-relaxed text-stone-700">
@@ -248,7 +248,7 @@ export default function FuncionalidadesPage() {
             <strong className="font-semibold">Mejores modelos:</strong>{" "}
             {feature.models}
           </p>
-          <p className="font-sans text-sm italic text-stone-500">
+          <p className="font-sans text-caption italic text-stone-500">
             Nivel de precio: {feature.price}
           </p>
         </section>
@@ -256,7 +256,7 @@ export default function FuncionalidadesPage() {
 
       {/* 4. Tabla resumen comparativa. */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <h2 className="mb-12 text-center text-balance font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-12 text-center text-balance font-serif text-h2 tracking-tight text-stone-900">
           Resumen rápido por funcionalidades
         </h2>
 
@@ -321,7 +321,7 @@ export default function FuncionalidadesPage() {
 
       {/* 5. Preguntas frecuentes. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-8 font-serif text-h2 tracking-tight text-stone-900">
           Dudas habituales sobre funcionalidades
         </h2>
 
@@ -345,7 +345,7 @@ export default function FuncionalidadesPage() {
       {/* 6. CTA de cierre: enlace al ranking completo. */}
       <section className="bg-stone-100 px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Ya sabes qué funciones son innegociables para ti?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">
@@ -354,7 +354,7 @@ export default function FuncionalidadesPage() {
           </p>
           <Link
             href="/seleccion"
-            className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
             Ver el Ranking 2026
           </Link>
