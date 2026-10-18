@@ -2,12 +2,12 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 /**
- * Enlaces principales del magazine. La guía ya está disponible; Bienestar
- * y Selección se construirán en las siguientes fases editoriales.
+ * Enlaces principales del magazine.
  */
 const navigation = [
   { label: "Guía", href: "/guia" },
   { label: "Bienestar", href: "/bienestar" },
+  { label: "Perfiles", href: "/perfiles" },
   { label: "Selección", href: "/seleccion" },
 ] as const;
 
