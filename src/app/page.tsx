@@ -93,7 +93,7 @@ export default function Home() {
         <h3 className="mb-12 text-center font-serif text-2xl text-stone-900">
           Lecturas relacionadas
         </h3>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-12 md:grid-cols-3">
           <Link href="/articulos/guia-instalacion" className="group block">
             <span className="mb-2 block font-sans text-xs uppercase tracking-wider text-stone-400">
               Guía práctica
@@ -119,6 +119,21 @@ export default function Home() {
             <p className="font-sans text-sm leading-relaxed text-stone-600">
               Te decimos exactamente qué comprar con tu dinero, desde 100€
               hasta el lujo asiático.
+            </p>
+          </Link>
+          <Link
+            href="/articulos/bano-espanol-adaptaciones"
+            className="group block"
+          >
+            <span className="mb-2 block font-sans text-xs uppercase tracking-wider text-stone-400">
+              Guía práctica
+            </span>
+            <h4 className="mb-3 font-serif text-xl text-stone-900 transition group-hover:text-stone-600">
+              Adaptar el bidé a tu baño español
+            </h4>
+            <p className="font-sans text-sm leading-relaxed text-stone-600">
+              Soluciones reales para la cal, los enchufes y las cisternas
+              empotradas.
             </p>
           </Link>
         </div>
