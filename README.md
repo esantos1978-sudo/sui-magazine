@@ -18,7 +18,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Tipografía editorial:** Playfair Display para titulares e Inter para cuerpo y navegación, cargadas con `next/font` y `display: swap`.
 - **Diseño responsive:** interfaz mobile-first, header sticky, navegación accesible, tablas con scroll horizontal y footer compartido.
 - **SEO on-page base:** `metadata` específica por ruta (título y descripción) y Open Graph en la home y las páginas editoriales. Incluye HTML semántico y rutas estáticas.
-- **Contenido editorial completo:** home, guía esencial, bienestar, guía por perfiles, guía de funcionalidades, ranking 2026 y tres artículos prácticos sobre instalación, presupuesto y adaptación al baño español.
+- **Contenido editorial completo:** home, guía esencial, bienestar, guía por perfiles, guía de funcionalidades, ranking 2026 y cuatro artículos prácticos sobre instalación, presupuesto, adaptación al baño español y tapa inteligente.
 - **Ranking de producto:** siete modelos comparados con criterios editoriales, precio orientativo, puntuación, puntos fuertes, limitaciones y perfil recomendado.
 - **Guía por perfiles:** cinco situaciones de movilidad, dependencia y cognición con funciones clave, modelos de referencia, tabla comparativa y FAQ.
 - **Guía técnica por funcionalidades:** ocho características explicadas con utilidad real, modelos de referencia, nivel de precio, tabla comparativa y FAQ.
@@ -68,7 +68,8 @@ sui-magazine/
 │   │   └── articulos/
 │   │       ├── guia-instalacion/page.tsx
 │   │       ├── mejores-bides-presupuesto/page.tsx
-│   │       └── bano-espanol-adaptaciones/page.tsx
+│   │       ├── bano-espanol-adaptaciones/page.tsx
+│   │       └── tapa-inteligente/page.tsx
 │   ├── components/
 │   │   └── Layout.tsx                    # Header, main y footer compartidos
 │   ├── content/
@@ -106,6 +107,7 @@ sui-magazine/
 | `/articulos/guia-instalacion` | Instalación paso a paso de accesorios, tapas e inodoros completos |
 | `/articulos/mejores-bides-presupuesto` | Recomendaciones por franjas de presupuesto |
 | `/articulos/bano-espanol-adaptaciones` | Cal, enchufes, cisternas empotradas y normativa eléctrica |
+| `/articulos/tapa-inteligente` | Deep dive de la tapa inteligente: materiales, calentamiento y modelos |
 
 El contenido editorial vive directamente en los archivos TSX y en `src/content/formats.ts`; no hay CMS, base de datos ni rutas de API.
 
