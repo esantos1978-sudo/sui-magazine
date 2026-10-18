@@ -87,6 +87,42 @@ export default function Home() {
           Descubre la guía esencial
         </Link>
       </section>
+
+      {/* E. Lecturas relacionadas: acceso directo a los artículos. */}
+      <section className="mx-auto max-w-4xl border-t border-stone-200 px-6 py-20">
+        <h3 className="mb-12 text-center font-serif text-2xl text-stone-900">
+          Lecturas relacionadas
+        </h3>
+        <div className="grid gap-12 md:grid-cols-2">
+          <Link href="/articulos/guia-instalacion" className="group block">
+            <span className="mb-2 block font-sans text-xs uppercase tracking-wider text-stone-400">
+              Guía práctica
+            </span>
+            <h4 className="mb-3 font-serif text-xl text-stone-900 transition group-hover:text-stone-600">
+              Guía de instalación paso a paso
+            </h4>
+            <p className="font-sans text-sm leading-relaxed text-stone-600">
+              Cómo montar tu bidé japonés en 30 minutos, sin estrés y sin
+              llamadas al fontanero.
+            </p>
+          </Link>
+          <Link
+            href="/articulos/mejores-bides-presupuesto"
+            className="group block"
+          >
+            <span className="mb-2 block font-sans text-xs uppercase tracking-wider text-stone-400">
+              Guía de compra
+            </span>
+            <h4 className="mb-3 font-serif text-xl text-stone-900 transition group-hover:text-stone-600">
+              Mejores bidés por presupuesto
+            </h4>
+            <p className="font-sans text-sm leading-relaxed text-stone-600">
+              Te decimos exactamente qué comprar con tu dinero, desde 100€
+              hasta el lujo asiático.
+            </p>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
