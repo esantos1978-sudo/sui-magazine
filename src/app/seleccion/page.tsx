@@ -46,6 +46,8 @@ const criteria = [
 type SelectionProduct = {
   /** Nombre comercial del modelo. */
   name: string;
+  /** Ruta pública de la imagen del producto. */
+  image: string;
   /** Eslogan editorial de una línea. */
   tagline: string;
   /** Formato del producto dentro de la familia washlet. */
@@ -70,6 +72,7 @@ type SelectionProduct = {
 const products: SelectionProduct[] = [
   {
     name: "Nashi Aldara iPlus 5",
+    image: "/images/productos/nashi-aldara-iplus5.jpg",
     tagline: "El inodoro completo más avanzado y equilibrado.",
     type: "Inodoro Completo",
     price: "Desde ~1.690 €",
@@ -85,6 +88,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "eQiik Pro",
+    image: "/images/productos/eqiik-pro.jpg",
     tagline: "La compra inteligente: prestaciones premium a precio imbatible.",
     type: "Inodoro Completo",
     price: "~699 €",
@@ -100,6 +104,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "TOTO Neorest",
+    image: "/images/productos/toto-neorest.jpg",
     tagline: "La máxima expresión del lujo asiático.",
     type: "Inodoro Completo Integrado",
     price: "~2.170 €+",
@@ -115,6 +120,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "Nashi Deluxe Pro",
+    image: "/images/productos/nashi-deluxe-pro.jpg",
     tagline: "La tapa inteligente indestructible.",
     type: "Tapa Inteligente",
     price: "~400 € - 900 €",
@@ -129,6 +135,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "Vogo VB4000 SE",
+    image: "/images/productos/vogo-vb4000.jpg",
     tagline: "El rey de las funciones terapéuticas.",
     type: "Tapa Inteligente / Inodoro Avanzado",
     price: "~1.000 € - 1.200 €",
@@ -144,6 +151,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "Xiaomi Smart Toilet Seat",
+    image: "/images/productos/xiaomi-smart-seat.jpg",
     tagline: "La puerta de entrada económica.",
     type: "Tapa Inteligente",
     price: "~190 € - 400 €",
@@ -159,6 +167,7 @@ const products: SelectionProduct[] = [
   },
   {
     name: "Brondell Swash S101",
+    image: "/images/productos/brondell-swash-s101.jpg",
     tagline: "Fiabilidad mecánica absoluta sin enchufes.",
     type: "Accesorio / Tapa Mecánica",
     price: "< 100 €",
@@ -237,6 +246,16 @@ export default function SeleccionPage() {
               key={product.name}
               className="border-b border-stone-200 py-12 first:pt-0"
             >
+              <div className="w-full aspect-[4/3] bg-stone-50 rounded-sm overflow-hidden mb-8 flex items-center justify-center">
+                {/* Se usa <img> estándar por requisito de diseño editorial. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-contain p-4 hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-8">
                 <span
                   className="flex-none font-serif text-4xl leading-none text-stone-300 sm:w-16 sm:pt-1"
