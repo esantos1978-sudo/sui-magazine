@@ -20,6 +20,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **SEO on-page base:** `metadata` específica por ruta (título y descripción) y Open Graph en la home y las páginas editoriales. Incluye HTML semántico y rutas estáticas.
 - **Contenido editorial completo:** home, guía esencial, bienestar, ranking 2026 y tres artículos prácticos sobre instalación, presupuesto y adaptación al baño español.
 - **Ranking de producto:** siete modelos comparados con criterios editoriales, precio orientativo, puntuación, puntos fuertes, limitaciones y perfil recomendado.
+- **Guía por perfiles:** cinco situaciones de movilidad, dependencia y cognición con funciones clave, modelos de referencia, tabla comparativa y FAQ.
 - **Página B2B con ROI:** `/profesionales` incluye costes ocultos del aseo tradicional, beneficios operativos, tabla de retorno de la inversión orientativa, FAQ y CTA de contacto.
 - **Agente de scraping integrado:** script de Node.js + Playwright que descarga imágenes de producto, las valida y las convierte a JPEG real.
 - **Accesibilidad base:** landmarks semánticos, etiquetas `aria`, elementos decorativos ocultos y estados de foco visibles.
@@ -60,6 +61,7 @@ sui-magazine/
 │   │   ├── guia/page.tsx                 # Guía esencial del washlet
 │   │   ├── bienestar/page.tsx            # Bienestar, autonomía y cuidados
 │   │   ├── seleccion/page.tsx            # Ranking 2026 de siete modelos
+│   │   ├── perfiles/page.tsx             # Guía por perfiles de movilidad y cuidado
 │   │   ├── profesionales/page.tsx        # Propuesta B2B, ROI y FAQ
 │   │   └── articulos/
 │   │       ├── guia-instalacion/page.tsx
@@ -96,6 +98,7 @@ sui-magazine/
 | `/guia` | Qué es un washlet, formatos disponibles, popularidad en España y ventajas |
 | `/bienestar` | Autonomía, dignidad, personas cuidadoras y residencias |
 | `/seleccion` | Ranking 2026 de siete modelos, criterios y análisis individuales |
+| `/perfiles` | Guía para elegir modelo según dependencia, movilidad, cognición y cuidado |
 | `/profesionales` | Argumentario B2B, costes, tabla de ROI orientativa, FAQ y contacto |
 | `/articulos/guia-instalacion` | Instalación paso a paso de accesorios, tapas e inodoros completos |
 | `/articulos/mejores-bides-presupuesto` | Recomendaciones por franjas de presupuesto |
