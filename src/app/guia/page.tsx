@@ -197,6 +197,15 @@ export default function GuiaPage() {
               limpieza absoluta.
             </p>
           </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/articulos/guia-instalacion"
+              className="inline-block border-b border-stone-300 pb-1 font-sans text-sm text-stone-600 transition hover:border-stone-900 hover:text-stone-900"
+            >
+              Leer la guía completa de instalación paso a paso →
+            </Link>
+          </div>
         </div>
       </section>
 
