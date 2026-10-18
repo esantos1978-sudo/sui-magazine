@@ -53,9 +53,20 @@ export default function Layout({ children }: LayoutProps) {
 
       <footer className="border-t border-stone-200">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-center text-xs tracking-wide text-stone-500 sm:flex-row sm:text-left md:px-10">
-          <p>
-            © {new Date().getFullYear()} Sui Magazine. Todos los derechos
-            reservados.
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:justify-start">
+            <span>
+              © {new Date().getFullYear()} Sui Magazine. Todos los derechos
+              reservados.
+            </span>
+            <span className="text-stone-300" aria-hidden="true">
+              |
+            </span>
+            <Link
+              href="/profesionales"
+              className="transition-colors hover:text-stone-900"
+            >
+              Soluciones para profesionales
+            </Link>
           </p>
           <p className="uppercase tracking-[0.22em] text-stone-400">
             Bienestar · Diseño · Higiene inteligente
