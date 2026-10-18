@@ -1,101 +1,92 @@
 import Image from "next/image";
+import Link from "next/link";
+
+import { formats } from "@/content/formats";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <>
+      {/* A. Hero: imagen a sangre con overlay para garantizar legibilidad. */}
+      <section className="relative flex h-[80vh] min-h-[520px] items-center justify-center overflow-hidden">
         <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/images/hero-bathroom.jpg"
+          alt="Interior de un baño minimalista con luz natural y tonos cálidos"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/35 to-stone-950/70"
+          aria-hidden="true"
+        />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center text-white">
+          <p className="mb-6 text-[0.65rem] uppercase tracking-[0.35em] text-white/70">
+            El ritual del agua · Nº 01
+          </p>
+          <h1 className="font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
+            El nuevo ritual
+          </h1>
+          <p className="mx-auto mt-7 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg">
+            Bienestar, diseño y sostenibilidad en un solo gesto.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* B. Introducción: párrafo manifiesto centrado. */}
+      <section className="mx-auto max-w-3xl px-6 py-24 md:py-32">
+        <span
+          className="mx-auto mb-10 block h-px w-12 bg-stone-300"
+          aria-hidden="true"
+        />
+        <p className="text-balance text-center font-serif text-2xl leading-relaxed text-stone-700 md:text-3xl md:leading-[1.45]">
+          Existe un punto de no retorno en la experiencia del bienestar: una vez
+          que el agua templada reemplaza al papel seco, el baño deja de ser una
+          necesidad para convertirse en un ritual.
+        </p>
+      </section>
+
+      {/* C. Tres formatos: accesorio mecánico, tapa inteligente e inodoro completo. */}
+      <section className="border-t border-stone-200/80 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-[0.65rem] uppercase tracking-[0.35em] text-stone-400">
+            Formatos
+          </p>
+          <h2 className="mt-4 text-center font-serif text-3xl leading-tight text-stone-900">
+            Tres caminos hacia la higiene inteligente
+          </h2>
+
+          <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-3 md:gap-10">
+            {formats.map((format) => (
+              <article key={format.title} className="text-center">
+                <div
+                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-stone-200 text-2xl"
+                  aria-hidden="true"
+                >
+                  {format.icon}
+                </div>
+                <h3 className="mt-8 font-serif text-xl text-stone-900">
+                  {format.title}
+                </h3>
+                <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-stone-600">
+                  {format.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* D. CTA: enlace a la guía esencial. */}
+      <section className="px-6 py-24 text-center md:py-32">
+        <Link
+          href="/guia"
+          className="inline-block border border-stone-900 px-10 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-stone-900 transition-all duration-300 hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          Descubre la guía esencial
+        </Link>
+      </section>
+    </>
   );
 }

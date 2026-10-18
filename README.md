@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sui Magazine
 
-## Getting Started
+Magazine editorial sobre bienestar, higiene inteligente y diseño de baños,
+centrado en el universo de los washlets japoneses. Estética minimalista y
+aspiracional inspirada en publicaciones como Kinfolk.
 
-First, run the development server:
+## Stack
+
+- [Next.js 14](https://nextjs.org/) (App Router) + TypeScript
+- Tailwind CSS 3 con paleta `stone`
+- `next/font` para Playfair Display (titulares) e Inter (cuerpo)
+- Alias de importación `@/*` → `src/*`
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev    # Servidor de desarrollo en http://localhost:3000
+npm run build  # Build de producción
+npm run start  # Servir el build de producción
+npm run lint   # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+src/
+├── app/
+│   ├── globals.css     # Tailwind + estilos base
+│   ├── layout.tsx      # Fuentes, metadata y Layout
+│   ├── page.tsx        # Home editorial
+│   └── guia/
+│       └── page.tsx    # Guía esencial
+├── components/
+│   └── Layout.tsx      # Header, main y footer
+├── content/
+│   └── formats.ts      # Contenido de los tres formatos
+└── styles/             # Reservado para estilos adicionales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+public/
+└── images/
+    └── hero-bathroom.jpg  # Placeholder generado
+```
 
-## Learn More
+## Puntos de configuración
 
-To learn more about Next.js, take a look at the following resources:
+- `tailwind.config.ts`: familias `font-sans` / `font-serif` conectadas a las
+  variables `--font-inter` y `--font-playfair`, y escala `stone` explícita.
+- `src/app/layout.tsx`: metadata base y carga de Google Fonts mediante
+  `next/font` (requiere conexión a internet en el primer build).
+- `public/images/hero-bathroom.jpg`: imagen de reemplazo. Sustitúyela por una
+  fotografía propia manteniendo el mismo nombre o actualizando la ruta en
+  `src/app/page.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pendiente para siguientes fases
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Páginas `/bienestar` y `/seleccion` (los enlaces ya apuntan a ellas).
+- Fichas de producto y estructura de afiliación.
+- Imágenes editoriales definitivas y optimización de metadatos/SEO por página.
