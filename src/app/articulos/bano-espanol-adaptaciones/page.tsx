@@ -93,13 +93,13 @@ export default function BanoEspanolAdaptacionesPage() {
       {/* 1. Hero del artículo: mismo encuadre editorial que las otras guías. */}
       <section className="flex h-[40vh] min-h-[340px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 text-eyebrow uppercase text-stone-500">
             Guía práctica · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             Adaptando el bidé a tu baño español
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             Trucos, soluciones y casos reales. Tu baño tiene 20 años, pero la
             tecnología sí encaja aquí.
           </p>
@@ -108,7 +108,7 @@ export default function BanoEspanolAdaptacionesPage() {
 
       {/* 2. Introducción: el vértigo inicial y la respuesta tranquilizadora. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="font-serif text-xl leading-relaxed text-stone-700">
+        <p className="font-serif text-body-lg text-stone-700">
           Cada país tiene sus propias costumbres... y sus propios baños. Un
           cuarto de baño en Tokio no tiene nada que ver con el de un piso en
           Madrid o una casa de pueblo en Andalucía. Es normal que mires tu baño
@@ -120,7 +120,7 @@ export default function BanoEspanolAdaptacionesPage() {
 
       {/* 3. Las cuatro diferencias que condicionan la instalación. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Diferencias clave con las instalaciones de otros países
         </h2>
 
@@ -148,10 +148,10 @@ export default function BanoEspanolAdaptacionesPage() {
       {/* 4. Soluciones para baños sin toma eléctrica. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Qué hago si no tengo enchufe cerca?
           </h2>
-          <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mb-8 font-sans text-body-lg text-stone-700">
             Es el miedo número uno. Pero no tienes que renunciar. Aquí tienes 4
             soluciones reales:
           </p>
@@ -184,10 +184,10 @@ export default function BanoEspanolAdaptacionesPage() {
 
       {/* 5. La cal: el enemigo silencioso del agua española. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           El gran enemigo en España: El agua dura (la cal)
         </h2>
-        <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+        <p className="mb-8 font-sans text-body-lg text-stone-700">
           Si vives en Levante, Andalucía o las islas, el agua viene cargada de
           cal. Puede obstruir los mecanismos a largo plazo, pero la industria ya
           tiene la solución:
@@ -199,10 +199,10 @@ export default function BanoEspanolAdaptacionesPage() {
               key={fix.title}
               className="mb-4 bg-white p-6 shadow-sm last:mb-0"
             >
-              <h3 className="font-sans font-bold text-stone-800">
+              <h3 className="font-serif text-h3 text-stone-900">
                 {fix.title}
               </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
+              <p className="mt-2 font-sans text-body-base text-stone-600">
                 {fix.text}
               </p>
             </div>
@@ -212,7 +212,7 @@ export default function BanoEspanolAdaptacionesPage() {
 
       {/* 6. Cisternas empotradas y seguridad eléctrica. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Cisternas empotradas y normativa eléctrica
         </h2>
         <p className="mb-6 font-sans leading-relaxed text-stone-700">
@@ -234,7 +234,7 @@ export default function BanoEspanolAdaptacionesPage() {
       {/* 7. CTA de cierre: guía esencial o comparativa por presupuesto. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Tu baño está listo para el cambio?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">

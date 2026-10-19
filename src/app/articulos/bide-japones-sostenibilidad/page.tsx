@@ -94,14 +94,14 @@ export default function BideJaponesSostenibilidadPage() {
       {/* 1. Hero del artículo. */}
       <section className="flex h-[40vh] min-h-[320px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-500">
             Sostenibilidad · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             El baño invisible: Tu inodoro es la mayor decisión ecológica de tu
             hogar
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             Cada año, una familia media tira a la basura el equivalente a 27
             árboles. Hay una forma más amable de ir al baño.
           </p>
@@ -110,7 +110,7 @@ export default function BideJaponesSostenibilidadPage() {
 
       {/* 2. Introducción narrativa. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="font-serif text-xl leading-relaxed text-stone-700">
+        <p className="font-serif text-body-lg text-stone-700">
           Cuando pensamos en sostenibilidad, imaginamos paneles solares en el
           tejado, separar la basura en cinco contenedores o dejar de usar bolsas
           de plástico. Son gestos necesarios. Pero hay un rincón de la casa
@@ -124,7 +124,7 @@ export default function BideJaponesSostenibilidadPage() {
 
       {/* 3. El coste oculto del papel higiénico. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           El coste oculto del papel higiénico
         </h2>
         <p className="mb-8 font-sans leading-relaxed text-stone-700">
@@ -134,10 +134,10 @@ export default function BideJaponesSostenibilidadPage() {
 
         {paperImpacts.map((impact) => (
           <article key={impact.title} className="mb-4 bg-white p-6 shadow-sm">
-            <h3 className="mb-2 font-sans text-base font-bold text-stone-800">
+            <h3 className="mb-2 font-serif text-h3 text-stone-900">
               {impact.title}
             </h3>
-            <p className="font-sans text-sm leading-relaxed text-stone-600">
+            <p className="font-sans text-body-base text-stone-600">
               {impact.text}
             </p>
           </article>
@@ -147,10 +147,10 @@ export default function BideJaponesSostenibilidadPage() {
       {/* 4. La revolución del agua. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             La revolución del agua: Hacer más con menos
           </h2>
-          <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mb-8 font-sans text-body-lg text-stone-700">
             La crítica más común al bidé japonés es irónica: ‘¿No gasta más
             agua?’. La realidad es justo la contraria. Los inodoros inteligentes
             de última generación han redefinido la eficiencia hídrica.
@@ -179,7 +179,7 @@ export default function BideJaponesSostenibilidadPage() {
 
       {/* 5. El impacto real de una familia en un año. */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <h2 className="mb-12 text-balance text-center font-serif text-3xl leading-tight text-stone-900">
+        <h2 className="mb-12 text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
           El impacto real de una familia en un año
         </h2>
 
@@ -231,7 +231,7 @@ export default function BideJaponesSostenibilidadPage() {
 
       {/* 6. El baño circular. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Hacia el concepto de ‘Baño Circular’
         </h2>
         <p className="font-sans leading-relaxed text-stone-700">
@@ -247,7 +247,7 @@ export default function BideJaponesSostenibilidadPage() {
       {/* 7. CTA de cierre. */}
       <section className="px-6 py-24 text-center">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             El cambio empieza en los pequeños rituales
           </h2>
           <p className="mb-8 text-stone-600">

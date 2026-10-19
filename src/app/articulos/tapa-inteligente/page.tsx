@@ -55,13 +55,13 @@ export default function TapaInteligentePage() {
       {/* 1. Hero del artículo. */}
       <section className="flex h-[40vh] min-h-[320px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-500">
             Análisis en profundidad · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             La Tapa Inteligente: Transformar tu baño sin obras
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             El equilibrio perfecto entre confort y practicidad. Por qué el 70%
             de los hogares españoles eligen esta opción.
           </p>
@@ -70,7 +70,7 @@ export default function TapaInteligentePage() {
 
       {/* 2. Introducción narrativa. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="font-serif text-xl leading-relaxed text-stone-700">
+        <p className="font-serif text-body-lg text-stone-700">
           Llega un momento en el que te cansas de buscar rollos de papel y
           sueñas con la experiencia de un hotel de cinco estrellas, pero la idea
           de arrancar el suelo del baño, levantar el váter y llamar a un albañil
@@ -84,7 +84,7 @@ export default function TapaInteligentePage() {
 
       {/* 3. El corazón del sistema: depósito frente a calentamiento instantáneo. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           El corazón del sistema: ¿Depósito o Calentamiento Instantáneo?
         </h2>
         <p className="mb-4 font-sans leading-relaxed text-stone-700">
@@ -108,10 +108,10 @@ export default function TapaInteligentePage() {
       {/* 4. La batalla de los materiales. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             La batalla de los materiales: Plástico ABS vs. Resix
           </h2>
-          <p className="mb-8 font-sans text-lg leading-relaxed text-stone-700">
+          <p className="mb-8 font-sans text-body-lg text-stone-700">
             Aquí es donde se separa el juguete tecnológico del electrodoméstico
             de toda la vida. El material de la carcasa y la tapa lo cambia todo.
           </p>
@@ -119,10 +119,10 @@ export default function TapaInteligentePage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {materials.map((material) => (
               <article key={material.title} className="bg-white p-8 shadow-sm">
-                <h3 className="mb-2 font-serif text-xl leading-tight text-stone-900">
+                <h3 className="mb-2 font-serif text-h3 text-stone-900">
                   {material.title}
                 </h3>
-                <p className="font-sans text-sm leading-relaxed text-stone-600">
+                <p className="font-sans text-body-base text-stone-600">
                   {material.text}
                 </p>
               </article>
@@ -133,7 +133,7 @@ export default function TapaInteligentePage() {
 
       {/* 5. La realidad eléctrica y la seguridad. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           La realidad eléctrica: El enchufe de 220V
         </h2>
         <p className="mb-4 font-sans leading-relaxed text-stone-700">
@@ -166,7 +166,7 @@ export default function TapaInteligentePage() {
 
       {/* 6. Los reyes del formato. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Los reyes del formato en España
         </h2>
 
@@ -175,7 +175,7 @@ export default function TapaInteligentePage() {
             key={model.title}
             className="mb-8 border-l-4 border-stone-400 pl-6"
           >
-            <h3 className="font-sans text-base font-bold text-stone-900">
+            <h3 className="font-serif text-h3 text-stone-900">
               {model.title}
             </h3>
             <p className="mt-2 font-sans leading-relaxed text-stone-700">
@@ -188,7 +188,7 @@ export default function TapaInteligentePage() {
       {/* 7. CTA de cierre: ranking y comparativa por presupuesto. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿La tapa inteligente es para ti?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">

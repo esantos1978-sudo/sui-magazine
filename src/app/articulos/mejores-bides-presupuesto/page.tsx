@@ -102,13 +102,13 @@ export default function MejoresBidesPresupuestoPage() {
       {/* 1. Hero del artículo: mismo ritmo que la guía de instalación. */}
       <section className="flex h-[40vh] min-h-[340px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 text-eyebrow uppercase text-stone-500">
             Guía de compra · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             Mejores bidés japoneses por presupuesto
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             No todo el mundo tiene el mismo presupuesto, pero todos merecen
             disfrutar de la higiene con agua. Te decimos exactamente qué
             comprar con tu dinero.
@@ -118,7 +118,7 @@ export default function MejoresBidesPresupuestoPage() {
 
       {/* 2. Introducción: las reglas del juego de esta guía. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="font-serif text-xl leading-relaxed text-stone-700">
+        <p className="font-serif text-body-lg text-stone-700">
           Vamos a ser directos y prácticos. Hemos organizado el mercado actual
           en cinco franjas de precio. En cada una te decimos qué puedes esperar
           de forma realista, cuál es nuestra principal recomendación, qué ganas
@@ -134,10 +134,10 @@ export default function MejoresBidesPresupuestoPage() {
             index === 0 ? "" : " border-t border-stone-200 pt-12"
           }`}
         >
-          <p className="mb-3 text-[0.65rem] uppercase tracking-[0.3em] text-stone-400">
+          <p className="mb-3 text-eyebrow uppercase text-stone-400">
             Franja {String(index + 1).padStart(2, "0")}
           </p>
-          <h2 className="mb-2 font-serif text-3xl leading-tight text-stone-900">
+          <h2 className="mb-2 font-serif text-h2 tracking-tight text-stone-900">
             {tier.price}
           </h2>
           <p className="mb-6 font-sans italic text-stone-500">
@@ -178,7 +178,7 @@ export default function MejoresBidesPresupuestoPage() {
       {/* 4. CTA de cierre: del presupuesto al ranking completo. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Ya tienes claro tu presupuesto?
           </h2>
           <p className="mb-8 font-sans leading-relaxed text-stone-600">

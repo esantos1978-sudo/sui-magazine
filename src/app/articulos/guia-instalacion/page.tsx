@@ -145,13 +145,13 @@ export default function GuiaInstalacionPage() {
       {/* 1. Hero del artículo: misma calma editorial, algo más bajo. */}
       <section className="flex h-[40vh] min-h-[340px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm uppercase tracking-wider text-stone-500">
+          <p className="mb-4 text-eyebrow uppercase text-stone-500">
             Guía práctica · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
             Guía de instalación paso a paso
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             Cómo montar tu bidé japonés sin estrés. Te prometo que es más fácil
             de lo que crees.
           </p>
@@ -160,7 +160,7 @@ export default function GuiaInstalacionPage() {
 
       {/* 2. Introducción narrativa: bajar el vértigo antes de empezar. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="font-serif text-xl leading-relaxed text-stone-700">
+        <p className="font-serif text-body-lg text-stone-700">
           Ha llegado el momento. Tu bidé japonés ya está en casa. Seguro que
           estás mirando la caja con una mezcla de emoción y un poquito de
           vértigo. Respira hondo, saca las herramientas y sígueme. Ya has
@@ -173,10 +173,10 @@ export default function GuiaInstalacionPage() {
 
       {/* 3. Accesorio mecánico: la instalación más sencilla. */}
       <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Instalación de un accesorio mecánico (Bidé no eléctrico)
         </h2>
-        <p className="mb-8 font-sans text-sm text-stone-500">
+        <p className="mb-8 font-sans text-caption text-stone-500">
           Nivel: Principiante · Tiempo: 15-20 minutos
         </p>
 
@@ -194,10 +194,10 @@ export default function GuiaInstalacionPage() {
       {/* 4. Asiento inteligente: el salto a la electrónica. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
             Instalación de un asiento inteligente (Washlet)
           </h2>
-          <p className="mb-8 font-sans text-sm text-stone-500">
+          <p className="mb-8 font-sans text-caption text-stone-500">
             Nivel: Principiante-Medio · Tiempo: 30-45 minutos
           </p>
 
@@ -216,14 +216,14 @@ export default function GuiaInstalacionPage() {
 
       {/* 5. Inodoro completo: aquí conviene un profesional. */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-6 text-balance font-serif text-2xl leading-tight text-stone-900">
+        <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
           Instalación de un inodoro completo
         </h2>
-        <p className="mb-8 font-sans text-sm text-stone-500">
+        <p className="mb-8 font-sans text-caption text-stone-500">
           Nivel: Profesional recomendado
         </p>
 
-        <p className="font-sans text-lg leading-relaxed text-stone-700">
+        <p className="font-sans text-body-lg text-stone-700">
           Si has comprado un inodoro inteligente completo o una versión
           suspendida, estamos hablando de palabras mayores. En estos casos, te
           recomiendo encarecidamente que cuentes con la ayuda de un
@@ -248,7 +248,7 @@ export default function GuiaInstalacionPage() {
       {/* 6. Errores comunes: pequeños detalles que arruinan el resultado. */}
       <section className="bg-stone-100 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
             Errores comunes y cómo evitarlos
           </h2>
 
@@ -279,7 +279,7 @@ export default function GuiaInstalacionPage() {
       {/* 7. CTA de cierre: de vuelta a la guía de compra. */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-balance font-serif text-2xl leading-tight text-stone-900">
+          <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
             ¿Todo en orden? Si tu baño cumple estos requisitos, estás listo para
             disfrutar del baño del futuro.
           </h2>

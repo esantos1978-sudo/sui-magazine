@@ -1,0 +1,26 @@
+[
+  {
+    "brand": "Roca",
+    "scrapedName": "In-Wash Ona",
+    "fileName": "roca-in-wash-ona.jpg",
+    "imageUrl": "/images/productos/roca-in-wash-ona.jpg"
+  },
+  {
+    "brand": "Roca",
+    "scrapedName": "In-Wash Inspira",
+    "fileName": "roca-in-wash-inspira.jpg",
+    "imageUrl": "/images/productos/roca-in-wash-inspira.jpg"
+  },
+  {
+    "brand": "TOTO",
+    "scrapedName": "WASHLET RW",
+    "fileName": "toto-washlet.jpg",
+    "imageUrl": "/images/productos/toto-washlet.jpg"
+  },
+  {
+    "brand": "TOTO",
+    "scrapedName": "NEOREST NX2 Dual-Flush Toilet",
+    "fileName": "toto-neorest-nx2.jpg",
+    "imageUrl": "/images/productos/toto-neorest-nx2.jpg"
+  }
+]

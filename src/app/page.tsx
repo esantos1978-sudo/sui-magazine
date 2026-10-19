@@ -88,82 +88,158 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* E. Lecturas relacionadas: acceso directo a los artículos. */}
-      <section className="mx-auto max-w-4xl border-t border-stone-200 px-6 py-20">
-        <h3 className="mb-12 text-center font-serif text-2xl text-stone-900">
-          Lecturas relacionadas
-        </h3>
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <Link href="/articulos/guia-instalacion" className="group block">
-            <span className="mb-2 block font-sans text-eyebrow uppercase text-stone-400">
-              Guía práctica
-            </span>
-            <h4 className="mb-3 font-serif text-h3 text-stone-900 transition group-hover:text-stone-600">
-              Guía de instalación paso a paso
-            </h4>
-            <p className="font-sans text-body-base text-stone-600">
-              Cómo montar tu bidé japonés en 30 minutos, sin estrés y sin
-              llamadas al fontanero.
-            </p>
-          </Link>
-          <Link
-            href="/articulos/mejores-bides-presupuesto"
-            className="group block"
-          >
-            <span className="mb-2 block font-sans text-eyebrow uppercase text-stone-400">
-              Guía de compra
-            </span>
-            <h4 className="mb-3 font-serif text-h3 text-stone-900 transition group-hover:text-stone-600">
-              Mejores bidés por presupuesto
-            </h4>
-            <p className="font-sans text-body-base text-stone-600">
-              Te decimos exactamente qué comprar con tu dinero, desde 100€
-              hasta el lujo asiático.
-            </p>
-          </Link>
-          <Link
-            href="/articulos/bano-espanol-adaptaciones"
-            className="group block"
-          >
-            <span className="mb-2 block font-sans text-eyebrow uppercase text-stone-400">
-              Guía práctica
-            </span>
-            <h4 className="mb-3 font-serif text-h3 text-stone-900 transition group-hover:text-stone-600">
-              Adaptar el bidé a tu baño español
-            </h4>
-            <p className="font-sans text-body-base text-stone-600">
-              Soluciones reales para la cal, los enchufes y las cisternas
-              empotradas.
-            </p>
-          </Link>
-          <Link href="/articulos/tapa-inteligente" className="group block">
-            <span className="mb-2 block font-sans text-eyebrow uppercase text-stone-400">
-              Análisis en profundidad
-            </span>
-            <h4 className="mb-3 font-serif text-h3 text-stone-900 transition group-hover:text-stone-600">
-              La tapa inteligente: guía definitiva
-            </h4>
-            <p className="font-sans text-body-base text-stone-600">
-              ABS vs Resix, calentamiento instantáneo y todo lo que necesitas
-              saber antes de comprar.
-            </p>
-          </Link>
+      {/* E. Destacados: selección editorial de los tres artículos principales. */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <h2 className="mb-12 border-b border-stone-300 pb-4 text-h3 tracking-tight text-stone-900">
+          Destacados
+        </h2>
+
+        <article className="border-b border-stone-200 py-12 last:border-b-0">
           <Link
             href="/articulos/bide-japones-sostenibilidad"
             className="group block"
           >
-            <span className="mb-2 block font-sans text-eyebrow uppercase text-stone-400">
-              Sostenibilidad
-            </span>
-            <h4 className="mb-3 font-serif text-h3 text-stone-900 transition group-hover:text-stone-600">
-              El impacto ecológico real
-            </h4>
-            <p className="font-sans text-body-base text-stone-600">
-              Cómo los inodoros inteligentes ahorran agua, reducen la
-              deforestación y eliminan las toallitas.
-            </p>
+            <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+              {/* Imagen a la izquierda */}
+              <div className="w-full flex-shrink-0 overflow-hidden md:w-1/3">
+                <Image
+                  src="/images/articulos/sostenibilidad.jpg"
+                  alt="Baño minimalista con inodoro japonés y materiales sostenibles"
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Contenido a la derecha */}
+              <div className="flex-1 pt-2">
+                {/* Categoría arriba */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-eyebrow uppercase text-stone-500">
+                    Sostenibilidad
+                  </span>
+                  <span className="font-sans text-xs tracking-wide text-stone-400">
+                    Octubre 2026
+                  </span>
+                </div>
+
+                {/* Título grande */}
+                <h3 className="mb-4 text-h2 tracking-tight transition-colors group-hover:text-stone-600">
+                  SOSTENIBILIDAD
+                </h3>
+
+                {/* Titular descriptivo */}
+                <p className="mb-6 text-body-lg leading-relaxed text-stone-700">
+                  El baño invisible: tu inodoro es la mayor decisión ecológica
+                  de tu hogar. Cada año, una familia media tira a la basura el
+                  equivalente a 27 árboles.
+                </p>
+
+                {/* Enlace sutil */}
+                <span className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all group-hover:border-stone-600 group-hover:text-stone-600">
+                  Leer artículo →
+                </span>
+              </div>
+            </div>
           </Link>
-        </div>
+        </article>
+
+        <article className="border-b border-stone-200 py-12 last:border-b-0">
+          <Link href="/articulos/tapa-inteligente" className="group block">
+            <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+              {/* Imagen a la izquierda */}
+              <div className="w-full flex-shrink-0 overflow-hidden md:w-1/3">
+                <Image
+                  src="/images/articulos/tapa-inteligente.jpg"
+                  alt="Tapa inteligente de inodoro con calentamiento y control electrónico"
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Contenido a la derecha */}
+              <div className="flex-1 pt-2">
+                {/* Categoría arriba */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-eyebrow uppercase text-stone-500">
+                    Análisis técnico
+                  </span>
+                  <span className="font-sans text-xs tracking-wide text-stone-400">
+                    Octubre 2026
+                  </span>
+                </div>
+
+                {/* Título grande */}
+                <h3 className="mb-4 text-h2 tracking-tight transition-colors group-hover:text-stone-600">
+                  TAPA INTELIGENTE
+                </h3>
+
+                {/* Titular descriptivo */}
+                <p className="mb-6 text-body-lg leading-relaxed text-stone-700">
+                  Transformar tu baño sin obras. La guía definitiva sobre
+                  materiales, calentamiento instantáneo y la batalla entre el
+                  ABS y el Resix.
+                </p>
+
+                {/* Enlace sutil */}
+                <span className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all group-hover:border-stone-600 group-hover:text-stone-600">
+                  Leer artículo →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </article>
+
+        <article className="border-b border-stone-200 py-12 last:border-b-0">
+          <Link href="/articulos/guia-instalacion" className="group block">
+            <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+              {/* Imagen a la izquierda */}
+              <div className="w-full flex-shrink-0 overflow-hidden md:w-1/3">
+                <Image
+                  src="/images/articulos/instalacion.jpg"
+                  alt="Instalación de un bidé japonés en un baño doméstico"
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Contenido a la derecha */}
+              <div className="flex-1 pt-2">
+                {/* Categoría arriba */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-eyebrow uppercase text-stone-500">
+                    Guía práctica
+                  </span>
+                  <span className="font-sans text-xs tracking-wide text-stone-400">
+                    Octubre 2026
+                  </span>
+                </div>
+
+                {/* Título grande */}
+                <h3 className="mb-4 text-h2 tracking-tight transition-colors group-hover:text-stone-600">
+                  INSTALACIÓN
+                </h3>
+
+                {/* Titular descriptivo */}
+                <p className="mb-6 text-body-lg leading-relaxed text-stone-700">
+                  Monta tu bidé japonés en 30 minutos. Paso a paso para
+                  accesorios mecánicos, asientos inteligentes e inodoros
+                  completos.
+                </p>
+
+                {/* Enlace sutil */}
+                <span className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all group-hover:border-stone-600 group-hover:text-stone-600">
+                  Leer artículo →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </article>
       </section>
     </>
   );
