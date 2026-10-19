@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { formats } from "@/content/formats";
-
 export default function Home() {
   return (
     <>
@@ -47,33 +45,105 @@ export default function Home() {
         </p>
       </section>
 
-      {/* C. Tres formatos: accesorio mecánico, tapa inteligente e inodoro completo. */}
-      <section className="border-t border-stone-200/80 px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-center text-eyebrow uppercase text-stone-400">
-            Formatos
-          </p>
-          <h2 className="mt-4 text-center font-serif text-h3 text-stone-900">
-            Tres caminos hacia la higiene inteligente
+      {/* C. Los tres formatos: accesorio mecánico, tapa inteligente e inodoro completo. */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="mb-16 text-center md:text-left">
+          <span className="text-eyebrow uppercase tracking-wider text-stone-500">
+            Elige tu formato
+          </span>
+          <h2 className="mt-4 text-h3 tracking-tight">
+            Hay un modelo para cada necesidad
           </h2>
+          <p className="mt-6 max-w-2xl text-body-lg text-stone-600">
+            Lo que nadie te cuenta es que no hace falta arrancar tu váter actual
+            si no quieres. El mercado se divide en tres grandes categorías, de
+            la solución más sencilla a la más completa.
+          </p>
+        </div>
 
-          <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-3 md:gap-10">
-            {formats.map((format) => (
-              <article key={format.title} className="text-center">
-                <div
-                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-stone-200 text-2xl"
-                  aria-hidden="true"
-                >
-                  {format.icon}
-                </div>
-                <h3 className="mt-8 font-serif text-h2 text-stone-900">
-                  {format.title}
-                </h3>
-                <p className="mx-auto mt-4 max-w-xs text-body-lg text-stone-600">
-                  {format.description}
-                </p>
-              </article>
-            ))}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+          {/* Formato 1: Accesorio Mecánico */}
+          <div className="group">
+            <div className="mb-6 overflow-hidden bg-stone-100">
+              <Image
+                src="/images/formatos/accesorio-mecanico.jpg"
+                alt="Accesorio mecánico instalado en inodoro"
+                width={800}
+                height={600}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="mb-3 text-h3 tracking-tight">
+              El Accesorio Mecánico
+            </h3>
+            <p className="mb-6 text-body-base text-stone-600">
+              La puerta de entrada más básica. No necesita electricidad, se
+              conecta a la toma de agua y funciona con la presión de las
+              cañerías.
+            </p>
+            <Link
+              href="/guia"
+              className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all hover:border-stone-600 hover:text-stone-600"
+            >
+              Descubrir más en la Guía →
+            </Link>
+          </div>
+
+          {/* Formato 2: Tapa Inteligente */}
+          <div className="group">
+            <div className="mb-6 overflow-hidden bg-stone-100">
+              <Image
+                src="/images/formatos/tapa-home.jpg"
+                alt="Tapa inteligente o washlet"
+                width={800}
+                height={600}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="mb-3 text-h3 tracking-tight">
+              La Tapa Inteligente
+            </h3>
+            <p className="mb-6 text-body-base text-stone-600">
+              La favorita para quienes no quieren obras. Sustituye tu tapa
+              actual y añade agua caliente, secado y asiento calefactado al
+              instante.
+            </p>
+            <Link
+              href="/guia"
+              className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all hover:border-stone-600 hover:text-stone-600"
+            >
+              Descubrir más en la Guía →
+            </Link>
+          </div>
+
+          {/* Formato 3: Inodoro Completo */}
+          <div className="group">
+            <div className="mb-6 overflow-hidden bg-stone-100">
+              <Image
+                src="/images/formatos/inodoro-completo.jpg"
+                alt="Inodoro japonés completo suspendido"
+                width={800}
+                height={600}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="mb-3 text-h3 tracking-tight">
+              El Inodoro Completo
+            </h3>
+            <p className="mb-6 text-body-base text-stone-600">
+              La inversión definitiva para reformas. Diseño espectacular, sin
+              cables a la vista y con las funciones más avanzadas de
+              automatización.
+            </p>
+            <Link
+              href="/guia"
+              className="inline-block border-b border-stone-900 pb-1 font-sans text-sm text-stone-900 transition-all hover:border-stone-600 hover:text-stone-600"
+            >
+              Descubrir más en la Guía →
+            </Link>
           </div>
         </div>
       </section>
