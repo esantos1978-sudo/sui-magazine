@@ -97,13 +97,162 @@ const advantages = [
   },
 ];
 
+/** Tarjeta de apoyo que acompaña a cada uno de los tres formatos. */
+type FormatCard = {
+  /** Pregunta o idea que encabeza la tarjeta. */
+  title: string;
+  /** Respuesta breve, en tono divulgativo. */
+  text: string;
+};
+
+/** Ficha editorial de cada formato disponible en el mercado. */
+type DetailedFormat = {
+  /** Número decorativo del formato dentro de la sección. */
+  number: string;
+  /** Nombre comercial o descripción del formato. */
+  title: string;
+  /** Párrafo introductorio del formato. */
+  intro: string;
+  /** Las tres tarjetas: funcionamiento, virtudes y límites. */
+  cards: FormatCard[];
+};
+
+/** Los tres formatos, ordenados de la solución más sencilla a la más completa. */
+const detailedFormats: DetailedFormat[] = [
+  {
+    number: "01",
+    title: "El Accesorio o Manguera (Bidé Mecánico)",
+    intro:
+      "Es la puerta de entrada más básica y económica al mundo del lavado con agua. Consiste en un dispositivo (a veces una simple manguera o un acople fino) que se instala debajo de la tapa de tu inodoro actual.",
+    cards: [
+      {
+        title: "¿Cómo funciona?",
+        text: "No necesita electricidad. Se conecta directamente a la toma de agua de la cisterna o del lavabo y funciona únicamente con la presión de las cañerías.",
+      },
+      {
+        title: "Lo mejor",
+        text: "Su instalación es rapidísima, es súper económico y no dependes de enchufes.",
+      },
+      {
+        title: "A tener en cuenta",
+        text: "Al no tener electricidad, el agua sale a temperatura ambiente (fresquita en invierno) y no dispone de funciones de secado ni asiento calefactado.",
+      },
+    ],
+  },
+  {
+    number: "02",
+    title: "El Asiento o Tapa Inteligente (Washlet)",
+    intro:
+      "Esta es, sin duda, la opción favorita para quienes viven de alquiler o no quieren hacer reformas. Retiras la tapa y el aro tradicional de tu inodoro, y en su lugar instalas esta tapa tecnológica.",
+    cards: [
+      {
+        title: "¿Cómo funciona?",
+        text: "Necesita estar conectada a una toma de agua y a un enchufe estándar de 220V. Transforma tu váter de toda la vida en un inodoro inteligente de un plumazo.",
+      },
+      {
+        title: "Lo mejor",
+        text: "Te ofrece casi todas las funciones de lujo (agua caliente ilimitada, secado por aire, asiento calefactado, luces LED nocturnas) por una fracción del precio de un inodoro completo.",
+      },
+      {
+        title: "A tener en cuenta",
+        text: "Añaden un poco de volumen en la parte trasera del inodoro (donde se aloja la maquinaria), aunque los diseños son cada vez más finos y elegantes.",
+      },
+    ],
+  },
+  {
+    number: "03",
+    title: "El Inodoro Japonés Completo (y modelos suspendidos)",
+    intro:
+      "Si estás reformando tu baño o construyendo tu casa, esta es la inversión definitiva. Sustituye toda la pieza de cerámica tradicional. Los modelos más demandados actualmente son los suspendidos, que van anclados a la pared con la cisterna oculta, aportando un diseño minimalista y facilitando enormemente la limpieza del suelo.",
+    cards: [
+      {
+        title: "¿Cómo funciona?",
+        text: "Integra toda la tecnología en el propio cuerpo de la porcelana. Son la gama más alta y estética del mercado.",
+      },
+      {
+        title: "Lo mejor",
+        text: "Diseño espectacular, sin cables ni tubos a la vista. Muchos incluyen funciones extra de lujo como apertura automática al acercarte, descarga de agua autónoma y desinfección avanzada (como luz ultravioleta).",
+      },
+      {
+        title: "A tener en cuenta",
+        text: "Requieren instalación profesional (especialmente los suspendidos con cisterna empotrada) y suponen un desembolso mayor.",
+      },
+    ],
+  },
+];
+
+/** Cabeceras de la tabla comparativa, en el mismo orden que las filas. */
+const comparisonColumns = [
+  "Formato",
+  "Precio Orientativo",
+  "¿Electricidad?",
+  "Instalación",
+  "Funcionalidades Principales",
+  "Ideal para...",
+];
+
+/** Fila de la tabla comparativa: una por cada formato. */
+type ComparisonRow = {
+  /** Nombre corto del formato. */
+  format: string;
+  /** Horquilla de precio orientativa en el mercado español. */
+  price: string;
+  /** Si necesita enchufe de 220V. */
+  electricity: string;
+  /** Nivel de dificultad de la instalación. */
+  installation: string;
+  /** Funciones más representativas del formato. */
+  features: string;
+  /** Perfil de usuario para el que tiene más sentido. */
+  idealFor: string;
+};
+
+/** Diferencias clave entre los tres formatos, de un solo vistazo. */
+const comparisonRows: ComparisonRow[] = [
+  {
+    format: "Accesorio / Mecánico",
+    price: "Menos de 100 €",
+    electricity: "No",
+    installation: "Muy fácil (bricolaje básico)",
+    features:
+      "Lavado con agua a temperatura ambiente, presión regulable manualmente",
+    idealFor:
+      "Pisos de alquiler, presupuestos muy ajustados o baños sin enchufes cercanos",
+  },
+  {
+    format: "Tapa / Asiento Inteligente",
+    price: "190 € – 900 €",
+    electricity: "Sí (220V)",
+    installation: "Fácil (30 min). Requiere toma de agua y enchufe",
+    features:
+      "Agua caliente, secado, asiento calefactado, desodorizador, mando a distancia",
+    idealFor:
+      "Quienes quieren todas las ventajas tecnológicas sin cambiar su retrete actual ni hacer obras",
+  },
+  {
+    format: "Inodoro Completo",
+    price: "599 € – 3.500 €+",
+    electricity: "Sí (220V)",
+    installation:
+      "Profesional. Requiere enchufe, toma de agua y pequeña obra (si es suspendido)",
+    features:
+      "Todo lo anterior + diseño integrado, apertura/cierre automático, auto-descarga, materiales antibacterianos",
+    idealFor:
+      "Reformas integrales, personas mayores que necesitan máxima accesibilidad y amantes del diseño",
+  },
+];
+
 export default function GuiaPage() {
   return (
     <>
       {/* 1. Hero de sección: fondo plano para mantener la calma editorial. */}
       <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 text-eyebrow uppercase text-stone-400">
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+          <p className="mb-6 text-eyebrow uppercase tracking-wider text-stone-500">
             Guía · Sui Magazine
           </p>
           <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
@@ -116,70 +265,241 @@ export default function GuiaPage() {
         </div>
       </section>
 
-      {/* 2. Introducción narrativa. */}
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <p className="font-serif text-xl leading-relaxed text-stone-700 md:text-2xl">
-          Seguro que alguna vez te has preguntado: ¿por qué si nos manchamos
-          las manos de barro usamos agua para lavarnos, pero en la intimidad del
-          baño llevamos décadas dependiendo de un trozo de papel seco? Es una
-          contradicción curiosa que hemos normalizado. Sin embargo, algo está
-          cambiando en los hogares españoles. Un dispositivo que comenzó como
-          una excentricidad tecnológica en Asia está transformando para siempre
-          uno de los hábitos más cotidianos del ser humano.
-        </p>
-      </section>
-
-      {/* 3. Qué es un washlet y cuáles son sus tres formatos. */}
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-          ¿Qué es exactamente un bidé japonés?
-        </h2>
-
-        <div className="space-y-6 font-sans text-base leading-relaxed text-stone-600">
-          <p>
-            Aunque el fabricante Toto popularizó el término washlet en los años
-            80, hoy utilizamos conceptos como “bidé japonés” o “inodoro
-            inteligente” para referirnos a un sanitario que integra avanzadas
-            funciones electrónicas para la higiene íntima. En resumen: te lava
-            suavemente con un chorro de agua templada en lugar de obligarte a
-            usar papel.
-          </p>
-          <p>
-            Lo que nadie te cuenta es que no hace falta meterte en grandes y
-            costosas reformas ni arrancar tu retrete actual para tener uno en
-            casa. De hecho, existen tres formatos principales:
+      {/* 2. Introducción narrativa y primera cita editorial. */}
+      <section className="bg-stone-50 px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-balance font-serif text-xl leading-relaxed text-stone-700 md:text-2xl">
+            Seguro que alguna vez te has preguntado: ¿por qué si nos manchamos
+            las manos de barro usamos agua para lavarnos, pero en la intimidad
+            del baño llevamos décadas dependiendo de un trozo de papel seco? Es
+            una contradicción curiosa que hemos normalizado. Sin embargo, algo
+            está cambiando en los hogares españoles. Un dispositivo que comenzó
+            como una excentricidad tecnológica en Asia está transformando para
+            siempre uno de los hábitos más cotidianos del ser humano.
           </p>
         </div>
 
-        <ul className="mt-12 divide-y divide-stone-200 border-y border-stone-200">
-          {guideFormats.map((format) => (
-            <li key={format.title} className="flex items-start gap-5 py-7">
-              <span
-                className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-stone-200 text-xl"
-                aria-hidden="true"
-              >
-                {format.icon}
-              </span>
-              <div>
-                <h3 className="font-serif text-h3 text-stone-900">
-                  {format.title}
-                </h3>
-                <p className="mt-2 font-sans text-body-base text-stone-600">
-                  {format.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {/* Pull quote: la revolución silenciosa del dispositivo. */}
+        <div className="mx-auto max-w-3xl py-20 text-center">
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+          <blockquote className="text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
+            “Un dispositivo que comenzó como una excentricidad tecnológica en
+            Asia está transformando para siempre uno de los hábitos más
+            cotidianos del ser humano.”
+          </blockquote>
+          <div
+            className="mx-auto mt-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+        </div>
       </section>
 
-      {/* 4. La experiencia sensorial, paso a paso. */}
-      <section className="bg-stone-100 px-6 py-20">
+      {/* 3. Qué es un washlet y cuáles son sus tres formatos. */}
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              01
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              ¿Qué es exactamente un bidé japonés?
+            </h2>
+          </div>
+
+          <div className="space-y-6 font-sans text-base leading-relaxed text-stone-600">
+            <p>
+              Aunque el fabricante Toto popularizó el término washlet en los
+              años 80, hoy utilizamos conceptos como “bidé japonés” o “inodoro
+              inteligente” para referirnos a un sanitario que integra avanzadas
+              funciones electrónicas para la higiene íntima. En resumen: te lava
+              suavemente con un chorro de agua templada en lugar de obligarte a
+              usar papel.
+            </p>
+            <p>
+              Lo que nadie te cuenta es que no hace falta meterte en grandes y
+              costosas reformas ni arrancar tu retrete actual para tener uno en
+              casa. De hecho, existen tres formatos principales:
+            </p>
+          </div>
+
+          <ul className="mt-12 divide-y divide-[#7A8B7C]/30 border-y border-[#7A8B7C]/30">
+            {guideFormats.map((format) => (
+              <li
+                key={format.title}
+                className="flex items-start gap-5 py-7 transition-colors duration-300 hover:bg-stone-50"
+              >
+                <span
+                  className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-[#7A8B7C]/10 text-xl ring-1 ring-inset ring-[#7A8B7C]/20"
+                  aria-hidden="true"
+                >
+                  {format.icon}
+                </span>
+                <div>
+                  <h3 className="font-serif text-h3 text-stone-900">
+                    {format.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-body-base text-stone-600">
+                    {format.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 4. Los tres formatos en detalle y tabla comparativa final. */}
+      <section className="bg-stone-50 px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-16 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              02
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              Los Tres Formatos: Hay un modelo para cada necesidad
+            </h2>
+          </div>
+
+          <p className="mb-16 max-w-3xl font-sans text-body-lg leading-relaxed text-stone-700">
+            Lo que nadie te cuenta cuando empiezas a buscar información sobre
+            inodoros japoneses es que no hace falta arrancar tu váter actual si
+            no quieres. El mercado se divide principalmente en tres grandes
+            categorías, ordenadas de la solución más sencilla a la más completa.
+            ¿Cuál es la tuya?
+          </p>
+
+          {detailedFormats.map((format) => (
+            <div key={format.number} className="mb-20 last:mb-0">
+              <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+                <span
+                  className="font-serif text-3xl text-[#7A8B7C]"
+                  aria-hidden="true"
+                >
+                  {format.number}
+                </span>
+                <h3 className="text-balance text-h3 tracking-tight text-stone-900">
+                  {format.title}
+                </h3>
+              </div>
+
+              <p className="mb-8 max-w-3xl font-sans text-body-lg leading-relaxed text-stone-700">
+                {format.intro}
+              </p>
+
+              <div className="grid gap-8 md:grid-cols-3">
+                {format.cards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="rounded-sm border border-stone-200 bg-white p-8 transition-all duration-300 hover:border-[#7A8B7C] hover:shadow-sm"
+                  >
+                    <h4 className="mb-4 font-serif text-xl text-stone-900">
+                      {card.title}
+                    </h4>
+                    <p className="font-sans text-body-base text-stone-700">
+                      {card.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Tabla comparativa rápida entre los tres formatos. */}
+          <div className="mt-24">
+            <h3 className="mb-8 text-balance text-h3 tracking-tight text-stone-900">
+              <span aria-hidden="true">📊 </span>
+              Tabla Comparativa Rápida: ¿Qué formato elegir?
+            </h3>
+            <p className="mb-8 max-w-3xl font-sans text-body-lg text-stone-700">
+              Para que lo veas claro de un solo vistazo, aquí tienes una tabla
+              con las diferencias clave en el mercado español actual:
+            </p>
+
+            <div className="overflow-x-auto rounded-sm border border-stone-200 bg-white">
+              <table className="w-full min-w-[880px] border-collapse">
+                <caption className="sr-only">
+                  Comparativa de los tres formatos de inodoro inteligente:
+                  precio orientativo, necesidad de electricidad, tipo de
+                  instalación, funcionalidades principales y perfil ideal
+                </caption>
+                <thead>
+                  <tr className="border-b-2 border-[#7A8B7C]">
+                    {comparisonColumns.map((column) => (
+                      <th
+                        key={column}
+                        scope="col"
+                        className="px-6 py-4 text-left align-top font-serif text-lg text-stone-900"
+                      >
+                        {column}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row, index) => (
+                    <tr
+                      key={row.format}
+                      className={`border-b border-stone-200 last:border-b-0 ${
+                        index % 2 === 1 ? "bg-stone-50" : ""
+                      }`}
+                    >
+                      <th
+                        scope="row"
+                        className="px-6 py-4 text-left align-top font-sans text-sm font-medium text-stone-900"
+                      >
+                        {row.format}
+                      </th>
+                      <td className="px-6 py-4 align-top font-sans text-sm leading-relaxed text-stone-700">
+                        {row.price}
+                      </td>
+                      <td className="px-6 py-4 align-top font-sans text-sm leading-relaxed text-stone-700">
+                        {row.electricity}
+                      </td>
+                      <td className="px-6 py-4 align-top font-sans text-sm leading-relaxed text-stone-700">
+                        {row.installation}
+                      </td>
+                      <td className="px-6 py-4 align-top font-sans text-sm leading-relaxed text-stone-700">
+                        {row.features}
+                      </td>
+                      <td className="px-6 py-4 align-top font-sans text-sm leading-relaxed text-stone-700">
+                        {row.idealFor}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 font-sans text-caption text-stone-500 md:hidden">
+              Desliza horizontalmente para ver todas las columnas →
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. La experiencia sensorial, paso a paso. */}
+      <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
-            ¿Cómo funciona? La experiencia paso a paso
-          </h2>
-          <div className="mt-8 space-y-6 font-serif text-body-lg text-stone-700">
+          <div className="mb-8 flex flex-col items-center gap-2 md:flex-row md:justify-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              03
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              ¿Cómo funciona? La experiencia paso a paso
+            </h2>
+          </div>
+          <div className="space-y-6 font-serif text-body-lg text-stone-700">
             <p>
               Imagina por un momento la escena en una fría mañana de invierno:
               entras al baño, la tapa se levanta sola al detectar que te acercas
@@ -201,7 +521,7 @@ export default function GuiaPage() {
           <div className="mt-12 text-center">
             <Link
               href="/articulos/guia-instalacion"
-              className="inline-block border-b border-stone-300 pb-1 font-sans text-sm text-stone-600 transition hover:border-stone-900 hover:text-stone-900"
+              className="inline-block border-b border-[#7A8B7C]/30 pb-1 font-sans text-sm text-stone-700 transition hover:border-[#7A8B7C] hover:text-[#7A8B7C]"
             >
               Leer la guía completa de instalación paso a paso →
             </Link>
@@ -209,43 +529,78 @@ export default function GuiaPage() {
         </div>
       </section>
 
-      {/* 5. Contexto español: cinco razones de su popularidad. */}
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-          ¿Por qué se ha vuelto tan popular en España?
-        </h2>
-
-        <ol className="space-y-8">
-          {reasons.map((reason, index) => (
-            <li
-              key={reason.title}
-              className="flex gap-5 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0"
+      {/* 6. Contexto español y pull quote sobre dignidad y autonomía. */}
+      <section className="bg-stone-50 px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
             >
-              <span
-                className="flex-none font-serif text-lg leading-none text-stone-400"
-                aria-hidden="true"
+              04
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              ¿Por qué se ha vuelto tan popular en España?
+            </h2>
+          </div>
+
+          <ol className="space-y-8">
+            {reasons.map((reason, index) => (
+              <li
+                key={reason.title}
+                className="flex gap-5 border-t border-[#7A8B7C]/30 pt-8 first:border-t-0 first:pt-0"
               >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-serif text-xl leading-snug text-stone-900">
-                  {reason.title}
-                </h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
-                  {reason.text}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+                <span
+                  className="flex-none font-serif text-lg leading-none text-[#7A8B7C]"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-serif text-xl leading-snug text-stone-900">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
+                    {reason.text}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* Pull quote: dignidad, privacidad y autonomía. */}
+        <div className="mx-auto max-w-3xl py-20 text-center">
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+          <blockquote className="text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
+            “Son una herramienta brillante para recuperar la privacidad y
+            fomentar la autonomía de personas mayores o con grados de
+            dependencia.”
+          </blockquote>
+          <div
+            className="mx-auto mt-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+        </div>
       </section>
 
-      {/* 6. Ventajas reales en formato de tarjetas. */}
-      <section className="bg-stone-100 px-6 py-20">
+      {/* 7. Ventajas reales en formato de tarjetas interactivas. */}
+      <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mx-auto max-w-2xl text-balance text-center font-serif text-h2 tracking-tight text-stone-900">
-            ¿Qué ventajas reales aporta a tu día a día?
-          </h2>
+          <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 md:flex-row md:justify-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              05
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              ¿Qué ventajas reales aporta a tu día a día?
+            </h2>
+          </div>
 
           <p className="mx-auto mt-4 max-w-2xl text-center font-sans text-body-lg text-stone-700">
             Si aún te lo estás pensando, estos son los beneficios directos que
@@ -256,7 +611,7 @@ export default function GuiaPage() {
             {advantages.map((advantage) => (
               <article
                 key={advantage.title}
-                className="bg-white p-8 shadow-sm"
+                className="rounded-sm border border-stone-200 bg-white p-8 transition-all duration-300 hover:border-[#7A8B7C] hover:shadow-sm"
               >
                 <span className="text-2xl" aria-hidden="true">
                   {advantage.icon}
@@ -278,15 +633,19 @@ export default function GuiaPage() {
         </div>
       </section>
 
-      {/* 7. CTA hacia la selección de modelos. */}
-      <section className="px-6 py-24 text-center">
+      {/* 8. CTA hacia la selección de modelos. */}
+      <section className="bg-stone-50 px-6 py-24 text-center">
         <div className="mx-auto max-w-xl">
-          <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          ></div>
+          <h2 className="text-balance text-h2 tracking-tight text-stone-900">
             ¿Listo para descubrir el modelo perfecto para ti?
           </h2>
           <Link
             href="/seleccion"
-            className="mt-8 inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            className="mt-8 inline-block border border-[#7A8B7C] px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-[#7A8B7C] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A8B7C]"
           >
             Ver nuestra selección
           </Link>
