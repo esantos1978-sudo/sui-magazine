@@ -88,7 +88,25 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* E. Destacados: selección editorial de los tres artículos principales. */}
+      {/* E. Manifiesto: pull quote de contraste antes de los artículos destacados. */}
+      <section className="bg-stone-900 px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Línea decorativa superior */}
+          <div className="mx-auto mb-12 h-px w-16 bg-stone-500"></div>
+
+          {/* Frase principal */}
+          <blockquote className="mb-8 font-serif text-display leading-[1.04] tracking-tight text-white md:text-[100px]">
+            El baño no es un lugar.
+            <br />
+            Es el único momento del día que es solo tuyo.
+          </blockquote>
+
+          {/* Línea decorativa inferior */}
+          <div className="mx-auto mt-12 h-px w-16 bg-stone-500"></div>
+        </div>
+      </section>
+
+      {/* F. Destacados: selección editorial de los tres artículos principales. */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <h2 className="mb-12 border-b border-stone-300 pb-4 text-h3 tracking-tight text-stone-900">
           Destacados
