@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -312,6 +313,17 @@ export default function GuiaPage() {
             </h2>
           </div>
 
+          {/* Imagen atmosférica: el ofuro como origen del ritual del agua. */}
+          <div className="relative mb-12 h-[400px] w-full overflow-hidden rounded-sm md:h-[500px]">
+            <Image
+              src="/images/guia/bano_tradicional.jpg"
+              alt="Baño japonés tradicional con ofuro de madera"
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover"
+            />
+          </div>
+
           <div className="space-y-6 font-sans text-base leading-relaxed text-stone-600">
             <p>
               Aunque el fabricante Toto popularizó el término washlet en los
@@ -499,6 +511,18 @@ export default function GuiaPage() {
               ¿Cómo funciona? La experiencia paso a paso
             </h2>
           </div>
+
+          {/* Imagen atmosférica: la luz del shoji introduce la experiencia sensorial. */}
+          <div className="relative mb-12 h-[400px] w-full overflow-hidden rounded-sm md:h-[500px]">
+            <Image
+              src="/images/guia/shoji-luz.jpg"
+              alt="Puerta shoji con luz filtrada en una sala japonesa"
+              fill
+              sizes="(min-width: 768px) 672px, 100vw"
+              className="object-cover"
+            />
+          </div>
+
           <div className="space-y-6 font-serif text-body-lg text-stone-700">
             <p>
               Imagina por un momento la escena en una fría mañana de invierno:
