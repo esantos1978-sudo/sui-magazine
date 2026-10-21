@@ -282,10 +282,11 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 | Tipo | Altura | Fondo | Contenido |
 |---|---|---|---|
 | Home | `h-[80vh] min-h-[520px]` | Imagen a sangre + overlay | Eyebrow, H1, entradilla blancos |
+| Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog`. |
 | Sección | `h-[50vh] min-h-[380px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 | Artículo | `h-[40vh] min-h-[320px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 
-El hero de sección puede incluir una línea salvia de `h-px w-12` antes del eyebrow. El H1 siempre es `font-serif text-h1 tracking-tight text-stone-900` con `text-balance`.
+El hero de sección puede incluir una línea salvia de `h-px w-12` antes del eyebrow. El H1 siempre es `font-serif text-h1 tracking-tight` con `text-balance`: `text-stone-900` sobre fondos claros y `text-white` en el hero cinematográfico.
 
 ### 3.2 Botones y enlaces
 
@@ -448,6 +449,7 @@ Motivos: optimización automática, tamaños responsivos, lazy loading, prevenci
 8. Las proporciones canónicas son **4:3** para tarjetas y producto, **panorámica libre con `object-cover`** para atmósfera y **altura de viewport** para heroes.
 9. Las fotos atmosféricas pueden recortarse con `object-cover`; los productos nunca.
 10. No se aplican filtros CSS, duotonos, marcos blancos ni sombras a las imágenes.
+11. **Hero cinematográfico:** Cuando se requiera un impacto visual máximo (como en el índice de artículos), se usará una imagen a sangre con un overlay oscuro (`bg-stone-950/60`) para garantizar la legibilidad del texto blanco. El texto y los eyebrows deben adaptarse a tonos claros (`text-white`, `text-stone-200`, `text-stone-300`).
 
 
 ### 3.5 Tablas

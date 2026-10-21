@@ -61,6 +61,7 @@ sui-magazine/
 │   │   ├── favicon.ico
 │   │   ├── guia/page.tsx                 # Guía esencial del washlet
 │   │   ├── bienestar/page.tsx            # Bienestar, perfiles, autonomía y cuidados
+│   │   ├── blog/page.tsx                 # Índice editorial de todos los artículos
 │   │   ├── seleccion/page.tsx            # Ranking 2026 de siete modelos
 │   │   ├── funcionalidades/page.tsx      # Guía técnica de ocho funcionalidades
 │   │   ├── profesionales/page.tsx        # Propuesta B2B, ROI y FAQ
@@ -100,6 +101,7 @@ sui-magazine/
 | `/` | Home editorial: hero, manifiesto, tres formatos y lecturas relacionadas |
 | `/guia` | Qué es un washlet, formatos disponibles, popularidad en España y ventajas |
 | `/bienestar` | Dignidad y autonomía, tres perfiles de cuidado y orientación profesional |
+| `/blog` | Índice editorial de todos los artículos: hero cinematográfico, pieza principal y archivo |
 | `/seleccion` | Ranking 2026 de siete modelos, criterios y análisis individuales |
 | `/funcionalidades` | Guía técnica de las 8 funciones clave: utilidad, modelos, precio y comparativa |
 | `/profesionales` | Argumentario B2B, costes, tabla de ROI orientativa, FAQ y contacto |
