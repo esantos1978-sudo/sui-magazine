@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import SiloSubnav from "@/components/SiloSubnav";
+
 /**
  * La página se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`, que ya incluye el header, el `<main>` y el footer.
@@ -8,11 +10,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Marcas de Inodoros Inteligentes | Sui Magazine",
   description:
-    "Descubre las marcas líderes en inodoros inteligentes y bidés japoneses. TOTO, Roca, Nashi, eQiik y más. Análisis y filosofía de diseño.",
+    "Descubre las marcas líderes en inodoros inteligentes y bidés japoneses: TOTO, Roca, Geberit, GROHE, Duravit y las alternativas emergentes. Análisis y filosofía de diseño.",
   openGraph: {
     title: "Marcas de Inodoros Inteligentes | Sui Magazine",
     description:
-      "Directorio editorial de los fabricantes que están transformando el baño: TOTO, Roca, Nashi, eQiik, Brondell y Xiaomi.",
+      "Directorio editorial de los fabricantes que están transformando el baño: TOTO, Roca, Geberit, GROHE, Duravit y las alternativas emergentes.",
     locale: "es_ES",
     type: "website",
   },
@@ -20,6 +22,8 @@ export const metadata: Metadata = {
 
 /** Ficha editorial de cada fabricante del directorio. */
 type Brand = {
+  /** Ancla estable para enlazar al fabricante desde los hubs de silo. */
+  id: string;
   /** Nombre comercial de la marca. */
   name: string;
   /** Origen y rasgo que la define, en formato de metadatos. */
@@ -30,9 +34,13 @@ type Brand = {
   iconicModel: string;
 };
 
-/** Los seis fabricantes que protagonizan el directorio. */
+/**
+ * Los seis perfiles del directorio: cinco fabricantes de referencia y una
+ * ficha que agrupa las alternativas relevantes para presupuestos ajustados.
+ */
 const brands: Brand[] = [
   {
+    id: "toto",
     name: "TOTO",
     origin: "Japón · 1917",
     description:
@@ -40,6 +48,7 @@ const brands: Brand[] = [
     iconicModel: "Neorest NX2",
   },
   {
+    id: "roca",
     name: "Roca",
     origin: "España · 1917",
     description:
@@ -47,32 +56,36 @@ const brands: Brand[] = [
     iconicModel: "In-Wash Inspira",
   },
   {
-    name: "Nashi",
-    origin: "España · Challenger",
+    id: "geberit",
+    name: "Geberit",
+    origin: "Suiza · 1874",
     description:
-      "La democratización del baño japonés. Nashi trae la funcionalidad premium a un precio accesible para el mercado español, con modelos como el Aldara que están revolucionando las reformas.",
-    iconicModel: "Aldara iPlus 5",
+      "La ingeniería detrás de la cisterna empotrada. Su gama AquaClean traslada la higiene japonesa al lenguaje sobrio del baño centroeuropeo, con un enfoque modular y una red de instaladores consolidada.",
+    iconicModel: "AquaClean Mera",
   },
   {
-    name: "eQiik",
-    origin: "España · Diseño",
+    id: "grohe",
+    name: "GROHE",
+    origin: "Alemania · 1936",
     description:
-      "Enfoque minimalista y funcional. eQiik destaca por integrar la tecnología en el baño contemporáneo sin estridencias, apostando por la facilidad de instalación y la estética limpia.",
-    iconicModel: "eQiik Pro",
+      "La grifería que domina el baño europeo. Su línea Sensia Arena integra las funciones de bidé en un inodoro de líneas limpias, apoyándose en su red de servicio técnico y repuestos en toda España.",
+    iconicModel: "Sensia Arena",
   },
   {
-    name: "Brondell",
-    origin: "EE. UU. · Robustez",
+    id: "duravit",
+    name: "Duravit",
+    origin: "Alemania · 1817",
     description:
-      "El estándar americano. Brondell popularizó los asientos inteligentes en occidente. Destacan por la robustez de sus materiales y una excelente relación calidad-precio en la gama Swash.",
-    iconicModel: "Swash 1400",
+      "Cerámica de baño y diseño de autor. SensoWash, desarrollada con tecnología japonesa, convierte el inodoro en una pieza minimalista sin renunciar al secado o al asiento calefactado.",
+    iconicModel: "SensoWash Starck f",
   },
   {
-    name: "Xiaomi",
-    origin: "China · Disrupción",
+    id: "otras",
+    name: "Otras alternativas",
+    origin: "España · Internacional",
     description:
-      "El gigante tecnológico entra en el baño. Con su ecosistema Smart Home, Xiaomi ofrece funcionalidades avanzadas y control por app a un precio que desafía a toda la industria tradicional.",
-    iconicModel: "Smart Toilet Seat",
+      "Nashi y eQiik han acercado la higiene japonesa al mercado español con una relación calidad-precio competitiva. Brondell aporta la robustez americana y Xiaomi la integración con el hogar conectado. Son opciones válidas cuando el presupuesto manda, siempre que el servicio técnico acompañe.",
+    iconicModel: "Nashi Aldara · eQiik Pro · Brondell Swash · Xiaomi Smart",
   },
 ];
 
@@ -100,13 +113,16 @@ export default function MarcasPage() {
         </div>
       </section>
 
+      <SiloSubnav siloId="marcas" />
+
       {/* 2. Grid editorial de marcas, con borde superior que se tiñe de salvia al pasar. */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
           {brands.map((brand) => (
             <article
-              key={brand.name}
-              className="group border-t border-stone-300 pt-8 transition-colors hover:border-[#7A8B7C]"
+              key={brand.id}
+              id={brand.id}
+              className="group scroll-mt-24 border-t border-stone-300 pt-8 transition-colors hover:border-[#7A8B7C]"
             >
               <div className="mb-6 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                 <h2 className="font-serif text-4xl tracking-tight text-stone-900 md:text-5xl">

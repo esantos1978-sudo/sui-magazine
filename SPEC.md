@@ -897,5 +897,30 @@ Para reconstruir el sitio con otra identidad, sustituye únicamente estos valore
 
 ---
 
+## Anexo B: Arquitectura de la Información (Silos)
+
+Este árbol es la **estructura oficial de navegación** de Sui Magazine. Organiza el contenido en silos temáticos con páginas pilar y satélites, de modo que cada sección tenga una jerarquía clara, una intención de búsqueda propia y un recorrido interno coherente.
+
+```text
+HOME
+├── GUÍAS (Primeros pasos, Tipos, Instalación, Funcionalidades, Mantenimiento, Comparativas)
+├── TECNOLOGÍA (Innovación, Sistemas inteligentes, Sostenibilidad)
+├── BIENESTAR (Autonomía, Accesibilidad, Envejecimiento, Cuidado)
+├── DISEÑO (Arquitectura, Interiorismo, Producto)
+├── MARCAS (TOTO, Roca, Geberit, GROHE, Duravit, Otras)
+├── ACTUALIDAD (Lanzamientos, Noticias, Tendencias)
+└── FOOTER (Profesional, Soluciones, Sobre el magazine, Metodología, Contacto, Legal)
+```
+
+**Reglas de aplicación:**
+
+1. Las rutas existentes (`/bienestar`, `/diseno`, `/marcas`, `/blog`, `/guia`, `/seleccion`, `/funcionalidades`, `/profesionales` y `/articulos/*`) **se conservan**; la nueva estructura se añade sin romperlas ni redirigirlas.
+2. Cada silo tiene una página pilar que actúa como hub y enlaza a sus subcategorías y contenidos satélite.
+3. Todo contenido nuevo se asigna a un único silo principal; los enlaces cruzados entre silos son editoriales, nunca duplicaciones de ruta.
+4. La navegación principal refleja los silos; el footer mantiene las rutas institucionales y de servicio.
+5. Toda ruta nueva cumple las reglas de las secciones 4.3, 4.4 y 4.6: metadata propia, un solo H1, arrays tipados y `next/image`.
+
+---
+
 *Fin del SPEC. Cualquier cambio futuro en la identidad, el sistema de diseño o la arquitectura debe reflejarse aquí antes de considerarse parte del proyecto.*
 

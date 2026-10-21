@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { articles } from "@/content/articles";
+import { getSilo } from "@/content/silos";
+
 /**
  * Índice editorial del magazine.
  *
@@ -21,87 +24,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-/** Artículo publicado en el magazine y su ficha para el índice editorial. */
-type Article = {
-  /** Titular completo que identifica el artículo. */
-  title: string;
-  /** Ruta interna hacia la página del artículo. */
-  href: string;
-  /** Categoría editorial que ordena el contenido. */
-  category: string;
-  /** Entradilla breve que resume la propuesta de la pieza. */
-  excerpt: string;
-  /** Ruta absoluta de la imagen desde `public`. */
-  image: string;
-  /** Texto alternativo descriptivo de la imagen. */
-  imageAlt: string;
-  /** Mes de publicación en formato legible. */
-  date: string;
-};
-
-/**
- * Todos los artículos del magazine, ordenados por prioridad editorial.
- * El primero se presenta como pieza principal y el resto en la rejilla.
- */
-const articles: Article[] = [
-  {
-    title:
-      "El baño invisible: tu inodoro es la mayor decisión ecológica de tu hogar",
-    href: "/articulos/bide-japones-sostenibilidad",
-    category: "Sostenibilidad",
-    excerpt:
-      "El baño invisible: cómo el inodoro inteligente reduce papel, agua y residuos en el hogar.",
-    image: "/images/articulos/sostenibilidad.jpg",
-    imageAlt:
-      "Baño minimalista con inodoro japonés y materiales sostenibles",
-    date: "Octubre 2026",
-  },
-  {
-    title: "La tapa inteligente: transformar tu baño sin obras",
-    href: "/articulos/tapa-inteligente",
-    category: "Análisis técnico",
-    excerpt:
-      "Materiales, calentamiento instantáneo y modelos para dar el salto al bidé japonés sin reformar el cuarto de baño.",
-    image: "/images/articulos/tapa-inteligente.jpg",
-    imageAlt:
-      "Tapa inteligente de inodoro con calentamiento y control electrónico",
-    date: "Octubre 2026",
-  },
-  {
-    title: "Guía de instalación paso a paso",
-    href: "/articulos/guia-instalacion",
-    category: "Guía práctica",
-    excerpt:
-      "Instalación paso a paso de accesorios, tapas e inodoros completos en menos de una hora.",
-    image: "/images/articulos/instalacion.jpg",
-    imageAlt:
-      "Herramientas y piezas preparadas para instalar un bidé japonés",
-    date: "Octubre 2026",
-  },
-  {
-    title: "Adaptando el bidé a tu baño español",
-    href: "/articulos/bano-espanol-adaptaciones",
-    category: "Guía práctica",
-    excerpt:
-      "Cal, enchufes y cisternas empotradas: soluciones reales para adaptar el baño español.",
-    image: "/images/guia/bano_tradicional.jpg",
-    imageAlt:
-      "Baño japonés tradicional con ofuro de madera y luz natural",
-    date: "Octubre 2026",
-  },
-  {
-    title: "Mejores bidés japoneses por presupuesto",
-    href: "/articulos/mejores-bides-presupuesto",
-    category: "Guía de compra",
-    excerpt:
-      "Qué comprar en cada franja de precio, con recomendaciones honestas y contrapartidas.",
-    image: "/images/formatos/tapa-home.jpg",
-    imageAlt:
-      "Inodoro con tapa inteligente en un baño de piedra y madera",
-    date: "Octubre 2026",
-  },
-];
 
 export default function BlogPage() {
   const featuredArticle = articles[0];
@@ -183,6 +105,7 @@ export default function BlogPage() {
             <div>
               <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="font-sans text-eyebrow uppercase text-stone-500">
+                  {getSilo(featuredArticle.silo).label} ·{" "}
                   {featuredArticle.category}
                 </span>
                 <span
@@ -231,7 +154,7 @@ export default function BlogPage() {
 
                 <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2">
                   <span className="font-sans text-eyebrow uppercase text-stone-500">
-                    {article.category}
+                    {getSilo(article.silo).label} · {article.category}
                   </span>
                   <span
                     className="h-px w-4 bg-stone-300"

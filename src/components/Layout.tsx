@@ -1,26 +1,26 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/**
- * Enlaces principales del magazine.
- */
-const navigation = [
-  { label: "Guía", href: "/guia" },
-  { label: "Bienestar", href: "/bienestar" },
-  { label: "Ranking", href: "/seleccion" },
-  { label: "Marcas", href: "/marcas" },
-  { label: "Diseño", href: "/diseno" },
-] as const;
+import { institutionalNavigation, silos } from "@/content/silos";
 
 /**
- * Enlaces secundarios del pie de página. Se mantienen accesibles fuera del
- * menú principal para no saturar la navegación en pantallas pequeñas.
+ * Enlaces principales del magazine.
+ *
+ * La navegación refleja los seis silos oficiales definidos en el Anexo B del
+ * SPEC. No se añaden rutas sueltas: cada entrada apunta a la página pilar.
  */
-const footerNavigation = [
-  { label: "Profesionales", href: "/profesionales" },
-  { label: "Bienestar y Perfiles", href: "/bienestar" },
-  { label: "Funcionalidades", href: "/funcionalidades" },
-] as const;
+const navigation = silos.map((silo) => ({
+  label: silo.label,
+  href: silo.href,
+}));
+
+/**
+ * Enlaces institucionales del pie de página.
+ *
+ * Se mantienen fuera del menú principal para no competir con los silos y
+ * conservar accesibles las rutas de servicio del magazine.
+ */
+const footerNavigation = institutionalNavigation;
 
 type LayoutProps = {
   children: ReactNode;
@@ -65,28 +65,54 @@ export default function Layout({ children }: LayoutProps) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t border-stone-200">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-center text-xs tracking-wide text-stone-500 sm:flex-row sm:text-left md:px-10">
-          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:justify-start">
-            <span>
-              © {new Date().getFullYear()} Sui Magazine. Todos los derechos
-              reservados.
-            </span>
-            <span className="text-stone-300" aria-hidden="true">
-              |
-            </span>
-            <nav aria-label="Enlaces del pie">
-              <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:justify-start">
-                {footerNavigation.map((item, index) => (
-                  <li key={item.href} className="flex items-center gap-x-2">
-                    {index > 0 && (
-                      <span className="text-stone-300" aria-hidden="true">
-                        ·
-                      </span>
-                    )}
+      <footer className="border-t border-stone-200 bg-stone-50">
+        <div className="mx-auto w-full max-w-6xl px-6 py-16 md:px-10">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr] md:gap-10">
+            <div>
+              <Link
+                href="/"
+                aria-label="Sui Magazine, inicio"
+                className="inline-block font-serif text-2xl tracking-tight text-stone-900 transition-colors hover:text-stone-600"
+              >
+                Sui
+              </Link>
+              <p className="mt-4 max-w-xs font-sans text-sm leading-relaxed text-stone-600">
+                El nuevo ritual de la higiene. Un magazine editorial sobre
+                washlets, bienestar y diseño del baño en España.
+              </p>
+              <p className="mt-6 font-sans text-eyebrow uppercase tracking-[0.22em] text-stone-400">
+                Bienestar · Diseño · Higiene inteligente
+              </p>
+            </div>
+
+            <nav aria-label="Secciones del magazine">
+              <p className="font-sans text-eyebrow uppercase text-stone-500">
+                Secciones
+              </p>
+              <ul className="mt-5 space-y-3">
+                {silos.map((silo) => (
+                  <li key={silo.id}>
+                    <Link
+                      href={silo.href}
+                      className="font-sans text-sm text-stone-600 transition-colors hover:text-stone-900"
+                    >
+                      {silo.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <nav aria-label="Información institucional">
+              <p className="font-sans text-eyebrow uppercase text-stone-500">
+                Magazine
+              </p>
+              <ul className="mt-5 space-y-3">
+                {footerNavigation.map((item) => (
+                  <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-xs transition-colors hover:text-stone-900"
+                      className="font-sans text-sm text-stone-600 transition-colors hover:text-stone-900"
                     >
                       {item.label}
                     </Link>
@@ -95,9 +121,16 @@ export default function Layout({ children }: LayoutProps) {
               </ul>
             </nav>
           </div>
-          <p className="uppercase tracking-[0.22em] text-stone-400">
-            Bienestar · Diseño · Higiene inteligente
-          </p>
+
+          <div className="mt-14 flex flex-col gap-3 border-t border-stone-200 pt-6 text-xs tracking-wide text-stone-500 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} Sui Magazine. Todos los derechos
+              reservados.
+            </p>
+            <p className="uppercase tracking-[0.22em] text-stone-400">
+              España · es_ES
+            </p>
+          </div>
         </div>
       </footer>
     </div>

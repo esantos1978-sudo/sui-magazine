@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import SiloSubnav from "@/components/SiloSubnav";
+
 /**
  * La página se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -95,6 +97,30 @@ const advantages = [
     icon: "⚕️",
     title: "Beneficios médicos y alivio",
     text: "El chorro de agua suave o aireado es un bálsamo reconfortante indispensable si sufres de hemorroides, durante el ciclo menstrual o en la recuperación postparto.",
+  },
+];
+
+/** Pauta de mantenimiento doméstico que alarga la vida útil del washlet. */
+type MaintenanceTip = {
+  /** Título breve de la pauta. */
+  title: string;
+  /** Explicación práctica y sin tecnicismos. */
+  text: string;
+};
+
+/** Las tres rutinas que sostienen el dispositivo a lo largo del tiempo. */
+const maintenanceTips: MaintenanceTip[] = [
+  {
+    title: "Limpieza de boquillas",
+    text: "La mayoría de modelos autolimpian la boquilla antes y después de cada uso. Una vez a la semana conviene extraerla con el botón de limpieza y pasar un cepillo suave por la salida del agua.",
+  },
+  {
+    title: "Descalcificación según el agua",
+    text: "En zonas con agua dura, la cal puede obstruir los conductos. Sigue el programa de descalcificación del fabricante o usa un descalcificador compatible; nunca vinagre agresivo ni productos abrasivos.",
+  },
+  {
+    title: "Filtros y revisión anual",
+    text: "Cambia el filtro de sedimentos cuando el fabricante lo indique y revisa la conexión de agua una vez al año. Un mantenimiento sencillo evita averías y pérdidas de presión.",
   },
 ];
 
@@ -266,6 +292,8 @@ export default function GuiaPage() {
         </div>
       </section>
 
+      <SiloSubnav siloId="guias" />
+
       {/* 2. Introducción narrativa y primera cita editorial. */}
       <section className="bg-stone-50 px-6 py-24">
         <div className="mx-auto max-w-3xl">
@@ -299,7 +327,7 @@ export default function GuiaPage() {
       </section>
 
       {/* 3. Qué es un washlet y cuáles son sus tres formatos. */}
-      <section className="bg-white px-6 py-24">
+      <section id="que-es" className="scroll-mt-24 bg-white px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
             <span
@@ -367,7 +395,7 @@ export default function GuiaPage() {
       </section>
 
       {/* 4. Los tres formatos en detalle y tabla comparativa final. */}
-      <section className="bg-stone-50 px-6 py-24">
+      <section id="tipos" className="scroll-mt-24 bg-stone-50 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="mb-16 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
             <span
@@ -657,7 +685,55 @@ export default function GuiaPage() {
         </div>
       </section>
 
-      {/* 8. CTA hacia la selección de modelos. */}
+      {/* 8. Mantenimiento: la rutina que mantiene el ritual en el tiempo. */}
+      <section
+        id="mantenimiento"
+        className="scroll-mt-24 bg-stone-100 px-6 py-24"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-14 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              06
+            </span>
+            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+              Mantenimiento: poco esfuerzo, mucha vida útil
+            </h2>
+          </div>
+
+          <p className="mb-12 max-w-3xl font-sans text-body-lg leading-relaxed text-stone-700">
+            Un washlet no exige más cuidados que un inodoro convencional, pero
+            sí una rutina mínima. Estas tres pautas bastan para conservar la
+            presión del agua, la higiene de la boquilla y la fiabilidad del
+            sistema durante años.
+          </p>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {maintenanceTips.map((tip) => (
+              <article
+                key={tip.title}
+                className="border-t border-stone-300 pt-6"
+              >
+                <h3 className="mb-3 font-serif text-h3 tracking-tight text-stone-900">
+                  {tip.title}
+                </h3>
+                <p className="font-sans text-body-base leading-relaxed text-stone-600">
+                  {tip.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-10 font-sans text-caption text-stone-500">
+            Sigue siempre el manual del fabricante: los programas y los filtros
+            varían según el modelo y la dureza del agua de tu zona.
+          </p>
+        </div>
+      </section>
+
+      {/* 9. CTA hacia la selección de modelos. */}
       <section className="bg-stone-50 px-6 py-24 text-center">
         <div className="mx-auto max-w-xl">
           <div

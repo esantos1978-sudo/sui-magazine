@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import SiloSubnav from "@/components/SiloSubnav";
+
 /**
  * Página unificada de Bienestar.
  *
@@ -99,6 +101,8 @@ export default function BienestarPage() {
         </div>
       </section>
 
+      <SiloSubnav siloId="bienestar" />
+
       {/* 2. Narrativa: la dignidad como punto de partida. */}
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-3xl">
@@ -188,7 +192,7 @@ export default function BienestarPage() {
               <li
                 key={perfil.id}
                 id={perfil.id}
-                className="flex flex-col gap-6 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0 md:flex-row md:gap-10"
+                className="flex scroll-mt-24 flex-col gap-6 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0 md:flex-row md:gap-10"
               >
                 <div className="flex-shrink-0 md:w-1/4">
                   <span

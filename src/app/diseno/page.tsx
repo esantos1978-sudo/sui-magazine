@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import SiloSubnav from "@/components/SiloSubnav";
+
 /**
  * Sección de estética, tendencias y tecnología del baño.
  *
@@ -238,6 +240,8 @@ export default function DisenoPage() {
         </div>
       </section>
 
+      <SiloSubnav siloId="diseno" />
+
       {/* 2. Introducción editorial: la estética del silencio como punto de partida. */}
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-3xl">
@@ -271,7 +275,7 @@ export default function DisenoPage() {
       </section>
 
       {/* 3. Materiales nobles: la materia como generadora de atmósfera. */}
-      <section className="bg-stone-50 px-6 py-24">
+      <section id="materiales" className="scroll-mt-24 bg-stone-50 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex items-center gap-4">
             <span
@@ -422,7 +426,7 @@ export default function DisenoPage() {
       </section>
 
       {/* 7. Tendencias: cambios de uso antes que dictado de estilo. */}
-      <section className="bg-white px-6 py-24">
+      <section id="tendencias" className="scroll-mt-24 bg-white px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
             <div

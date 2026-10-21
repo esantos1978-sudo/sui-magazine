@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import SiloGrid from "@/components/SiloGrid";
+
 export default function Home() {
   return (
     <>
@@ -176,78 +178,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* F. Índice: acceso a las secciones principales del magazine. */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
-        {/* Título de la sección */}
-        <div className="mb-16">
+      {/* F. Silos: mapa completo de la arquitectura editorial. */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mb-16 max-w-2xl">
           <span className="text-eyebrow uppercase tracking-wider text-stone-500">
             Explora el magazine
           </span>
-          <h2 className="mt-4 text-h3 tracking-tight">Nuestras secciones</h2>
+          <h2 className="mt-4 text-h3 tracking-tight">Seis silos, un mismo ritual</h2>
+          <p className="mt-6 text-body-lg text-stone-600">
+            Aprender, entender, cuidar, habitar, elegir y seguir. Cada silo
+            ordena el contenido por la intención con la que llegas, no por el
+            orden en que se publicó.
+          </p>
         </div>
 
-        {/* Grid de 4 columnas en desktop, 1 en móvil */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
-          {/* Sección 1: Guía */}
-          <Link
-            href="/guia"
-            className="group block border-t border-stone-300 pt-6 transition-colors hover:border-stone-900"
-          >
-            <span className="font-serif text-4xl text-stone-300 transition-colors group-hover:text-stone-900">
-              I
-            </span>
-            <h3 className="mb-2 mt-4 text-h3 tracking-tight">Guía</h3>
-            <p className="text-body-base text-stone-600">
-              Todo lo que necesitas saber sobre la tecnología, la historia y el
-              futuro del baño inteligente.
-            </p>
-          </Link>
-
-          {/* Sección 2: Bienestar */}
-          <Link
-            href="/bienestar"
-            className="group block border-t border-stone-300 pt-6 transition-colors hover:border-stone-900"
-          >
-            <span className="font-serif text-4xl text-stone-300 transition-colors group-hover:text-stone-900">
-              II
-            </span>
-            <h3 className="mb-2 mt-4 text-h3 tracking-tight">Bienestar</h3>
-            <p className="text-body-base text-stone-600">
-              La higiene como acto de dignidad, cuidado y dependencia. Soluciones
-              reales para personas y familias.
-            </p>
-          </Link>
-
-          {/* Sección 3: Ranking */}
-          <Link
-            href="/seleccion"
-            className="group block border-t border-stone-300 pt-6 transition-colors hover:border-stone-900"
-          >
-            <span className="font-serif text-4xl text-stone-300 transition-colors group-hover:text-stone-900">
-              III
-            </span>
-            <h3 className="mb-2 mt-4 text-h3 tracking-tight">Ranking</h3>
-            <p className="text-body-base text-stone-600">
-              Análisis honesto, comparativas y precios. Encuentra el modelo
-              exacto para tu presupuesto y necesidades.
-            </p>
-          </Link>
-
-          {/* Sección 4: Diseño */}
-          <Link
-            href="/diseno"
-            className="group block border-t border-stone-300 pt-6 transition-colors hover:border-stone-900"
-          >
-            <span className="font-serif text-4xl text-stone-300 transition-colors group-hover:text-stone-900">
-              IV
-            </span>
-            <h3 className="mb-2 mt-4 text-h3 tracking-tight">Diseño</h3>
-            <p className="text-body-base text-stone-600">
-              Estética, sostenibilidad y tendencias. Cómo integrar la tecnología
-              en baños con alma y estilo.
-            </p>
-          </Link>
-        </div>
+        <SiloGrid />
       </section>
 
       {/* G. Destacados: selección editorial de los tres artículos principales. */}
