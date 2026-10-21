@@ -235,7 +235,7 @@ export default function Home() {
 
           {/* Sección 4: Diseño */}
           <Link
-            href="/articulos/bide-japones-sostenibilidad"
+            href="/diseno"
             className="group block border-t border-stone-300 pt-6 transition-colors hover:border-stone-900"
           >
             <span className="font-serif text-4xl text-stone-300 transition-colors group-hover:text-stone-900">

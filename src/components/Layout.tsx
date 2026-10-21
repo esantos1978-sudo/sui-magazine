@@ -9,7 +9,7 @@ const navigation = [
   { label: "Bienestar", href: "/bienestar" },
   { label: "Ranking", href: "/seleccion" },
   { label: "Marcas", href: "/marcas" },
-  { label: "Diseño", href: "/articulos/bide-japones-sostenibilidad" },
+  { label: "Diseño", href: "/diseno" },
 ] as const;
 
 /**

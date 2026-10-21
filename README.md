@@ -18,7 +18,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Tipografía editorial:** Playfair Display para titulares e Inter para cuerpo y navegación, cargadas con `next/font` y `display: swap`.
 - **Diseño responsive:** interfaz mobile-first, header sticky, navegación accesible, tablas con scroll horizontal y footer compartido.
 - **SEO on-page base:** `metadata` específica por ruta (título y descripción) y Open Graph en la home y las páginas editoriales. Incluye HTML semántico y rutas estáticas.
-- **Contenido editorial completo:** home, guía esencial, bienestar y perfiles, guía de funcionalidades, ranking 2026 y cinco artículos prácticos sobre instalación, presupuesto, adaptación al baño español, tapa inteligente y sostenibilidad.
+- **Contenido editorial completo:** home, guía esencial, bienestar y perfiles, blog, diseño y estética, guía de funcionalidades, ranking 2026 y cinco artículos prácticos sobre instalación, presupuesto, adaptación al baño español, tapa inteligente y sostenibilidad.
 - **Ranking de producto:** siete modelos comparados con criterios editoriales, precio orientativo, puntuación, puntos fuertes, limitaciones y perfil recomendado.
 - **Bienestar y perfiles:** narrativa sobre dignidad y autonomía, tres perfiles de cuidado con solución recomendada y CTA de orientación profesional.
 - **Guía técnica por funcionalidades:** ocho características explicadas con utilidad real, modelos de referencia, nivel de precio, tabla comparativa y FAQ.
@@ -62,6 +62,7 @@ sui-magazine/
 │   │   ├── guia/page.tsx                 # Guía esencial del washlet
 │   │   ├── bienestar/page.tsx            # Bienestar, perfiles, autonomía y cuidados
 │   │   ├── blog/page.tsx                 # Índice editorial de todos los artículos
+│   │   ├── diseno/page.tsx               # Estética, materiales y tecnología del baño
 │   │   ├── seleccion/page.tsx            # Ranking 2026 de siete modelos
 │   │   ├── funcionalidades/page.tsx      # Guía técnica de ocho funcionalidades
 │   │   ├── profesionales/page.tsx        # Propuesta B2B, ROI y FAQ
@@ -102,6 +103,7 @@ sui-magazine/
 | `/guia` | Qué es un washlet, formatos disponibles, popularidad en España y ventajas |
 | `/bienestar` | Dignidad y autonomía, tres perfiles de cuidado y orientación profesional |
 | `/blog` | Índice editorial de todos los artículos: hero cinematográfico, pieza principal y archivo |
+| `/diseno` | Estética y tendencias del baño: principios, materiales, tecnología integrada y lecturas |
 | `/seleccion` | Ranking 2026 de siete modelos, criterios y análisis individuales |
 | `/funcionalidades` | Guía técnica de las 8 funciones clave: utilidad, modelos, precio y comparativa |
 | `/profesionales` | Argumentario B2B, costes, tabla de ROI orientativa, FAQ y contacto |

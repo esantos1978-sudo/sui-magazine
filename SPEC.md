@@ -268,7 +268,7 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 - Logotipo textual “Sui” en `font-serif text-2xl tracking-tight`, con `aria-label="Sui Magazine, inicio"`.
 - Navegación principal: `font-sans text-sm uppercase tracking-wide text-stone-500`, hover `text-stone-900`.
 - En móvil, la nav tiene scroll horizontal sin barra visible; no se colapsa en hamburguesa.
-- Enlaces actuales: Guía `/guia`, Bienestar `/bienestar`, Ranking `/seleccion`, Marcas `/marcas`, Diseño `/articulos/bide-japones-sostenibilidad`.
+- Enlaces actuales: Guía `/guia`, Bienestar `/bienestar`, Ranking `/seleccion`, Marcas `/marcas`, Diseño `/diseno`.
 
 **Footer**
 
@@ -282,7 +282,7 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 | Tipo | Altura | Fondo | Contenido |
 |---|---|---|---|
 | Home | `h-[80vh] min-h-[520px]` | Imagen a sangre + overlay | Eyebrow, H1, entradilla blancos |
-| Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog`. |
+| Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog` y `/diseno`. |
 | Sección | `h-[50vh] min-h-[380px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 | Artículo | `h-[40vh] min-h-[320px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 
@@ -672,8 +672,9 @@ sui-magazine/
 │  │  ├─ guia/page.tsx
 │  │  ├─ marcas/page.tsx
 │  │  ├─ bienestar/page.tsx
+│  │  ├─ blog/page.tsx
+│  │  ├─ diseno/page.tsx
 │  │  ├─ seleccion/page.tsx
-│  │  ├─ perfiles/page.tsx
 │  │  ├─ funcionalidades/page.tsx
 │  │  ├─ profesionales/page.tsx
 │  │  └─ articulos/
@@ -708,7 +709,7 @@ sui-magazine/
 └─ SPEC.md
 ```
 
-**Rutas actuales:** `/`, `/guia`, `/bienestar`, `/seleccion`, `/marcas`, `/perfiles`, `/funcionalidades`, `/profesionales` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build.
+**Rutas actuales:** `/`, `/guia`, `/bienestar`, `/blog`, `/diseno`, `/seleccion`, `/marcas`, `/funcionalidades`, `/profesionales` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build.
 
 ### 4.3 Anatomía de una página
 
