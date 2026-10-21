@@ -1,222 +1,259 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
- * La página se renderiza dentro del Layout global definido en
- * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
- * el header y el footer del magazine.
+ * Página unificada de Bienestar.
+ *
+ * Se renderiza dentro del Layout global definido en `src/app/layout.tsx`,
+ * que ya aporta el header, el `<main>` y el footer. Por eso este archivo no
+ * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
-  title: "Bienestar y Dignidad | Sui Magazine",
+  title: "Bienestar y Dignidad en el Baño | Sui Magazine",
   description:
-    "El impacto humano de los inodoros inteligentes: autonomía en la dependencia, alivio para quienes cuidan y eficiencia en residencias y centros sociosanitarios.",
+    "La higiene inteligente como acto de cuidado y autonomía. Guía para elegir la solución adecuada según las necesidades de movilidad y dependencia.",
   openGraph: {
-    title: "Bienestar y Dignidad | Sui Magazine",
+    title: "Bienestar y Dignidad en el Baño | Sui Magazine",
     description:
-      "Cuando la tecnología se pone al servicio de las personas: intimidad, autonomía y cuidados más humanos.",
+      "La higiene inteligente como acto de cuidado y autonomía.",
     locale: "es_ES",
     type: "article",
   },
 };
 
-/** Los tres beneficios que devuelve el washlet a quien pierde movilidad. */
-const autonomyBenefits = [
-  {
-    title: "Recuperación de la Autonomía",
-    text: "Ya no hay que hacer giros dolorosos ni trasladarse al bidé. Vuelven a ser capaces de ir al baño solos.",
-  },
-  {
-    title: "Dignidad e Intimidad",
-    text: "El mayor regalo es poder cerrar la puerta del baño. Que nadie tenga que entrar a asistirles.",
-  },
-  {
-    title: "Seguridad total",
-    text: "Funciones automáticas como la apertura de la tapa o la luz nocturna previenen accidentes graves en el baño.",
-  },
-];
+/** Perfil de cuidado y recomendación editorial asociada. */
+type CareProfile = {
+  /** Ancla estable para enlazar directamente a un perfil. */
+  id: string;
+  /** Número editorial que ordena los perfiles en la página. */
+  numero: string;
+  /** Título breve y reconocible del perfil. */
+  titulo: string;
+  /** Circunstancia cotidiana que define la necesidad. */
+  situacion: string;
+  /** Solución técnica recomendada por criterio editorial. */
+  solucion: string;
+  /** Motivo humano y práctico por el que la solución funciona. */
+  porQue: string;
+};
 
-/** El alivio concreto que experimenta la persona cuidadora. */
-const caregiverCards = [
+/** Los tres perfiles de cuidado que estructuran la página. */
+const perfiles: CareProfile[] = [
   {
-    title: "Menos esfuerzo físico",
-    text: "Se acabaron los malabarismos. Tu familiar se sienta y recibe un lavado suave y secado con aire. Tú ya no tienes que agacharte ni hacer fuerza.",
+    id: "autonomia",
+    numero: "01",
+    titulo: "Autonomía con apoyo",
+    situacion:
+      "Movilidad reducida, pero se vale por sí mismo en casa.",
+    solucion:
+      "Tapa inteligente (washlet) con mando de botones grandes o control remoto.",
+    porQue:
+      "Elimina la torsión y el esfuerzo del papel, devolviendo la independencia en la higiene íntima sin necesidad de obras.",
   },
   {
-    title: "Menos desgaste emocional",
-    text: "El agua limpia de forma autónoma. Puedes esperar un paso atrás, devolviéndole a tu ser querido su privacidad. El momento del baño deja de ser una invasión.",
-  },
-];
-
-/** Los tres argumentos que sostienen la adopción en el ámbito sociosanitario. */
-const residenceBenefits = [
-  {
-    title: "Ahorro radical de tiempo y materiales",
-    text: "Se elimina drásticamente el consumo de papel y toallitas, liberando minutos cruciales para el personal.",
-  },
-  {
-    title: "Mejora de la salud laboral",
-    text: "Al eliminar posturas forzadas para la higiene, se previenen lesiones de espalda en la plantilla.",
+    id: "dependencia-moderada",
+    numero: "02",
+    titulo: "Dependencia moderada",
+    situacion:
+      "Necesita ayuda puntual de un cuidador o familiar para sentarse o levantarse.",
+    solucion:
+      "Inodoro completo con función de elevación de asiento o altura ajustable.",
+    porQue:
+      "Reduce el riesgo de caídas y protege la espalda del cuidador, facilitando las transferencias de manera segura y digna.",
   },
   {
-    title: "Imagen de innovación",
-    text: "Contar con baños de alta tecnología posiciona al centro como referente en cuidados de vanguardia.",
+    id: "entorno-profesional",
+    numero: "03",
+    titulo: "Entorno profesional o residencial",
+    situacion:
+      "Baños en residencias de mayores, hospitales o centros de día.",
+    solucion:
+      "Modelos robustos con materiales antibacterianos, descarga automática y fácil desinfección.",
+    porQue:
+      "Prioriza la higiene cruzada, la durabilidad ante uso intensivo y la reducción de la carga de trabajo del personal.",
   },
 ];
 
 export default function BienestarPage() {
   return (
     <>
-      {/* 1. Hero de sección: mismo ritmo visual que la guía y la selección. */}
-      <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
+      {/* 1. Hero de sección: presenta el enfoque humano de la página. */}
+      <section className="flex min-h-[380px] items-center justify-center bg-stone-100 px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 text-eyebrow uppercase text-stone-400">
-            Bienestar · Sui Magazine
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          />
+          <p className="font-sans text-eyebrow uppercase text-stone-500">
+            Bienestar
           </p>
-          <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
-            Bienestar y Dignidad
+          <h1 className="mb-6 mt-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
+            El baño como acto de cuidado, no de dependencia.
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-body-lg text-stone-600">
-            Cuando la tecnología se pone al servicio de las personas. Recupera
-            la intimidad, alivia la carga del cuidador y transforma el día a
-            día.
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
+            La tecnología no debe sustituir el calor humano, sino eliminar las
+            barreras físicas que lo dificultan. Hablamos de dignidad, autonomía
+            y soluciones reales.
           </p>
         </div>
       </section>
 
-      {/* 2. Introducción emocional: el porqué humano de la tecnología. */}
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-          La dignidad de la intimidad
-        </h2>
-        <p className="font-serif text-xl leading-relaxed text-stone-700 md:text-2xl">
-          Hay decisiones que se toman con el corazón. Ver cómo aquellos que nos
-          cuidaron pierden su autonomía es un proceso duro. A veces, la
-          tecnología no sirve solo para estar más conectados, sino para
-          conectar con lo que realmente importa: la dignidad humana. Un
-          dispositivo aparentemente sencillo puede transformar por completo la
-          rutina más íntima de un hogar.
-        </p>
-      </section>
-
-      {/* 3. Dependencia y autonomía: lo que se recupera. */}
-      <section className="mx-auto max-w-3xl px-6 py-10">
-        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-          Recuperando la autonomía
-        </h2>
-
-        <p className="font-sans text-body-lg text-stone-600">
-          Ir al baño es el acto más privado que realizamos. Cuando la movilidad
-          se reduce, este momento íntimo se convierte en un reto físico y
-          psicológico. El inodoro japonés lo cambia todo:
-        </p>
-
-        <ol className="mt-12 space-y-8">
-          {autonomyBenefits.map((benefit, index) => (
-            <li
-              key={benefit.title}
-              className="flex gap-5 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0"
-            >
-              <span
-                className="flex-none font-serif text-lg leading-none text-stone-400"
-                aria-hidden="true"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-serif text-xl leading-snug text-stone-900">
-                  {benefit.title}
-                </h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
-                  {benefit.text}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* 4. El cuidador: alivio físico y emocional. */}
-      <section className="bg-stone-100 px-6 py-20">
+      {/* 2. Narrativa: la dignidad como punto de partida. */}
+      <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-            Para ti, que cuidas
-          </h2>
+          <div className="mb-8 flex items-center gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              01
+            </span>
+            <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
+              La dignidad en los detalles
+            </h2>
+          </div>
 
-          <p className="mb-8 font-sans text-body-lg text-stone-700">
-            Cuidar de un familiar es uno de los mayores actos de amor, pero
-            también uno de los más agotadores. Acompañar a un ser querido al
-            baño suele ser el momento de mayor tensión del día. Instalar un
-            inodoro inteligente no va a hacer que tu familiar deje de ser
-            dependiente, pero va a eliminar de un plumazo la parte más dura y
-            física de la higiene diaria.
-          </p>
+          <div className="space-y-6 font-sans text-body-base text-stone-700">
+            <p>
+              Envejecer o enfrentar una limitación de movilidad no debería
+              significar perder la privacidad en uno de los momentos más
+              íntimos del día. El baño tradicional, con su dependencia del papel
+              y las posturas forzadas, se convierte a menudo en un obstáculo
+              silencioso.
+            </p>
+            <p>
+              El bidé japonés o washlet no es un lujo caprichoso. Es una
+              herramienta de autonomía. El chorro de agua templada sustituye al
+              roce seco, el asiento calefactado evita el choque térmico y el
+              secado suave elimina la necesidad de manipulaciones incómodas. Es,
+              en esencia, devolverle a la persona el control sobre su propio
+              cuerpo.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {caregiverCards.map((card) => (
-              <article key={card.title} className="bg-white p-8 shadow-sm">
-                <h3 className="font-serif text-h3 text-stone-900">
-                  {card.title}
-                </h3>
-                <p className="mt-3 font-sans text-body-base text-stone-600">
-                  {card.text}
-                </p>
-              </article>
-            ))}
+          <div className="relative mt-12 h-[320px] w-full overflow-hidden rounded-sm md:h-[420px]">
+            <Image
+              src="/images/guia/bano_tradicional.jpg"
+              alt="Baño japonés tradicional con ofuro de madera y luz natural"
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
 
-      {/* 5. Residencias y centros sociosanitarios. */}
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-          Eficiencia y dignidad en residencias
-        </h2>
-
-        <p className="font-sans text-base leading-relaxed text-stone-700">
-          En el sector sociosanitario, el equilibrio entre la viabilidad
-          económica y la excelencia en el trato humano es el mayor desafío. La
-          adopción de inodoros inteligentes es una innovación de alto impacto:
-        </p>
-
-        <ol className="mt-10 space-y-6">
-          {residenceBenefits.map((benefit, index) => (
-            <li
-              key={benefit.title}
-              className="flex gap-5 border-t border-stone-200 pt-6 first:border-t-0 first:pt-0"
-            >
-              <span
-                className="flex-none font-serif text-lg leading-none text-stone-400"
-                aria-hidden="true"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <p className="font-sans text-base leading-relaxed text-stone-700">
-                <strong className="font-semibold text-stone-800">
-                  {benefit.title}:
-                </strong>{" "}
-                {benefit.text}
-              </p>
-            </li>
-          ))}
-        </ol>
+      {/* 3. Pull quote: sintetiza el enfoque editorial. */}
+      <section className="bg-stone-50 px-6 py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <div
+            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          />
+          <blockquote className="mb-8 text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
+            “La verdadera tecnología no se nota. Solo se nota la dignidad que
+            devuelve.”
+          </blockquote>
+          <div
+            className="mx-auto h-px w-12 bg-[#7A8B7C]"
+            aria-hidden="true"
+          />
+        </div>
       </section>
 
-      {/* 6. CTA de cierre: recomendaciones según el perfil de cada hogar. */}
-      <section className="px-6 py-24">
+      {/* 4. Perfiles prácticos: de la necesidad a la solución concreta. */}
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-8 flex items-center gap-4">
+            <span
+              className="font-serif text-4xl text-[#7A8B7C]"
+              aria-hidden="true"
+            >
+              02
+            </span>
+            <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
+              Encuentra la solución ideal
+            </h2>
+          </div>
+
+          <p className="mb-12 max-w-3xl font-sans text-body-lg text-stone-600">
+            No existe un único producto para todos. La clave está en observar
+            las necesidades reales del día a día. Aquí tienes tres perfiles
+            comunes y la solución que mejor se adapta a ellos.
+          </p>
+
+          <ol className="space-y-8">
+            {perfiles.map((perfil) => (
+              <li
+                key={perfil.id}
+                id={perfil.id}
+                className="flex flex-col gap-6 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0 md:flex-row md:gap-10"
+              >
+                <div className="flex-shrink-0 md:w-1/4">
+                  <span
+                    className="font-serif text-5xl text-stone-200"
+                    aria-hidden="true"
+                  >
+                    {perfil.numero}
+                  </span>
+                  <h3 className="mt-2 font-serif text-h3 tracking-tight text-stone-900">
+                    {perfil.titulo}
+                  </h3>
+                </div>
+
+                <dl className="space-y-4 md:w-3/4">
+                  <div>
+                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
+                      La situación
+                    </dt>
+                    <dd className="mt-1 font-sans text-body-base font-medium text-stone-800">
+                      {perfil.situacion}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
+                      La solución recomendada
+                    </dt>
+                    <dd className="mt-1 font-sans text-body-base font-medium text-stone-900">
+                      {perfil.solucion}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
+                      Por qué funciona
+                    </dt>
+                    <dd className="mt-1 font-sans text-body-base text-stone-700">
+                      {perfil.porQue}
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 5. CTA final: orientación para reformas y entornos profesionales. */}
+      <section className="bg-stone-50 px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-8 text-balance font-serif text-h2 tracking-tight text-stone-900">
-            Cada situación es única. Encuentra el modelo que mejor se adapta a
-            vuestras necesidades.
+          <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
+            ¿Necesitas orientación profesional?
           </h2>
+          <p className="mb-8 font-sans text-body-base text-stone-600">
+            Si estás reformando un baño para una persona mayor o adaptando un
+            espacio en una residencia, es fundamental evaluar las medidas, las
+            tomas de agua y la electricidad.
+          </p>
           <Link
-            href="/seleccion"
+            href="/profesionales"
             className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
           >
-            Ver recomendaciones por perfil
+            Hablar con un especialista{" "}
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
     </>
   );
 }
-

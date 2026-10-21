@@ -18,7 +18,7 @@ const navigation = [
  */
 const footerNavigation = [
   { label: "Profesionales", href: "/profesionales" },
-  { label: "Perfiles", href: "/perfiles" },
+  { label: "Bienestar y Perfiles", href: "/bienestar" },
   { label: "Funcionalidades", href: "/funcionalidades" },
 ] as const;
 
