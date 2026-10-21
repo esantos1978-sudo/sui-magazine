@@ -6,7 +6,7 @@
 | Campo | Valor |
 |---|---|
 | Proyecto | Sui Magazine |
-| Versión del SPEC | 1.0 |
+| Versión del SPEC | 1.1 |
 | Estado | Vigente |
 | Ámbito | Identidad, diseño, UI, contenido, arquitectura y calidad |
 | Última revisión | Octubre de 2026 |
@@ -268,20 +268,23 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 - Logotipo textual “Sui” en `font-serif text-2xl tracking-tight`, con `aria-label="Sui Magazine, inicio"`.
 - Navegación principal: `font-sans text-sm uppercase tracking-wide text-stone-500`, hover `text-stone-900`.
 - En móvil, la nav tiene scroll horizontal sin barra visible; no se colapsa en hamburguesa.
-- Enlaces actuales: Guía `/guia`, Bienestar `/bienestar`, Ranking `/seleccion`, Marcas `/marcas`, Diseño `/diseno`.
+- Enlaces actuales, generados desde `silos.ts`: Guías `/guia`, Tecnología `/tecnologia`, Bienestar `/bienestar`, Diseño `/diseno`, Marcas `/marcas`, Actualidad `/actualidad`.
 
 **Footer**
 
-- Borde superior `border-stone-200`, `py-10`, texto `text-xs text-stone-500`.
-- Enlaces secundarios: Profesionales `/profesionales`, Perfiles `/perfiles`, Funcionalidades `/funcionalidades`.
-- Tagline final en mayúsculas: `Bienestar · Diseño · Higiene inteligente`, con `tracking-[0.22em] text-stone-400`.
-- Separadores decorativos con `aria-hidden="true"`.
+- Borde superior `border-stone-200`, contenedor `max-w-6xl` con `px-6 py-16 md:px-10`.
+- Rejilla de tres columnas en desktop (`md:grid-cols-[1.4fr_1fr_1fr]`): marca, Secciones y Magazine.
+- **Secciones:** los seis silos, importados de `silos.ts`.
+- **Magazine:** enlaces institucionales de `institutionalNavigation`: Profesional `/profesionales`, Soluciones `/soluciones`, Sobre el magazine `/sobre-el-magazine`, Metodología `/metodologia`, Contacto `/contacto`, Legal `/legal`.
+- Tagline de marca en mayúsculas: `Bienestar · Diseño · Higiene inteligente`, con `tracking-[0.22em] text-stone-400`.
+- Línea inferior con copyright dinámico (`new Date().getFullYear()`) y el identificador `España · es_ES`.
 
 **Hero de página**
 
 | Tipo | Altura | Fondo | Contenido |
 |---|---|---|---|
 | Home | `h-[80vh] min-h-[520px]` | Imagen a sangre + overlay | Eyebrow, H1, entradilla blancos |
+| Hub de categoría | `h-[50vh] min-h-[350px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Implementado por `CategoryHero`; usado en `/tecnologia` y `/actualidad`. |
 | Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog` y `/diseno`. |
 | Sección | `h-[50vh] min-h-[380px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 | Artículo | `h-[40vh] min-h-[320px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
@@ -612,7 +615,7 @@ La accesibilidad es parte del diseño, no un añadido.
 
 - Un solo `<h1>` por página y jerarquía de encabezados sin saltos.
 - Landmarks semánticos: `header`, `nav`, `main`, `footer`; el `main` lo aporta `Layout`.
-- Navegación principal con `aria-label="Navegación principal"` y footer con `aria-label="Enlaces del pie"`.
+- Navegación principal con `aria-label="Navegación principal"`; en el footer, `aria-label="Secciones del magazine"` y `aria-label="Información institucional"`.
 - Todos los enlaces deben ser identificables por texto; si solo llevan icono, `aria-label`.
 - Estados de foco visibles con `focus-visible:outline` de 2 px y offset 4 px.
 - Imágenes con `alt` significativo; decorativas con `alt=""` y `aria-hidden` en el contenedor.
@@ -622,6 +625,46 @@ La accesibilidad es parte del diseño, no un añadido.
 - Contraste mínimo AA: `stone-700` sobre `stone-50`, `stone-900` sobre `stone-50`, blanco sobre `stone-900`. Evitar `stone-400` para texto esencial.
 - Los controles interactivos deben tener un área cómoda de pulsación; no reducir el padding de los CTA.
 - Si se añade movimiento, respetar `prefers-reduced-motion`.
+
+
+### 3.8 Componentes de Arquitectura (Silos)
+
+Para soportar la arquitectura de seis silos se han creado componentes reutilizables que evitan duplicar maquetación entre hubs y páginas institucionales.
+
+**`CategoryHero`** (`src/components/CategoryHero.tsx`)
+
+- Hero cinematográfico reutilizable para hubs de categoría.
+- Props: `eyebrow`, `titulo`, `descripcion`, `imagenSrc`, `alt`.
+- Altura: `h-[50vh] min-h-[350px]`.
+- Usa `next/image` con `fill`, `priority` y `sizes="100vw"`, `object-cover` y overlay `bg-stone-950/60`.
+- Renderiza el único `<h1>` del hub con `font-serif text-h1 tracking-tight text-white`.
+- Se usa a través de `SiloHub` en `/tecnologia` y `/actualidad`.
+
+**`SiloGrid`** (`src/components/SiloGrid.tsx`)
+
+- Rejilla de seis tarjetas para la Home con los silos principales.
+- Cada tarjeta enlaza a la página pilar correspondiente y muestra su resumen editorial.
+- Los datos se importan de `silos.ts`; no se escriben etiquetas ni rutas en el componente.
+
+**`SiloHub`** (`src/components/SiloHub.tsx`)
+
+- Plantilla maestra para páginas de categoría (hubs).
+- Recibe `siloId` y obtiene los datos desde `silos.ts`.
+- Incluye `CategoryHero`, introducción editorial, lista de subcategorías, lecturas satélite opcionales y CTA final.
+- La sección de lecturas solo se renderiza cuando hay artículos asignados al silo.
+
+**`SiloSubnav`** (`src/components/SiloSubnav.tsx`)
+
+- Navegación secundaria de un silo, situada justo después del hero.
+- Recibe `siloId` y lista los recorridos definidos en `silos.ts`.
+- Se usa en las páginas pilar existentes (`/guia`, `/bienestar`, `/diseno`, `/marcas`) sin alterar sus rutas ni su contenido.
+
+**`EditorialPage`** (`src/components/EditorialPage.tsx`)
+
+- Plantilla para páginas institucionales y de servicio.
+- Incluye hero de sección con el único `<h1>`, entradilla, imagen opcional, bloques de contenido (`EditorialSection[]`) y CTA final.
+- Se usa en `/soluciones`, `/sobre-el-magazine`, `/metodologia`, `/contacto` y `/legal`.
+- No sustituye a las plantillas de artículo ni a los hubs de silo.
 
 
 ---
@@ -666,17 +709,24 @@ npm run scrape   # descarga de imágenes de producto (manual)
 sui-magazine/
 ├─ src/
 │  ├─ app/
-│  │  ├─ layout.tsx              # fuentes, metadata raíz y Layout global
-│  │  ├─ globals.css             # base Tailwind, body y selection
-│  │  ├─ page.tsx                # home
-│  │  ├─ guia/page.tsx
-│  │  ├─ marcas/page.tsx
-│  │  ├─ bienestar/page.tsx
-│  │  ├─ blog/page.tsx
-│  │  ├─ diseno/page.tsx
+│  │  ├─ layout.tsx                    # fuentes, metadata raíz y Layout global
+│  │  ├─ globals.css                   # base Tailwind, body y selection
+│  │  ├─ page.tsx                      # home con SiloGrid
+│  │  ├─ guia/page.tsx                 # silo Guías; ruta canónica /guia
+│  │  ├─ tecnologia/page.tsx           # hub del silo Tecnología
+│  │  ├─ bienestar/page.tsx            # página pilar de Bienestar
+│  │  ├─ diseno/page.tsx               # página pilar de Diseño
+│  │  ├─ marcas/page.tsx               # página pilar de Marcas
+│  │  ├─ actualidad/page.tsx           # hub del silo Actualidad
+│  │  ├─ blog/page.tsx                 # índice editorial
 │  │  ├─ seleccion/page.tsx
 │  │  ├─ funcionalidades/page.tsx
 │  │  ├─ profesionales/page.tsx
+│  │  ├─ soluciones/page.tsx           # página institucional
+│  │  ├─ sobre-el-magazine/page.tsx    # página institucional
+│  │  ├─ metodologia/page.tsx          # página institucional
+│  │  ├─ contacto/page.tsx             # página institucional
+│  │  ├─ legal/page.tsx                # página institucional
 │  │  └─ articulos/
 │  │     ├─ bide-japones-sostenibilidad/page.tsx
 │  │     ├─ tapa-inteligente/page.tsx
@@ -684,10 +734,17 @@ sui-magazine/
 │  │     ├─ mejores-bides-presupuesto/page.tsx
 │  │     └─ bano-espanol-adaptaciones/page.tsx
 │  ├─ components/
-│  │  └─ Layout.tsx              # header, main y footer compartidos
+│  │  ├─ CategoryHero.tsx              # hero reutilizable de hubs
+│  │  ├─ EditorialPage.tsx             # plantilla institucional
+│  │  ├─ Layout.tsx                    # header, main y footer compartidos
+│  │  ├─ SiloGrid.tsx                  # rejilla de los seis silos
+│  │  ├─ SiloHub.tsx                   # plantilla maestra de hubs
+│  │  └─ SiloSubnav.tsx                # navegación secundaria del silo
 │  ├─ content/
-│  │  └─ formats.ts              # datos editoriales reutilizables y su tipo
-│  └─ styles/                    # reservado; actualmente vacío
+│  │  ├─ articles.ts                   # artículos y asignación a silo
+│  │  ├─ formats.ts                    # datos editoriales heredados
+│  │  └─ silos.ts                      # seis silos y navegación institucional
+│  └─ styles/                          # reservado; actualmente vacío
 ├─ public/
 │  └─ images/
 │     ├─ hero-bathroom.jpg
@@ -709,7 +766,9 @@ sui-magazine/
 └─ SPEC.md
 ```
 
-**Rutas actuales:** `/`, `/guia`, `/bienestar`, `/blog`, `/diseno`, `/seleccion`, `/marcas`, `/funcionalidades`, `/profesionales` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build.
+**Rutas actuales:** `/`, `/guia`, `/tecnologia`, `/bienestar`, `/diseno`, `/marcas`, `/actualidad`, `/blog`, `/seleccion`, `/funcionalidades`, `/profesionales`, `/soluciones`, `/sobre-el-magazine`, `/metodologia`, `/contacto`, `/legal` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build.
+
+El silo Guías conserva la ruta singular `/guia`. No existe `/guias` ni una carpeta `src/app/guias/`: crear una segunda ruta con el mismo contenido duplicaría la página pilar y rompería la regla de una única URL canónica por contenido.
 
 ### 4.3 Anatomía de una página
 
@@ -734,11 +793,19 @@ Cada `page.tsx` sigue este orden:
 
 ### 4.4 Datos y contenido
 
+**Centralización de datos:**
+
+- `src/content/silos.ts`: define los seis silos principales, sus subcategorías, imágenes y navegación institucional.
+- `src/content/articles.ts`: centraliza todos los artículos con asignación explícita a un silo.
+- `src/content/formats.ts`: conserva los datos editoriales heredados de formatos y su tipo.
+- No se duplican datos en páginas individuales; se importan desde estos archivos maestros.
+
+**Reglas generales:**
+
 - Los datos se centralizan en arrays tipados con `type` explícito.
 - Los tipos llevan comentarios JSDoc que explican cada campo.
 - Los textos editoriales se redactan en español de España y siguen el tono de la sección 1.4.
 - Los precios, plazos y cifras se marcan como orientativos cuando corresponda.
-- No se duplica el mismo dato en varios arrays; si se comparte, se mueve a `src/content` o se importa.
 - Las rutas de imagen son absolutas desde `public` (`/images/...`).
 - Las marcas y modelos se escriben con su grafía oficial (TOTO, eQiik, Nashi, Roca, Brondell, Xiaomi).
 - Los enlaces internos usan `next/link` y rutas relativas al dominio.
@@ -889,8 +956,8 @@ Para reconstruir el sitio con otra identidad, sustituye únicamente estos valore
 | Sans | Inter | `layout.tsx`, `tailwind.config.ts` |
 | Escala editorial | `display` 80, `h1` 50, `h2` 40, `h3` 32 | `tailwind.config.ts` |
 | Contenedores | 6xl chrome · 5xl rejilla · 3xl lectura · 2xl CTA | Páginas y `Layout` |
-| Navegación principal | Guía, Bienestar, Ranking, Marcas, Diseño | `Layout.tsx` |
-| Contacto | `info@sui-magazine.com` | `/profesionales` |
+| Navegación principal | Guías, Tecnología, Bienestar, Diseño, Marcas, Actualidad | `Layout.tsx` y `silos.ts` |
+| Contacto | `info@sui-magazine.com` | `/contacto` |
 | Patrón de título SEO | `[Tema] | Sui Magazine` | Metadata de cada ruta |
 
 **No se clonan como “identidad”:** la estructura de carpetas, el uso de `next/image`, el sistema de tokens, la accesibilidad, las tablas con scroll, la alternancia de fondos ni las reglas de calidad. Eso es arquitectura reutilizable y debe permanecer.
@@ -914,7 +981,7 @@ HOME
 
 **Reglas de aplicación:**
 
-1. Las rutas existentes (`/bienestar`, `/diseno`, `/marcas`, `/blog`, `/guia`, `/seleccion`, `/funcionalidades`, `/profesionales` y `/articulos/*`) **se conservan**; la nueva estructura se añade sin romperlas ni redirigirlas.
+1. Las rutas existentes (`/bienestar`, `/diseno`, `/marcas`, `/blog`, `/guia`, `/seleccion`, `/funcionalidades`, `/profesionales` y `/articulos/*`) **se conservan**; la nueva estructura se añade sin romperlas ni redirigirlas. La ruta canónica del silo Guías es `/guia`; no se crea `/guias`.
 2. Cada silo tiene una página pilar que actúa como hub y enlaza a sus subcategorías y contenidos satélite.
 3. Todo contenido nuevo se asigna a un único silo principal; los enlaces cruzados entre silos son editoriales, nunca duplicaciones de ruta.
 4. La navegación principal refleja los silos; el footer mantiene las rutas institucionales y de servicio.

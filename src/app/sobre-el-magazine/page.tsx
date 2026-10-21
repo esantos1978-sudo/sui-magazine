@@ -1,74 +1,139 @@
 import type { Metadata } from "next";
 
-import EditorialPage, { type EditorialSection } from "@/components/EditorialPage";
+import CategoryHero from "@/components/CategoryHero";
 
 /**
- * Página de presentación del magazine. Explica el propósito editorial y los
+ * Presentación editorial del magazine. Explica la misión, el equipo y los
  * límites del proyecto sin atribuir credenciales que no se puedan verificar.
  */
 export const metadata: Metadata = {
-  title: "Sobre el magazine | Sui Magazine",
+  title: "Sobre Sui Magazine | El nuevo ritual de la higiene",
   description:
-    "Sui Magazine es un proyecto editorial independiente sobre washlets, bienestar y diseño del baño en España. Qué publicamos y cómo trabajamos.",
+    "Sui Magazine es una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo. Conoce nuestra misión y nuestro equipo.",
   openGraph: {
-    title: "Sobre el magazine | Sui Magazine",
+    title: "Sobre Sui Magazine | El nuevo ritual de la higiene",
     description:
-      "Un magazine editorial sobre washlets, bienestar y diseño del baño en España.",
+      "Una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo.",
     locale: "es_ES",
     type: "website",
   },
 };
 
-/** Los bloques que explican el proyecto editorial. */
-const aboutSections: EditorialSection[] = [
+/** Párrafos que explican por qué existe el magazine. */
+const missionParagraphs = [
+  "El baño es el último espacio íntimo del día. Es donde empezamos y terminamos la jornada, donde cuidamos el cuerpo y donde muchas veces se manifiestan los límites de una casa que ya no se adapta a quien la habita. Sin embargo, rara vez recibe la misma atención que la cocina o el salón.",
+  "En Sui Magazine miramos ese espacio desde tres ángulos que pocas veces se explican juntos: la tecnología que hace posible el washlet, el diseño que lo integra con dignidad y el bienestar que aporta a quien lo usa. No nos interesa el catálogo infinito; nos interesa entender qué cambia de verdad en el ritual diario.",
+  "Por eso no vendemos productos ni aceptamos publicidad encubierta. Publicamos guías, análisis y contexto para que puedas decidir con criterio: qué necesitas, qué no, cuánto cuesta mantenerlo y cuándo una solución convencional sigue siendo la mejor respuesta.",
+];
+
+/** Párrafos sobre la composición y los límites del equipo editorial. */
+const teamParagraphs = [
+  "Sui Magazine no lo firma una sola persona. Detrás hay periodistas acostumbrados a contrastar fuentes, diseñadores y arquitectos que entienden el baño como parte de una casa, y especialistas en higiene y salud que nos ayudan a distinguir una mejora real de una promesa comercial.",
+  "Trabajamos con instaladores, documentación técnica y experiencia de uso. Cuando no tenemos una respuesta verificable, lo decimos. Cuando un tema requiere criterio sanitario, lo tratamos con prudencia y derivamos a profesionales.",
+];
+
+type TeamDiscipline = {
+  /** Área de especialidad dentro del equipo editorial. */
+  title: string;
+  /** Aportación concreta de esa disciplina al magazine. */
+  description: string;
+};
+
+const teamDisciplines: TeamDiscipline[] = [
   {
-    title: "Por qué existe Sui",
-    paragraphs: [
-      "El baño español está cambiando. El bidé tradicional pierde espacio en las reformas, la población envejece y cada vez más hogares descubren que el agua tibia sustituye al papel con más comodidad y menos residuos.",
-      "Sui Magazine nace para explicar ese cambio sin mitos: qué es un washlet, qué formatos existen, cuánto cuesta mantenerlo y en qué casos no merece la pena.",
-    ],
+    title: "Periodismo",
+    description:
+      "Documentación, contraste de fuentes y edición de cada pieza antes de publicarla.",
   },
   {
-    title: "Qué publicamos",
-    paragraphs: [
-      "Organizamos el contenido en seis silos —Guías, Tecnología, Bienestar, Diseño, Marcas y Actualidad— para que cada lector encuentre la respuesta según su intención, no según el orden de publicación.",
-      "Publicamos guías prácticas, análisis de producto, criterios de diseño y contexto de mercado. También reconocemos las limitaciones de la tecnología y los casos en que una solución convencional funciona mejor.",
-    ],
+    title: "Diseño y arquitectura",
+    description:
+      "Lectura del espacio, los materiales y la escala humana del baño contemporáneo.",
   },
   {
-    title: "Independencia editorial",
-    paragraphs: [
-      "El contenido editorial no se vende. Ningún fabricante paga por aparecer en una guía, un directorio o una comparativa, y las marcas citadas se eligen por su relevancia real en el mercado español.",
-      "Cuando una pieza se base en información facilitada por una empresa, se indicará de forma explícita. La ausencia de afiliación comercial no impide que existan enlaces a tiendas o fabricantes; su inclusión nunca condiciona el criterio de la pieza.",
-    ],
-  },
-  {
-    title: "Quién está detrás",
-    paragraphs: [
-      "Sui Magazine es un proyecto editorial independiente con sede en España. La redacción combina trabajo de documentación, contraste con instaladores y lectura crítica de documentación técnica.",
-      "No somos un servicio técnico ni una tienda. Para instalaciones, garantías o reparaciones, la referencia es siempre el fabricante o un profesional cualificado.",
-    ],
+    title: "Higiene y salud",
+    description:
+      "Criterio técnico para hablar de cuidado sin convertir la revista en un folleto médico.",
   },
 ];
 
 export default function SobreElMagazinePage() {
   return (
-    <EditorialPage
-      eyebrow="El proyecto"
-      title="Un magazine sobre el nuevo ritual"
-      intro="Sui Magazine explica la higiene japonesa con criterio editorial: sin promesas milagrosas, sin catálogos disfrazados de análisis y sin perder de vista a quién va dirigido."
-      image={{
-        src: "/images/guia/bano_tradicional.jpg",
-        alt: "Baño japonés tradicional con ofuro de madera y luz natural",
-      }}
-      sections={aboutSections}
-      cta={{
-        title: "Lee el diario",
-        description:
-          "Las piezas más recientes sobre tecnología, diseño, bienestar y mercado del baño.",
-        label: "Ir al diario",
-        href: "/blog",
-      }}
-    />
+    <>
+      {/* 1. Hero institucional con el único H1 de la página. */}
+      <CategoryHero
+        eyebrow="Quiénes somos"
+        titulo="Sui Magazine"
+        descripcion="Una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo."
+        imagenSrc="/images/hero-bathroom.jpg"
+        alt="Baño de piedra natural con bañera exenta, luz suave y madera cálida"
+      />
+
+      {/* 2. Misión editorial y pull quote. */}
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <p className="font-sans text-eyebrow uppercase tracking-wider text-stone-500">
+            01 · Nuestra razón de ser
+          </p>
+          <h2 className="mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
+            Nuestra misión
+          </h2>
+          <div className="mt-8 space-y-6 font-sans text-body-lg leading-relaxed text-stone-700">
+            {missionParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <blockquote className="mt-14 border-t border-stone-200 pt-10">
+            <div className="h-px w-12 bg-[#7A8B7C]" aria-hidden="true" />
+            <p className="mt-8 text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
+              “No vendemos productos. Ofrecemos criterio.”
+            </p>
+            <div className="mt-8 h-px w-12 bg-[#7A8B7C]" aria-hidden="true" />
+          </blockquote>
+        </div>
+      </section>
+
+      {/* 3. Equipo multidisciplinar y límites del proyecto. */}
+      <section className="bg-stone-50 px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="max-w-3xl">
+            <p className="font-sans text-eyebrow uppercase tracking-wider text-stone-500">
+              02 · Quién lo hace posible
+            </p>
+            <h2 className="mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
+              Nuestro equipo
+            </h2>
+            <div className="mt-8 space-y-6 font-sans text-body-lg leading-relaxed text-stone-700">
+              {teamParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+            {teamDisciplines.map((discipline) => (
+              <article
+                key={discipline.title}
+                className="border-t border-stone-300 pt-6"
+              >
+                <h3 className="font-serif text-xl leading-snug text-stone-900">
+                  {discipline.title}
+                </h3>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-stone-600">
+                  {discipline.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-12 max-w-3xl border-t border-stone-200 pt-8 font-sans text-body-base leading-relaxed text-stone-700">
+            No somos una marca de inodoros ni una tienda. Somos una revista:
+            nuestro producto es el criterio, y nuestra obligación es explicar
+            cómo llegamos a él.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CategoryHero from "@/components/CategoryHero";
 import type { Article } from "@/content/articles";
 import { getSilo, type SiloId } from "@/content/silos";
 
@@ -44,36 +45,13 @@ export default function SiloHub({
   return (
     <>
       {/* 1. Hero cinematográfico del silo. */}
-      <section className="relative flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden">
-        <Image
-          src={silo.image.src}
-          alt={silo.image.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0 bg-stone-950/60"
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-          <div
-            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
-            aria-hidden="true"
-          />
-          <p className="font-sans text-eyebrow uppercase tracking-wider text-stone-300">
-            {silo.eyebrow}
-          </p>
-          <h1 className="mb-6 mt-4 text-balance font-serif text-h1 tracking-tight text-white">
-            {silo.label}
-          </h1>
-          <p className="mx-auto max-w-2xl font-sans text-body-lg leading-relaxed text-stone-200">
-            {silo.description}
-          </p>
-        </div>
-      </section>
+      <CategoryHero
+        eyebrow={silo.eyebrow}
+        titulo={silo.label}
+        descripcion={silo.description}
+        imagenSrc={silo.image.src}
+        alt={silo.image.alt}
+      />
 
       {/* 2. Introducción editorial del silo. */}
       <section className="bg-stone-50 px-6 py-24">
