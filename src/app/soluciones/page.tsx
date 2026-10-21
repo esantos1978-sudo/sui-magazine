@@ -8,6 +8,9 @@ import CategoryHero from "@/components/CategoryHero";
  * personas y viviendas. Se renderiza dentro del Layout global.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/soluciones",
+  },
   title: "Soluciones por Necesidades | Sui Magazine",
   description:
     "Guía rápida para elegir una solución de higiene según tu situación y tu vivienda: autonomía, dependencia, alquiler, reforma o presupuesto ajustado.",

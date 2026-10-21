@@ -6,6 +6,9 @@ import type { Metadata } from "next";
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/profesionales",
+  },
   title:
     "Inodoros inteligentes para residencias y centros | Sui Magazine",
   description:

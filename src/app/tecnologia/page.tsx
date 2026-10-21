@@ -8,6 +8,9 @@ import { getArticlesBySilo } from "@/content/articles";
  * Se renderiza dentro del Layout global, que aporta header, `<main>` y footer.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/tecnologia",
+  },
   title: "Tecnología del baño | Sui Magazine",
   description:
     "Innovación, sistemas inteligentes y sostenibilidad aplicados al baño. Cómo funciona la tecnología que mejora el ritual del agua, explicada sin tecnicismos.",

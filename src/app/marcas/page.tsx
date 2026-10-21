@@ -8,6 +8,9 @@ import SiloSubnav from "@/components/SiloSubnav";
  * Por eso aquí no se vuelve a envolver en otro `<main>`.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/marcas",
+  },
   title: "Marcas de Inodoros Inteligentes | Sui Magazine",
   description:
     "Descubre las marcas líderes en inodoros inteligentes y bidés japoneses: TOTO, Roca, Geberit, GROHE, Duravit y las alternativas emergentes. Análisis y filosofía de diseño.",

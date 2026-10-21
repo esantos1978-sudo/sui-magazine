@@ -8,6 +8,9 @@ import CategoryHero from "@/components/CategoryHero";
  * publicar información que todavía no se puede verificar.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/legal",
+  },
   title: "Aviso Legal y Política de Privacidad | Sui Magazine",
   description:
     "Titularidad, política de privacidad, cookies y propiedad intelectual de Sui Magazine. Información transparente sobre el uso de esta publicación.",

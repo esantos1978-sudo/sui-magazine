@@ -13,6 +13,9 @@ import { getSilo } from "@/content/silos";
  * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/blog",
+  },
   title: "El diario del baño consciente | Sui Magazine",
   description:
     "Crónicas y guías sobre diseño, sostenibilidad, tecnología y el nuevo ritual de la higiene. El índice editorial de todos los artículos de Sui Magazine.",

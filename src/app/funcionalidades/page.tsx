@@ -7,6 +7,9 @@ import Link from "next/link";
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/funcionalidades",
+  },
   title:
     "Funcionalidades de bidés japoneses: Guía definitiva | Sui Magazine",
   description:

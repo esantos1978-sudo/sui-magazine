@@ -7,6 +7,9 @@ import CategoryHero from "@/components/CategoryHero";
  * prometer un canal que requeriría backend y ordenan las consultas por tema.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/contacto",
+  },
   title: "Contacto | Sui Magazine",
   description:
     "Consultas editoriales, colaboraciones profesionales y prensa. Elige el canal adecuado para hablar con el equipo de Sui Magazine.",

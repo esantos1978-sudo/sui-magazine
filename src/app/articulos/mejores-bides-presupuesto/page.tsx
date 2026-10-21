@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import { getArticleByHref } from "@/content/articles";
+
+const article = getArticleByHref("/articulos/mejores-bides-presupuesto");
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/articulos/mejores-bides-presupuesto",
+  },
   title:
     "Mejores bidés japoneses por presupuesto (2026) | Sui Magazine",
   description:
@@ -99,6 +107,7 @@ const budgetTiers: BudgetTier[] = [
 export default function MejoresBidesPresupuestoPage() {
   return (
     <>
+      <ArticleJsonLd article={article} />
       {/* 1. Hero del artículo: mismo ritmo que la guía de instalación. */}
       <section className="flex h-[40vh] min-h-[340px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">

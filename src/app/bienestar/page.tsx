@@ -12,6 +12,9 @@ import SiloSubnav from "@/components/SiloSubnav";
  * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/bienestar",
+  },
   title: "Bienestar y Dignidad en el Baño | Sui Magazine",
   description:
     "La higiene inteligente como acto de cuidado y autonomía. Guía para elegir la solución adecuada según las necesidades de movilidad y dependencia.",

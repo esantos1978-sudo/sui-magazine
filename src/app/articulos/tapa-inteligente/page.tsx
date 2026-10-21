@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import { getArticleByHref } from "@/content/articles";
+
+const article = getArticleByHref("/articulos/tapa-inteligente");
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/articulos/tapa-inteligente",
+  },
   title:
     "Tapa inteligente para inodoro: Guía definitiva y materiales | Sui Magazine",
   description:
@@ -52,6 +60,7 @@ const models: ModelSpotlight[] = [
 export default function TapaInteligentePage() {
   return (
     <>
+      <ArticleJsonLd article={article} />
       {/* 1. Hero del artículo. */}
       <section className="flex h-[40vh] min-h-[320px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">

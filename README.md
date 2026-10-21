@@ -17,7 +17,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Tailwind CSS 3:** sistema visual editorial basado en la paleta `stone`, utilidades responsive y composición tipográfica cuidada.
 - **Tipografía editorial:** Playfair Display para titulares e Inter para cuerpo y navegación, cargadas con `next/font` y `display: swap`.
 - **Diseño responsive:** interfaz mobile-first, header sticky, navegación accesible, tablas con scroll horizontal y footer compartido.
-- **SEO on-page base:** `metadata` específica por ruta (título y descripción) y Open Graph en la home y las páginas editoriales. Incluye HTML semántico y rutas estáticas.
+- **SEO técnico base:** `metadata` específica por ruta (título, descripción y URL canónica), `metadataBase`, Open Graph en la home y las páginas editoriales, Twitter Cards, JSON-LD global `WebSite`/`Organization`, JSON-LD `Article` en los cinco artículos, `robots.txt` y `sitemap.xml` generados con la Metadata API de Next.js. Incluye HTML semántico y rutas estáticas.
 - **Contenido editorial completo:** home, guía esencial, bienestar y perfiles, blog, diseño y estética, guía de funcionalidades, ranking 2026 y cinco artículos prácticos sobre instalación, presupuesto, adaptación al baño español, tapa inteligente y sostenibilidad.
 - **Ranking de producto:** siete modelos comparados con criterios editoriales, precio orientativo, puntuación, puntos fuertes, limitaciones y perfil recomendado.
 - **Bienestar y perfiles:** narrativa sobre dignidad y autonomía, tres perfiles de cuidado con solución recomendada y CTA de orientación profesional.
@@ -27,7 +27,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Accesibilidad base:** landmarks semánticos, etiquetas `aria`, elementos decorativos ocultos y estados de foco visibles.
 - **Calidad de código:** ESLint con `next/core-web-vitals` y `next/typescript`, más comprobación de tipos en el build.
 
-> **Alcance actual del SEO:** existe SEO on-page base, pero todavía no hay `sitemap.xml`, `robots.txt`, URLs canónicas ni datos estructurados. Son mejoras previstas para una fase posterior.
+> **Alcance actual del SEO:** existe SEO técnico base con `metadataBase`, URLs canónicas por ruta, Twitter Cards, JSON-LD global `WebSite`/`Organization`, JSON-LD `Article` en los cinco artículos, `robots.txt` y `sitemap.xml` generados con la Metadata API de Next.js. Todavía no hay imagen Open Graph dedicada ni datos estructurados `Product`/`FAQPage`; las fechas del JSON-LD `Article` son provisionales. Son mejoras previstas para una fase posterior.
 
 ---
 

@@ -7,6 +7,9 @@ import CategoryHero from "@/components/CategoryHero";
  * independencia y los conflictos de interés del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/metodologia",
+  },
   title: "Metodología Editorial | Sui Magazine",
   description:
     "El proceso independiente y transparente con el que seleccionamos, probamos y actualizamos los contenidos de Sui Magazine.",

@@ -7,6 +7,9 @@ import CategoryHero from "@/components/CategoryHero";
  * límites del proyecto sin atribuir credenciales que no se puedan verificar.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/sobre-el-magazine",
+  },
   title: "Sobre Sui Magazine | El nuevo ritual de la higiene",
   description:
     "Sui Magazine es una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo. Conoce nuestra misión y nuestro equipo.",

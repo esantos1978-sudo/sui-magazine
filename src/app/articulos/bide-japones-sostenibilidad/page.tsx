@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import { getArticleByHref } from "@/content/articles";
+
+const article = getArticleByHref("/articulos/bide-japones-sostenibilidad");
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/articulos/bide-japones-sostenibilidad",
+  },
   title:
     "Bidé japonés y sostenibilidad: El impacto real en el planeta | Sui Magazine",
   description:
@@ -91,6 +99,7 @@ const comparisonRows: ComparisonRow[] = [
 export default function BideJaponesSostenibilidadPage() {
   return (
     <>
+      <ArticleJsonLd article={article} />
       {/* 1. Hero del artículo. */}
       <section className="flex h-[40vh] min-h-[320px] items-center justify-center bg-stone-100 px-6">
         <div className="mx-auto max-w-3xl text-center">

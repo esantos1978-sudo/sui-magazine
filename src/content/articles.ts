@@ -1,6 +1,22 @@
 import type { SiloId } from "@/content/silos";
 
 /**
+ * Dominio de producción. Debe coincidir con `metadataBase` en
+ * `src/app/layout.tsx`; si cambia el dominio, actualizar ambos.
+ */
+const SITE_URL = "https://sui-magazine.vercel.app";
+
+/**
+ * Fechas provisionales para los datos estructurados.
+ *
+ * El modelo editorial solo guarda el mes de publicación en formato legible.
+ * Cuando se añadan fechas ISO por artículo, estos valores deben sustituirse
+ * por `article.datePublished` y `article.dateModified`.
+ */
+const ARTICLE_DATE_PUBLISHED = "2024-01-01";
+const ARTICLE_DATE_MODIFIED = "2024-01-01";
+
+/**
  * Ficha editorial de un artículo publicado en el magazine.
  * Se comparte entre el índice `/blog`, los hubs de silo y las páginas que
  * necesitan mostrar lecturas relacionadas.
@@ -93,9 +109,55 @@ export const articles: Article[] = [
 ];
 
 /**
+ * Genera el JSON-LD `Article` de una ficha editorial.
+ *
+ * Las URLs de imagen se construyen contra el dominio de producción para que
+ * Google reciba siempre una URL absoluta.
+ */
+export function getArticleJsonLd(article: Article) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    image: `${SITE_URL}${article.image}`,
+    author: {
+      "@type": "Organization",
+      name: "Sui Magazine",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Sui Magazine",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/hero-bathroom.jpg`,
+      },
+    },
+    datePublished: ARTICLE_DATE_PUBLISHED,
+    dateModified: ARTICLE_DATE_MODIFIED,
+  };
+}
+
+/**
  * Devuelve los artículos asignados a un silo, conservando el orden editorial.
  * Se usa en los hubs para no repetir filtros en cada página.
  */
 export function getArticlesBySilo(silo: SiloId): Article[] {
   return articles.filter((article) => article.silo === silo);
+}
+
+/**
+ * Recupera una ficha editorial por su ruta.
+ *
+ * Falla en build si una página de artículo deja de tener su ficha en el
+ * contenido: así no se publica una página con datos estructurados vacíos.
+ */
+export function getArticleByHref(href: string): Article {
+  const article = articles.find((item) => item.href === href);
+
+  if (!article) {
+    throw new Error(`No se encontró un artículo con la ruta "${href}".`);
+  }
+
+  return article;
 }

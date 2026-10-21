@@ -7,6 +7,9 @@ import Link from "next/link";
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/seleccion",
+  },
   title: "Ranking 2026: Los Mejores Bidés Japoneses | Sui Magazine",
   description:
     "Análisis riguroso y honesto de los inodoros inteligentes que sí merecen la pena en España: siete modelos comparados por calidad-precio, funcionalidades, materiales y servicio técnico.",

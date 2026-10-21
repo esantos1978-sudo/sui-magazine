@@ -12,6 +12,9 @@ import SiloSubnav from "@/components/SiloSubnav";
  * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/diseno",
+  },
   title: "Diseño y Estética del Baño | Sui Magazine",
   description:
     "Tendencias, materiales y integración de tecnología en el baño contemporáneo. Cómo crear espacios serenos con alma y funcionalidad.",

@@ -10,6 +10,9 @@ import SiloSubnav from "@/components/SiloSubnav";
  * el header y el footer del magazine.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/guia",
+  },
   title: "La Guía Esencial | Sui Magazine",
   description:
     "Guía completa sobre bidés japoneses y washlets: qué son, cómo funcionan, los tres formatos disponibles y por qué se han vuelto tan populares en España.",

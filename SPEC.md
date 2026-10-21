@@ -800,6 +800,12 @@ Cada `page.tsx` sigue este orden:
 - `src/content/formats.ts`: conserva los datos editoriales heredados de formatos y su tipo.
 - No se duplican datos en páginas individuales; se importan desde estos archivos maestros.
 
+**Datos estructurados de artículos:**
+
+- `src/content/articles.ts` expone `getArticleJsonLd(article)`, que transforma una ficha `Article` en un objeto JSON-LD de schema.org con `headline`, `description`, `image` absoluta, autor, publisher, logo y fechas.
+- `src/components/ArticleJsonLd.tsx` es el patrón oficial para inyectar ese bloque en las páginas de artículo. Recibe la ficha y renderiza un único `<script type="application/ld+json">`.
+- Las páginas de artículo no escriben JSON-LD manualmente: obtienen su ficha con `getArticleByHref()` y renderizan `<ArticleJsonLd article={article} />`.
+
 **Reglas generales:**
 
 - Los datos se centralizan en arrays tipados con `type` explícito.
@@ -827,14 +833,24 @@ Cada `page.tsx` sigue este orden:
 
 **Implementación actual:**
 
+- **Estado:** Twitter Cards, JSON-LD global (`WebSite`/`Organization`) y JSON-LD dinámico por artículo (`Article`) están implementados.
 - `src/app/layout.tsx` define la metadata raíz:
+  - `metadataBase: new URL("https://sui-magazine.vercel.app")`, que resuelve las URLs relativas de metadata contra el dominio de producción.
   - `title: "Sui Magazine | El nuevo ritual de la higiene"`.
   - `description` editorial de una frase.
+  - `alternates: { canonical: "/" }` para la home.
   - Open Graph con `locale: "es_ES"` y `type: "website"`.
-- Cada página exporta `metadata` propia con `title`, `description` y, en la mayoría, `openGraph`.
+- Cada página exporta `metadata` propia con `title`, `description`, `alternates.canonical` y, en la mayoría, `openGraph`. El canónico se declara con ruta relativa (por ejemplo, `canonical: "/guia"`) y `metadataBase` lo convierte en URL absoluta.
 - El HTML declara `lang="es"`.
 - Los títulos de página siguen el patrón `[Tema] | Sui Magazine`.
 - Los artículos y páginas editoriales usan `type: "article"`; la home usa `website`.
+- `src/app/robots.ts` genera `/robots.txt` con la Metadata API de Next.js: permite todo el sitio, bloquea `/api/` y `/_next/`, y declara el sitemap de producción.
+- `src/app/sitemap.ts` genera `/sitemap.xml` con la home, los seis silos, los índices editoriales, las páginas institucionales y los cinco artículos.
+- `src/app/layout.tsx` incluye un bloque JSON-LD global de tipo `WebSite` con `publisher` de tipo `Organization`. El logo declarado es provisional (`/images/hero-bathroom.jpg`) hasta disponer de un logotipo definitivo apto para datos estructurados.
+- Las cinco páginas de artículo inyectan un bloque JSON-LD `Article` generado por `getArticleJsonLd()` en `src/content/articles.ts`. Incluye titular, extracto, imagen absoluta, autor, publisher y fechas. Las fechas siguen siendo provisionales (`2024-01-01`) hasta añadir fechas ISO por artículo.
+- `src/app/layout.tsx` configura Twitter Cards con `card: "summary_large_image"`, título, descripción e imagen social (`/images/hero-bathroom.jpg`). Next.js resuelve la imagen contra `metadataBase`.
+
+> **Nota de dominio:** para cambiar el dominio de producción, actualizar la constante `SITE_URL` en `src/content/articles.ts`, `metadataBase` en `src/app/layout.tsx`, y las URLs en `src/app/robots.ts` y `src/app/sitemap.ts`.
 
 **Contrato mínimo para cualquier página nueva:**
 
@@ -843,6 +859,9 @@ export const metadata: Metadata = {
   title: "Tema concreto | Sui Magazine",
   description:
     "Descripción única, en español, de 140–160 caracteres, con la propuesta de valor.",
+  alternates: {
+    canonical: "/ruta-de-la-pagina",
+  },
   openGraph: {
     title: "Tema concreto | Sui Magazine",
     description: "Resumen editorial breve y específico.",
@@ -856,23 +875,15 @@ export const metadata: Metadata = {
 
 1. Un `title` único por ruta; no duplicar el título raíz.
 2. Una `description` única, natural, sin acumulación de palabras clave.
-3. Un solo `<h1>` por página y encabezados jerárquicos.
-4. URLs en minúsculas, con guiones y sin tildes: `/articulos/bano-espanol-adaptaciones`.
-5. Textos alternativos descriptivos; no son un campo de keywords.
-6. No se promete información que no exista en la página.
-7. Al clonar el proyecto, cambiar nombre, dominio, descripciones y Open Graph; no dejar referencias a Sui.
+3. Cada ruta declara su propio `alternates.canonical`; el canónico raíz `/` no debe heredarse en páginas hijas.
+4. Los datos estructurados globales (`WebSite` y `Organization`) se declaran una sola vez en el layout raíz. `Article` se genera desde `src/content/articles.ts` y se inyecta en cada página de artículo mediante `<ArticleJsonLd />`. `Product` y `FAQPage` se añadirán en las páginas que correspondan cuando exista contenido que los justifique.
+5. Un solo `<h1>` por página y encabezados jerárquicos.
+6. URLs en minúsculas, con guiones y sin tildes: `/articulos/bano-espanol-adaptaciones`.
+7. Textos alternativos descriptivos; no son un campo de keywords.
+8. No se promete información que no exista en la página.
+9. Al clonar el proyecto, cambiar nombre, dominio (`metadataBase`, `robots.ts`, `sitemap.ts` y `src/content/articles.ts`), descripciones y Open Graph; no dejar referencias a Sui.
 
-**Deuda SEO conocida (no implementada):**
-
-- No hay `metadataBase`.
-- No hay URLs canónicas.
-- No hay `sitemap.xml` ni `robots.txt`.
-- No hay imagen Open Graph dedicada.
-- No hay Twitter Cards.
-- No hay datos estructurados JSON-LD (`Article`, `Product`, `FAQPage`, `Organization`).
-- No hay `publishedTime`/`modifiedTime` en artículos.
-
-Estas carencias deben resolverse antes de considerar el sitio una plantilla de producción completa. Mientras no existan, **no deben documentarse como si estuvieran implementadas**.
+La deuda técnica planificada se detalla en la sección 4.8.
 
 ### 4.7 Calidad, rendimiento y verificación
 
@@ -883,7 +894,7 @@ npm run lint
 npm run build
 ```
 
-El build debe completarse sin errores de TypeScript ni de ESLint. Actualmente genera 17 páginas estáticas; el número puede crecer, pero todas las rutas deben prerenderizarse.
+El build debe completarse sin errores de TypeScript ni de ESLint. Actualmente todas las rutas se prerenderizan; el número puede crecer, pero ninguna debe quedar fuera del build.
 
 **Verificación visual mínima:**
 
@@ -918,6 +929,15 @@ El build debe completarse sin errores de TypeScript ni de ESLint. Actualmente ge
 - [ ] No introduce dependencias ni patrones no documentados.
 - [ ] Si cambia una regla, el SPEC se actualiza en el mismo cambio.
 
+### 4.8 Deuda Técnica Planificada (Fase 2)
+
+Las siguientes partidas son decisiones de alcance para una fase posterior, no errores ni bloqueos del estado actual:
+
+- **Imagen Open Graph dedicada por artículo:** sustituir la imagen social global por una pieza específica de cada artículo, con proporción adecuada para `summary_large_image`.
+- **Schema `Product` y `FAQPage`:** añadir datos estructurados de producto en las páginas que comparan modelos y de FAQ en las páginas que ya publican preguntas y respuestas.
+- **Sistema de fechas reales:** incorporar `datePublished` y `dateModified` en formato ISO a cada ficha de `articles.ts`, usar `publishedTime`/`modifiedTime` en la metadata de los artículos y reutilizar esas fechas en `sitemap.ts` y en el JSON-LD `Article`.
+
+Mientras no se implementen, no deben documentarse como si ya existieran.
 
 ---
 

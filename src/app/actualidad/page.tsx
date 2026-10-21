@@ -8,6 +8,9 @@ import { getArticlesBySilo } from "@/content/articles";
  * Se renderiza dentro del Layout global, que aporta header, `<main>` y footer.
  */
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/actualidad",
+  },
   title: "Actualidad del baño | Sui Magazine",
   description:
     "Lanzamientos, noticias y tendencias del sector del baño. Contexto editorial para entender hacia dónde va la higiene japonesa en España.",
