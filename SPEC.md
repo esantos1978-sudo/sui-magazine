@@ -409,14 +409,16 @@ Motivos: optimización automática, tamaños responsivos, lazy loading, prevenci
 ```tsx
 <div className="relative mb-12 h-[400px] w-full overflow-hidden rounded-sm md:h-[500px]">
   <Image
-    src="/images/guia/bano_tradicional.jpg"
-    alt="Baño japonés tradicional con ofuro de madera"
+    src="/images/atmosfericas/bide-japones-entorno.jpg"
+    alt="Baño minimalista con inodoro suspendido de diseño integrado, mueble de madera clara y texturas naturales"
     fill
     sizes="(min-width: 768px) 768px, 100vw"
-    className="object-cover"
+    className="object-cover object-[50%_70%]"
   />
 </div>
 ```
+
+Cuando el original no comparte la proporción de la caja, `object-cover` recorta en vertical: aquí el archivo es cuadrado (1000×1000) y en `md` la caja mide 768×500, así que se pierden ~134 px arriba y abajo. El `object-[50%_70%]` desplaza el encuadre hacia abajo para que el inodoro no quede seccionado por el borde inferior; en móvil no tiene efecto porque el recorte vertical es nulo.
 
 **Patrón C. Imagen de tarjeta con proporción fija**
 

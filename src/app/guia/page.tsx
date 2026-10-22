@@ -344,14 +344,14 @@ export default function GuiaPage() {
             </h2>
           </div>
 
-          {/* Imagen atmosférica: el ofuro como origen del ritual del agua. */}
+          {/* Imagen atmosférica: el baño donde vive el inodoro japonés. */}
           <div className="relative mb-12 h-[400px] w-full overflow-hidden rounded-sm md:h-[500px]">
             <Image
-              src="/images/guia/bano_tradicional.jpg"
-              alt="Baño japonés tradicional con ofuro de madera"
+              src="/images/atmosfericas/bide-japones-entorno.jpg"
+              alt="Baño minimalista con inodoro suspendido de diseño integrado, mueble de madera clara y texturas naturales"
               fill
               sizes="(min-width: 768px) 768px, 100vw"
-              className="object-cover"
+              className="object-cover object-[50%_70%]"
             />
           </div>
 
