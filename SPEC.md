@@ -574,6 +574,16 @@ Los bloques principales de la guía se numeran `01`, `02`, `03`… con `font-ser
 
 Se enmarca con dos líneas salvia de `h-px w-12`, separadas por `mb-8` y `mt-8`, y se limita a una o dos frases. No se usa para testimonios comerciales.
 
+**Ruptura visual**
+
+Banda de imagen a sangre que separa dos bloques densos de texto: en `/guia` va entre el bloque `01` (qué es un bidé japonés) y el `02` (los tres formatos). Se compone de una `<section>` con `relative h-[50vh] min-h-[400px] overflow-hidden`, un `<Image fill sizes="100vw" className="object-cover">` y una cita sobre la zona desenfocada de la foto, alineada a la derecha con `justify-end`.
+
+- `object-[100%_50%] md:object-[0%_50%]`: en móvil el encuadre se ancla al borde derecho (la zona desenfocada) porque el recorte vertical deja visible solo la mitad central de la foto; desde `md` vuelve a `0% 50%` para conservar la piedra nítida a la izquierda.
+- `max-w-md md:max-w-[14rem] lg:max-w-[18rem] xl:max-w-md`: en tablet el bloque se estrecha para que la cita quede entera sobre la zona desenfocada, porque en ese rango el ancho disponible a la derecha de la frontera nítida es de 220–409 px. Los valores salen de medir esa frontera sobre los píxeles de la foto: `14rem` a 768 px deja 5 px de solape y crece a `18rem` desde `lg` (0 px) y a `28rem` desde `xl`. `14rem` es además el mínimo que evita que la cita desborde la banda de 450 px (9 líneas). En móvil se mantiene el ancho completo porque ahí el desenfoque entra por `object-position`.
+- No lleva overlay ni número de sección: la numeración `01`–`06` de la guía se conserva intacta y la banda funciona como pausa, no como capítulo.
+- La cita usa `font-serif text-2xl italic leading-tight text-stone-800 md:text-3xl` y una única línea salvia de `h-px w-12` sobre el bloque de texto.
+- El texto se lee sin velo: solo se admite sobre imágenes claras y con una zona desenfocada amplia en el lado del texto.
+
 **Lista numerada editorial**
 
 - `ol` con `space-y-6` u `space-y-8`.
@@ -749,6 +759,7 @@ sui-magazine/
 │  └─ images/
 │     ├─ hero-lujo-negro.jpg
 │     ├─ tapa-inteligente.jpg
+│     ├─ atmosfericas/
 │     ├─ articulos/
 │     ├─ formatos/
 │     ├─ guia/

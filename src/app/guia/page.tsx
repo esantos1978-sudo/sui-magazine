@@ -397,6 +397,37 @@ export default function GuiaPage() {
         </div>
       </section>
 
+      {/*
+        Ruptura visual entre el "qué es" y los formatos: una pausa de imagen
+        que da aire al bloque técnico que viene después. Sin overlay, porque la
+        mitad derecha de la foto ya está desenfocada y clara. El bloque estrecha
+        su ancho en tablet para que la cita no se salga de esa zona.
+      */}
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/atmosfericas/textura-piedra-travertino.jpg"
+            alt="Textura natural de piedra travertino con luz suave"
+            fill
+            sizes="100vw"
+            className="object-cover object-[100%_50%] md:object-[0%_50%]"
+          />
+        </div>
+
+        <div className="relative z-10 flex h-full items-center justify-end px-6 md:px-16">
+          <div className="max-w-md md:max-w-[14rem] lg:max-w-[18rem] xl:max-w-md">
+            <div
+              className="mb-6 h-px w-12 bg-[#7A8B7C]"
+              aria-hidden="true"
+            ></div>
+            <blockquote className="text-balance font-serif text-2xl italic leading-tight text-stone-800 md:text-3xl">
+              “El baño es el último refugio de la intimidad. Merece la misma
+              atención que dedicamos a cualquier otro espacio de la casa.”
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* 4. Los tres formatos en detalle y tabla comparativa final. */}
       <section id="tipos" className="scroll-mt-24 bg-stone-50 px-6 py-24">
         <div className="mx-auto max-w-5xl">
