@@ -100,9 +100,9 @@ export const articles: Article[] = [
     category: "Guía de compra",
     excerpt:
       "Qué comprar en cada franja de precio, con recomendaciones honestas y contrapartidas.",
-    image: "/images/formatos/tapa-home.jpg",
+    image: "/images/formatos/tapa-inteligente-marmol.jpg",
     imageAlt:
-      "Inodoro con tapa inteligente en un baño de piedra y madera",
+      "Inodoro con tapa inteligente y panel de control en baño luminoso",
     date: "Octubre 2026",
     silo: "guias",
   },

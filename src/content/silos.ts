@@ -233,8 +233,8 @@ export const silos: Silo[] = [
     summary:
       "Directorio editorial de fabricantes, filosofías y modelos de referencia.",
     image: {
-      src: "/images/formatos/tapa-home.jpg",
-      alt: "Inodoro con tapa inteligente en un baño de piedra y madera",
+      src: "/images/formatos/tapa-inteligente-marmol.jpg",
+      alt: "Inodoro con tapa inteligente en un baño de mármol gris y madera clara",
     },
     subcategories: [
       {

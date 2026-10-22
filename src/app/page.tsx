@@ -28,8 +28,13 @@ export default function Home() {
           <h1 className="font-serif text-h1 tracking-tight">
             El nuevo ritual
           </h1>
-          <p className="mx-auto mt-7 max-w-xl text-body-lg text-white/85">
-            Bienestar, diseño y sostenibilidad en un solo gesto.
+          <p className="mx-auto mt-7 max-w-2xl text-body-lg text-white/85">
+            Más allá del inodoro convencional. Los inodoros inteligentes
+            incorporan sistemas de higiene con agua y, según el modelo, funciones
+            como el secado, la regulación de temperatura o la limpieza
+            automática. Una evolución del baño tradicional que combina
+            tecnología, diseño y confort para transformar una de nuestras rutinas
+            más cotidianas.
           </p>
         </div>
       </section>
@@ -51,15 +56,16 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="mb-16 text-center md:text-left">
           <span className="text-eyebrow uppercase tracking-wider text-stone-500">
-            Elige tu formato
+            DESCUBRE LOS FORMATOS
           </span>
-          <h2 className="mt-4 text-h3 tracking-tight">
-            Hay un modelo para cada necesidad
+          <h2 className="mt-4 mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
+            Una solución para cada necesidad.
           </h2>
-          <p className="mt-6 max-w-2xl text-body-lg text-stone-600">
-            Lo que nadie te cuenta es que no hace falta arrancar tu váter actual
-            si no quieres. El mercado se divide en tres grandes categorías, de
-            la solución más sencilla a la más completa.
+          <p className="max-w-3xl text-body-lg leading-relaxed text-stone-600">
+            Desde accesorios que se integran en el inodoro existente hasta
+            sistemas inteligentes completamente integrados. La higiene con agua
+            ofrece diferentes alternativas, adaptadas a cada espacio, estilo de
+            vida y necesidad.
           </p>
         </div>
 
@@ -68,8 +74,8 @@ export default function Home() {
           <div className="group">
             <div className="mb-6 overflow-hidden bg-stone-100">
               <Image
-                src="/images/formatos/accesorio-mecanico.jpg"
-                alt="Accesorio mecánico instalado en inodoro"
+                src="/images/formatos/accesorio-mecanico-lifestyle.jpg"
+                alt="Inodoro tradicional con accesorio de bidé mecánico instalado en un baño luminoso con detalles de mimbre"
                 width={800}
                 height={600}
                 sizes="(min-width: 768px) 33vw, 100vw"
@@ -96,8 +102,8 @@ export default function Home() {
           <div className="group">
             <div className="mb-6 overflow-hidden bg-stone-100">
               <Image
-                src="/images/formatos/tapa-home.jpg"
-                alt="Tapa inteligente o washlet"
+                src="/images/formatos/tapa-inteligente-marmol.jpg"
+                alt="Inodoro con tapa inteligente y panel de control lateral en un baño de mármol gris y madera clara"
                 width={800}
                 height={600}
                 sizes="(min-width: 768px) 33vw, 100vw"
@@ -124,8 +130,8 @@ export default function Home() {
           <div className="group">
             <div className="mb-6 overflow-hidden bg-stone-100">
               <Image
-                src="/images/formatos/inodoro-completo.jpg"
-                alt="Inodoro japonés completo suspendido"
+                src="/images/formatos/inodoro-completo-wabi.jpg"
+                alt="Inodoro inteligente de diseño integrado en un baño oscuro con revestimiento de listones de madera y luz natural"
                 width={800}
                 height={600}
                 sizes="(min-width: 768px) 33vw, 100vw"

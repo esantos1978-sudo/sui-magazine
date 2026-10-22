@@ -423,8 +423,8 @@ Motivos: optimización automática, tamaños responsivos, lazy loading, prevenci
 ```tsx
 <div className="mb-6 overflow-hidden bg-stone-100">
   <Image
-    src="/images/formatos/tapa-home.jpg"
-    alt="Tapa inteligente o washlet"
+    src="/images/formatos/tapa-inteligente-marmol.jpg"
+    alt="Inodoro con tapa inteligente y panel de control lateral en un baño de mármol gris y madera clara"
     width={800}
     height={600}
     sizes="(min-width: 768px) 33vw, 100vw"

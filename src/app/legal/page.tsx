@@ -66,8 +66,8 @@ export default function LegalPage() {
         eyebrow="Legal"
         titulo="Aviso legal"
         descripcion="Información transparente sobre el uso de esta publicación."
-        imagenSrc="/images/formatos/inodoro-completo.jpg"
-        alt="Inodoro suspendido blanco sobre un panel de mármol gris y suelo de madera"
+        imagenSrc="/images/formatos/inodoro-completo-wabi.jpg"
+        alt="Inodoro inteligente de diseño integrado en baño oscuro con luz natural"
       />
 
       {/* 2. Titularidad y datos de contacto legal. */}
