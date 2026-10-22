@@ -39,7 +39,7 @@ type TechnologyArea = {
   text: string;
   /** Etiqueta del enlace de exploración. */
   cta: string;
-  /** Destino del enlace; provisional hasta crear las sub-páginas. */
+  /** Destino del enlace: la sub-página editorial del territorio. */
   href: string;
   /** Ruta absoluta de la imagen desde `public`. */
   image: string;
@@ -58,7 +58,7 @@ const technologyAreas: TechnologyArea[] = [
     title: "El futuro toma forma.",
     text: "La evolución de la higiene a través de nuevas ideas, desarrollos y tecnologías que están redefiniendo nuestra relación con el baño.",
     cta: "EXPLORAR INNOVACIÓN",
-    href: "/tecnologia",
+    href: "/tecnologia/innovacion",
     image: "/images/formatos/tapa-inteligente-marmol.jpg",
     imageAlt:
       "Inodoro con tapa inteligente en un baño de mármol gris y madera clara",
@@ -68,7 +68,7 @@ const technologyAreas: TechnologyArea[] = [
     title: "La ingeniería del bienestar.",
     text: "Descubre la tecnología que hay detrás de cada función: sistemas de lavado, control de temperatura, sensores y automatización al servicio de una experiencia más intuitiva.",
     cta: "EXPLORAR SISTEMAS",
-    href: "/tecnologia",
+    href: "/tecnologia/sistemas-inteligentes",
     image: "/images/atmosfericas/bide-japones-entorno.jpg",
     imageAlt:
       "Baño minimalista con inodoro suspendido de diseño integrado, mueble de madera clara y texturas naturales",
@@ -78,7 +78,7 @@ const technologyAreas: TechnologyArea[] = [
     title: "El valor de cada recurso.",
     text: "Una mirada al consumo de agua y energía, la eficiencia y la durabilidad de los inodoros inteligentes. Porque innovar también significa comprender su impacto.",
     cta: "EXPLORAR SOSTENIBILIDAD",
-    href: "/tecnologia",
+    href: "/tecnologia/sostenibilidad",
     image: "/images/articulos/sostenibilidad.jpg",
     imageAlt: "Baño minimalista con inodoro japonés y materiales sostenibles",
   },
