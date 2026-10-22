@@ -38,8 +38,8 @@ export default function BlogPage() {
       <section className="relative flex h-[60vh] min-h-[400px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-bathroom.jpg"
-            alt="Interior de baño minimalista"
+            src="/images/hero-lujo-negro.jpg"
+            alt="Baño de lujo contemporáneo con inodoro inteligente y mármol negro"
             fill
             priority
             sizes="100vw"

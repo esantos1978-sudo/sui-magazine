@@ -68,8 +68,8 @@ export default function SobreElMagazinePage() {
         eyebrow="Quiénes somos"
         titulo="Sui Magazine"
         descripcion="Una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo."
-        imagenSrc="/images/hero-bathroom.jpg"
-        alt="Baño de piedra natural con bañera exenta, luz suave y madera cálida"
+        imagenSrc="/images/hero-lujo-negro.jpg"
+        alt="Baño de lujo contemporáneo con inodoro inteligente y mármol negro"
       />
 
       {/* 2. Misión editorial y pull quote. */}

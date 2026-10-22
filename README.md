@@ -27,7 +27,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Accesibilidad base:** landmarks semánticos, etiquetas `aria`, elementos decorativos ocultos y estados de foco visibles.
 - **Calidad de código:** ESLint con `next/core-web-vitals` y `next/typescript`, más comprobación de tipos en el build.
 
-> **Alcance actual del SEO:** existe SEO técnico base con `metadataBase`, URLs canónicas por ruta, Twitter Cards, JSON-LD global `WebSite`/`Organization`, JSON-LD `Article` en los cinco artículos, `robots.txt` y `sitemap.xml` generados con la Metadata API de Next.js. Todavía no hay imagen Open Graph dedicada ni datos estructurados `Product`/`FAQPage`; las fechas del JSON-LD `Article` son provisionales. Son mejoras previstas para una fase posterior.
+> **Alcance actual del SEO:** existe SEO técnico base con `metadataBase`, URLs canónicas por ruta, Open Graph (la imagen social global es la foto del hero, `/images/hero-lujo-negro.jpg`), Twitter Cards, JSON-LD global `WebSite`/`Organization`, JSON-LD `Article` en los cinco artículos, `robots.txt` y `sitemap.xml` generados con la Metadata API de Next.js. Todavía no hay una imagen Open Graph dedicada por artículo ni datos estructurados `Product`/`FAQPage`; las fechas del JSON-LD `Article` son provisionales. Son mejoras previstas para una fase posterior.
 
 ---
 
@@ -80,7 +80,7 @@ sui-magazine/
 │       └── .gitkeep                      # Reservado para estilos adicionales
 ├── public/
 │   └── images/
-│       ├── hero-bathroom.jpg             # Imagen principal de la home
+│       ├── hero-lujo-negro.jpg           # Imagen principal de la home
 │       └── productos/                    # Imágenes gestionadas por el scraper
 │           ├── .gitkeep
 │           └── *.jpg

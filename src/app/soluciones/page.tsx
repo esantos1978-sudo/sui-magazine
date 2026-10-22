@@ -117,8 +117,8 @@ export default function SolucionesPage() {
         eyebrow="Guía rápida"
         titulo="Soluciones por necesidades"
         descripcion="No todos los baños son iguales ni todas las personas tienen las mismas necesidades."
-        imagenSrc="/images/hero-bathroom.jpg"
-        alt="Baño de piedra natural con bañera exenta, luz suave y madera cálida"
+        imagenSrc="/images/hero-lujo-negro.jpg"
+        alt="Baño de lujo con inodoro inteligente, mármol negro y luz cálida indirecta"
       />
 
       {/* 2. Escenarios según la situación de la persona. */}

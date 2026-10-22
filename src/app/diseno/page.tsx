@@ -212,8 +212,8 @@ export default function DisenoPage() {
       <section className="relative flex h-[60vh] min-h-[400px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-bathroom.jpg"
-            alt="Baño minimalista con luz natural y materiales nobles"
+            src="/images/hero-lujo-negro.jpg"
+            alt="Baño contemporáneo con mármol negro, inodoro inteligente y luz cálida indirecta"
             fill
             priority
             sizes="100vw"

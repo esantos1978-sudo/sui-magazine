@@ -130,7 +130,7 @@ export function getArticleJsonLd(article: Article) {
       name: "Sui Magazine",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/hero-bathroom.jpg`,
+        url: `${SITE_URL}/images/hero-lujo-negro.jpg`,
       },
     },
     datePublished: ARTICLE_DATE_PUBLISHED,

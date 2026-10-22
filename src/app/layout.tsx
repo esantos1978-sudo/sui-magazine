@@ -26,7 +26,7 @@ const playfair = Playfair_Display({
  * Datos estructurados globales de la publicación.
  *
  * `WebSite` identifica el sitio y `publisher` declara la organización
- * responsable. El logo es provisional: `hero-bathroom.jpg` es una fotografía
+ * responsable. El logo es provisional: `hero-lujo-negro.jpg` es una fotografía
  * de ambiente y debe sustituirse por el logotipo definitivo de la marca.
  */
 const structuredData = {
@@ -41,7 +41,7 @@ const structuredData = {
     name: "Sui Magazine",
     logo: {
       "@type": "ImageObject",
-      url: "https://sui-magazine.vercel.app/images/hero-bathroom.jpg",
+      url: "https://sui-magazine.vercel.app/images/hero-lujo-negro.jpg",
     },
   },
 };
@@ -57,16 +57,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sui Magazine | El nuevo ritual de la higiene",
     description:
-      "Bienestar, diseño y sostenibilidad en un solo gesto. Descubre el universo de los washlets japoneses.",
+      "Un magazine editorial sobre bienestar, higiene inteligente y diseño de baños.",
+    url: "https://sui-magazine.vercel.app",
+    siteName: "Sui Magazine",
     locale: "es_ES",
     type: "website",
+    images: [
+      {
+        url: "/images/hero-lujo-negro.jpg",
+        width: 1600,
+        height: 1066,
+        alt: "Sui Magazine - El nuevo ritual de la higiene",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sui Magazine | El nuevo ritual de la higiene",
     description:
       "Un magazine editorial sobre bienestar, higiene inteligente y diseño de baños.",
-    images: ["/images/hero-bathroom.jpg"],
+    images: ["/images/hero-lujo-negro.jpg"],
   },
 };
 

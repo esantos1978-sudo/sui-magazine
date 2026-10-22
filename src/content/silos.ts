@@ -198,8 +198,8 @@ export const silos: Silo[] = [
     summary:
       "Arquitectura, interiorismo y producto para integrar la tecnología sin ruido.",
     image: {
-      src: "/images/hero-bathroom.jpg",
-      alt: "Baño minimalista con luz natural y materiales nobles",
+      src: "/images/hero-lujo-negro.jpg",
+      alt: "Baño contemporáneo con mármol negro y luz cálida indirecta",
     },
     subcategories: [
       {

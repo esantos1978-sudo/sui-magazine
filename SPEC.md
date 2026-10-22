@@ -394,8 +394,8 @@ Motivos: optimización automática, tamaños responsivos, lazy loading, prevenci
 ```tsx
 <div className="relative flex h-[80vh] min-h-[520px] items-center justify-center overflow-hidden">
   <Image
-    src="/images/hero-bathroom.jpg"
-    alt="Interior de un baño minimalista con luz natural y tonos cálidos"
+    src="/images/hero-lujo-negro.jpg"
+    alt="Baño de lujo contemporáneo con inodoro inteligente japonés, mármol negro y luz cálida indirecta"
     fill
     priority
     sizes="100vw"
@@ -747,7 +747,7 @@ sui-magazine/
 │  └─ styles/                          # reservado; actualmente vacío
 ├─ public/
 │  └─ images/
-│     ├─ hero-bathroom.jpg
+│     ├─ hero-lujo-negro.jpg
 │     ├─ tapa-inteligente.jpg
 │     ├─ articulos/
 │     ├─ formatos/
@@ -839,16 +839,16 @@ Cada `page.tsx` sigue este orden:
   - `title: "Sui Magazine | El nuevo ritual de la higiene"`.
   - `description` editorial de una frase.
   - `alternates: { canonical: "/" }` para la home.
-  - Open Graph con `locale: "es_ES"` y `type: "website"`.
+  - Open Graph con `title`, `description`, `url`, `siteName`, `locale: "es_ES"`, `type: "website"` e `images` (la foto del hero, `/images/hero-lujo-negro.jpg`, con `width: 1600`, `height: 1066` y `alt`; son las dimensiones reales del archivo).
 - Cada página exporta `metadata` propia con `title`, `description`, `alternates.canonical` y, en la mayoría, `openGraph`. El canónico se declara con ruta relativa (por ejemplo, `canonical: "/guia"`) y `metadataBase` lo convierte en URL absoluta.
 - El HTML declara `lang="es"`.
 - Los títulos de página siguen el patrón `[Tema] | Sui Magazine`.
 - Los artículos y páginas editoriales usan `type: "article"`; la home usa `website`.
 - `src/app/robots.ts` genera `/robots.txt` con la Metadata API de Next.js: permite todo el sitio, bloquea `/api/` y `/_next/`, y declara el sitemap de producción.
 - `src/app/sitemap.ts` genera `/sitemap.xml` con la home, los seis silos, los índices editoriales, las páginas institucionales y los cinco artículos.
-- `src/app/layout.tsx` incluye un bloque JSON-LD global de tipo `WebSite` con `publisher` de tipo `Organization`. El logo declarado es provisional (`/images/hero-bathroom.jpg`) hasta disponer de un logotipo definitivo apto para datos estructurados.
+- `src/app/layout.tsx` incluye un bloque JSON-LD global de tipo `WebSite` con `publisher` de tipo `Organization`. El logo declarado es provisional (`/images/hero-lujo-negro.jpg`) hasta disponer de un logotipo definitivo apto para datos estructurados.
 - Las cinco páginas de artículo inyectan un bloque JSON-LD `Article` generado por `getArticleJsonLd()` en `src/content/articles.ts`. Incluye titular, extracto, imagen absoluta, autor, publisher y fechas. Las fechas siguen siendo provisionales (`2024-01-01`) hasta añadir fechas ISO por artículo.
-- `src/app/layout.tsx` configura Twitter Cards con `card: "summary_large_image"`, título, descripción e imagen social (`/images/hero-bathroom.jpg`). Next.js resuelve la imagen contra `metadataBase`.
+- `src/app/layout.tsx` configura Twitter Cards con `card: "summary_large_image"`, título, descripción e imagen social (`/images/hero-lujo-negro.jpg`). Next.js resuelve la imagen contra `metadataBase`.
 
 > **Nota de dominio:** para cambiar el dominio de producción, actualizar la constante `SITE_URL` en `src/content/articles.ts`, `metadataBase` en `src/app/layout.tsx`, y las URLs en `src/app/robots.ts` y `src/app/sitemap.ts`.
 

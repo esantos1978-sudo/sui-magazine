@@ -9,8 +9,8 @@ export default function Home() {
       {/* A. Hero: imagen a sangre con overlay para garantizar legibilidad. */}
       <section className="relative flex h-[80vh] min-h-[520px] items-center justify-center overflow-hidden">
         <Image
-          src="/images/hero-bathroom.jpg"
-          alt="Interior de un baño minimalista con luz natural y tonos cálidos"
+          src="/images/hero-lujo-negro.jpg"
+          alt="Baño de lujo contemporáneo con inodoro inteligente japonés, mármol negro y luz cálida indirecta"
           fill
           priority
           sizes="100vw"
