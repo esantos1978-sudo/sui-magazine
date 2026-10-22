@@ -603,7 +603,7 @@ export default function GuiaPage() {
       </section>
 
       {/* 6. Contexto español y pull quote sobre dignidad y autonomía. */}
-      <section className="bg-stone-50 px-6 py-24">
+      <section className="bg-stone-950 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
             <span
@@ -612,7 +612,7 @@ export default function GuiaPage() {
             >
               04
             </span>
-            <h2 className="text-balance text-h2 tracking-tight text-stone-900">
+            <h2 className="text-balance text-h2 tracking-tight text-white">
               ¿Por qué se ha vuelto tan popular en España?
             </h2>
           </div>
@@ -630,10 +630,10 @@ export default function GuiaPage() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-serif text-xl leading-snug text-stone-900">
+                  <h3 className="font-serif text-xl leading-snug text-stone-100">
                     {reason.title}
                   </h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-stone-300">
                     {reason.text}
                   </p>
                 </div>
@@ -648,7 +648,7 @@ export default function GuiaPage() {
             className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
             aria-hidden="true"
           ></div>
-          <blockquote className="text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
+          <blockquote className="text-balance font-serif text-3xl italic leading-tight text-stone-100 md:text-4xl">
             “Son una herramienta brillante para recuperar la privacidad y
             fomentar la autonomía de personas mayores o con grados de
             dependencia.”

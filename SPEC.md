@@ -142,7 +142,7 @@ La base cromática es **Tailwind `stone`**. No se inventan colores fuera de esta
 | `stone-700` | `#44403C` | Cuerpo de texto principal sobre fondos claros | `text-stone-700` |
 | `stone-800` | `#292524` | Texto enfático y citas | `text-stone-800` |
 | `stone-900` | `#1C1917` | Titulares, texto principal y CTA oscuro | `text-stone-900` / `bg-stone-900` |
-| `stone-950` | `#0C0A09` | Solo overlay del hero | `bg-stone-950/…` |
+| `stone-950` | `#0C0A09` | Solo overlay del hero; excepcionalmente, el fondo de la banda oscura de cita en `/guia` | `bg-stone-950/…` / `bg-stone-950` |
 | `white` | `#FFFFFF` | Superficies de tarjetas y secciones de contraste | `bg-white` |
 | `sage` | `#7A8B7C` | Acento único: hairlines, números, iconos, bordes hover y CTA de acento | `[#7A8B7C]` |
 
@@ -577,6 +577,14 @@ Los bloques principales de la guía se numeran `01`, `02`, `03`… con `font-ser
 ```
 
 Se enmarca con dos líneas salvia de `h-px w-12`, separadas por `mb-8` y `mt-8`, y se limita a una o dos frases. No se usa para testimonios comerciales.
+
+**Variante oscura.** El bloque `04` de `/guia` (contexto español y pull quote sobre autonomía) es la única banda con fondo `bg-stone-950` del sitio: rompe la alternancia clara a propósito para dar contraste a la cita. En esa banda la jerarquía se invierte y la salvia se mantiene intacta:
+
+- `h2`: `text-white`
+- `h3` de cada motivo: `text-stone-100`
+- párrafo de cada motivo: `text-stone-300`
+- `blockquote`: `text-stone-100` (en lugar de `text-stone-800`)
+- numerales, bordes `border-[#7A8B7C]/30` y hairlines `bg-[#7A8B7C]`: sin cambios
 
 **Ruptura visual**
 
