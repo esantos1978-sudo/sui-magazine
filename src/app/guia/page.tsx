@@ -116,6 +116,17 @@ type DetailedFormat = {
   number: string;
   /** Nombre comercial o descripción del formato. */
   title: string;
+  /** Imagen principal del bloque, la misma que se usa en la home. */
+  image: {
+    /** Ruta del archivo dentro de `public/images/formatos`. */
+    src: string;
+    /** Texto alternativo descriptivo de la escena. */
+    alt: string;
+    /** Ancho intrínseco del archivo, en píxeles. */
+    width: number;
+    /** Alto intrínseco del archivo, en píxeles. */
+    height: number;
+  };
   /** Párrafo introductorio del formato. */
   intro: string;
   /** Las tres tarjetas: funcionamiento, virtudes y límites. */
@@ -127,6 +138,12 @@ const detailedFormats: DetailedFormat[] = [
   {
     number: "01",
     title: "El Accesorio o Manguera (Bidé Mecánico)",
+    image: {
+      src: "/images/formatos/accesorio-mecanico-lifestyle.jpg",
+      alt: "Inodoro tradicional con accesorio de bidé mecánico instalado en un baño luminoso con detalles de mimbre",
+      width: 1024,
+      height: 1024,
+    },
     intro:
       "Es la puerta de entrada más básica y económica al mundo del lavado con agua. Consiste en un dispositivo (a veces una simple manguera o un acople fino) que se instala debajo de la tapa de tu inodoro actual.",
     cards: [
@@ -147,6 +164,12 @@ const detailedFormats: DetailedFormat[] = [
   {
     number: "02",
     title: "El Asiento o Tapa Inteligente (Washlet)",
+    image: {
+      src: "/images/formatos/tapa-inteligente-marmol.jpg",
+      alt: "Inodoro con tapa inteligente y panel de control lateral en un baño de mármol gris y madera clara",
+      width: 2000,
+      height: 2000,
+    },
     intro:
       "Esta es, sin duda, la opción favorita para quienes viven de alquiler o no quieren hacer reformas. Retiras la tapa y el aro tradicional de tu inodoro, y en su lugar instalas esta tapa tecnológica.",
     cards: [
@@ -167,6 +190,12 @@ const detailedFormats: DetailedFormat[] = [
   {
     number: "03",
     title: "El Inodoro Japonés Completo (y modelos suspendidos)",
+    image: {
+      src: "/images/formatos/inodoro-completo-wabi.jpg",
+      alt: "Inodoro inteligente de diseño integrado en un baño oscuro con revestimiento de listones de madera y luz natural",
+      width: 1024,
+      height: 768,
+    },
     intro:
       "Si estás reformando tu baño o construyendo tu casa, esta es la inversión definitiva. Sustituye toda la pieza de cerámica tradicional. Los modelos más demandados actualmente son los suspendidos, que van anclados a la pared con la cisterna oculta, aportando un diseño minimalista y facilitando enormemente la limpieza del suelo.",
     cards: [
@@ -409,6 +438,18 @@ export default function GuiaPage() {
                 <h3 className="text-balance text-h3 tracking-tight text-stone-900">
                   {format.title}
                 </h3>
+              </div>
+
+              {/* Imagen principal del formato: la misma que ilustra la home. */}
+              <div className="mb-8 overflow-hidden rounded-sm bg-stone-100">
+                <Image
+                  src={format.image.src}
+                  alt={format.image.alt}
+                  width={format.image.width}
+                  height={format.image.height}
+                  sizes="(min-width: 1072px) 1024px, calc(100vw - 48px)"
+                  className="aspect-[4/3] w-full object-cover"
+                />
               </div>
 
               <p className="mb-8 max-w-3xl font-sans text-body-lg leading-relaxed text-stone-700">

@@ -435,6 +435,8 @@ Cuando el original no comparte la proporción de la caja, `object-cover` recorta
 </div>
 ```
 
+En `/guia` las tres fichas de formato (bloque `02`) reutilizan las mismas imágenes de `public/images/formatos/` con este mismo tratamiento `aspect-[4/3] object-cover`, pero a ancho completo del bloque (`max-w-5xl`) y sin el zoom al hover, que aquí no aplica. El `sizes` correspondiente es `(min-width: 1072px) 1024px, calc(100vw - 48px)`.
+
 **Patrón D. Imagen de producto**
 
 - Contenedor `aspect-[4/3] bg-stone-50 rounded-sm overflow-hidden`, centrado con flex.
