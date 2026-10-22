@@ -25,31 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Los tres formatos disponibles, con el enfoque editorial propio de la guía.
- * Se mantienen los iconos circulares y el tono visual de la home.
- */
-const guideFormats = [
-  {
-    icon: "✨",
-    title: "Asiento o tapa inteligente",
-    description:
-      "Es la opción más popular y versátil. Sustituye únicamente la tapa de tu váter de toda la vida y lo transforma al instante en un dispositivo de alta tecnología.",
-  },
-  {
-    icon: "🌿",
-    title: "Inodoro completo integrado",
-    description:
-      "Sustituye toda la pieza cerámica tradicional. Son la máxima expresión del diseño moderno y la elegancia (a menudo suspendidos en la pared).",
-  },
-  {
-    icon: "💧",
-    title: "Accesorio o manguera",
-    description:
-      "Es la alternativa más básica, económica y fácil de instalar. No requiere electricidad, ya que funciona únicamente con la presión del agua de tu casa.",
-  },
-];
-
 /** Las cinco razones que explican la popularidad del washlet en España. */
 const reasons = [
   {
@@ -329,7 +304,7 @@ export default function GuiaPage() {
         </div>
       </section>
 
-      {/* 3. Qué es un washlet y cuáles son sus tres formatos. */}
+      {/* 3. Qué es un washlet: definición y contexto. */}
       <section id="que-es" className="scroll-mt-24 bg-white px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
@@ -355,7 +330,7 @@ export default function GuiaPage() {
             />
           </div>
 
-          <div className="space-y-6 font-sans text-base leading-relaxed text-stone-600">
+          <div className="font-sans text-base leading-relaxed text-stone-600">
             <p>
               Aunque el fabricante Toto popularizó el término washlet en los
               años 80, hoy utilizamos conceptos como “bidé japonés” o “inodoro
@@ -364,36 +339,7 @@ export default function GuiaPage() {
               suavemente con un chorro de agua templada en lugar de obligarte a
               usar papel.
             </p>
-            <p>
-              Lo que nadie te cuenta es que no hace falta meterte en grandes y
-              costosas reformas ni arrancar tu retrete actual para tener uno en
-              casa. De hecho, existen tres formatos principales:
-            </p>
           </div>
-
-          <ul className="mt-12 divide-y divide-[#7A8B7C]/30 border-y border-[#7A8B7C]/30">
-            {guideFormats.map((format) => (
-              <li
-                key={format.title}
-                className="flex items-start gap-5 py-7 transition-colors duration-300 hover:bg-stone-50"
-              >
-                <span
-                  className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-[#7A8B7C]/10 text-xl ring-1 ring-inset ring-[#7A8B7C]/20"
-                  aria-hidden="true"
-                >
-                  {format.icon}
-                </span>
-                <div>
-                  <h3 className="font-serif text-h3 text-stone-900">
-                    {format.title}
-                  </h3>
-                  <p className="mt-2 font-sans text-body-base text-stone-600">
-                    {format.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
