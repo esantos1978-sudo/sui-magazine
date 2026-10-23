@@ -1,266 +1,196 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
-import SiloSubnav from "@/components/SiloSubnav";
-
 /**
- * Página unificada de Bienestar.
+ * Página pilar del silo Bienestar.
  *
  * Se renderiza dentro del Layout global definido en `src/app/layout.tsx`,
  * que ya aporta el header, el `<main>` y el footer. Por eso este archivo no
  * vuelve a envolver el contenido en otro `<main>`.
+ *
+ * Estructura editorial en cuatro bloques: hero, introducción, rejilla de los
+ * cuatro territorios del silo y CTA de continuación hacia el resto de
+ * secciones del magazine.
  */
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/bienestar",
-  },
-  title: "Bienestar y Dignidad en el Baño | Sui Magazine",
+  title: "Bienestar | El baño como acto de cuidado | SUI Magazine",
   description:
-    "La higiene inteligente como acto de cuidado y autonomía. Guía para elegir la solución adecuada según las necesidades de movilidad y dependencia.",
+    "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
+  alternates: {
+    canonical: "https://sui-magazine.vercel.app/bienestar",
+  },
   openGraph: {
-    title: "Bienestar y Dignidad en el Baño | Sui Magazine",
+    title: "Bienestar | El baño como acto de cuidado | SUI Magazine",
     description:
-      "La higiene inteligente como acto de cuidado y autonomía.",
+      "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
     locale: "es_ES",
     type: "article",
   },
 };
 
-/** Perfil de cuidado y recomendación editorial asociada. */
-type CareProfile = {
-  /** Ancla estable para enlazar directamente a un perfil. */
-  id: string;
-  /** Número editorial que ordena los perfiles en la página. */
-  numero: string;
-  /** Título breve y reconocible del perfil. */
-  titulo: string;
-  /** Circunstancia cotidiana que define la necesidad. */
-  situacion: string;
-  /** Solución técnica recomendada por criterio editorial. */
-  solucion: string;
-  /** Motivo humano y práctico por el que la solución funciona. */
-  porQue: string;
+/** Artículo del silo presentado en la rejilla de exploración. */
+type BienestarArticle = {
+  /** Número editorial que ordena la rejilla. */
+  number: string;
+  /** Categoría que sitúa el artículo dentro del silo. */
+  category: string;
+  /** Titular de la tarjeta. */
+  title: string;
+  /** Entradilla descriptiva del artículo. */
+  description: string;
+  /** Destino del enlace: la página del artículo. */
+  href: string;
 };
 
-/** Los tres perfiles de cuidado que estructuran la página. */
-const perfiles: CareProfile[] = [
+// Array de los 4 artículos de Bienestar (para el grid)
+const bienestarArticles: BienestarArticle[] = [
   {
-    id: "autonomia",
-    numero: "01",
-    titulo: "Autonomía con apoyo",
-    situacion:
-      "Movilidad reducida, pero se vale por sí mismo en casa.",
-    solucion:
-      "Tapa inteligente (washlet) con mando de botones grandes o control remoto.",
-    porQue:
-      "Elimina la torsión y el esfuerzo del papel, devolviendo la independencia en la higiene íntima sin necesidad de obras.",
+    number: "01",
+    category: "AUTONOMÍA PERSONAL",
+    title: "Higiene personal y movilidad reducida",
+    description:
+      "Cómo los sistemas de higiene con agua pueden facilitar la autonomía en la higiene personal cuando la movilidad está limitada.",
+    href: "/bienestar/higiene-personal-movilidad-reducida",
   },
   {
-    id: "dependencia-moderada",
-    numero: "02",
-    titulo: "Dependencia moderada",
-    situacion:
-      "Necesita ayuda puntual de un cuidador o familiar para sentarse o levantarse.",
-    solucion:
-      "Inodoro completo con función de elevación de asiento o altura ajustable.",
-    porQue:
-      "Reduce el riesgo de caídas y protege la espalda del cuidador, facilitando las transferencias de manera segura y digna.",
+    number: "02",
+    category: "ACCESIBILIDAD",
+    title: "Diseñar un baño accesible",
+    description:
+      "Claves para adaptar el espacio del baño y hacerlo funcional, seguro y respetuoso con las necesidades de cada persona.",
+    href: "/bienestar/diseno-bano-accesible",
   },
   {
-    id: "entorno-profesional",
-    numero: "03",
-    titulo: "Entorno profesional o residencial",
-    situacion:
-      "Baños en residencias de mayores, hospitales o centros de día.",
-    solucion:
-      "Modelos robustos con materiales antibacterianos, descarga automática y fácil desinfección.",
-    porQue:
-      "Prioriza la higiene cruzada, la durabilidad ante uso intensivo y la reducción de la carga de trabajo del personal.",
+    number: "03",
+    category: "ENVEJECIMIENTO",
+    title: "Envejecer en casa: el baño",
+    description:
+      "El baño como espacio clave para el envejecimiento activo y seguro en el hogar. Soluciones que acompañan sin estigmatizar.",
+    href: "/bienestar/envejecer-en-casa-bano",
+  },
+  {
+    number: "04",
+    category: "CUIDADO Y ASISTENCIA",
+    title: "Tecnología para la higiene asistida",
+    description:
+      "El papel de la tecnología en el cuidado cotidiano: cómo facilitar la labor de cuidadores y familiares sin perder intimidad.",
+    href: "/bienestar/tecnologia-higiene-asistida",
   },
 ];
 
 export default function BienestarPage() {
   return (
-    <>
-      {/* 1. Hero de sección: presenta el enfoque humano de la página. */}
-      <section className="flex min-h-[380px] items-center justify-center bg-stone-100 px-6 py-24">
+    <div className="min-h-screen bg-white">
+      {/* HERO EDITORIAL */}
+      <section className="bg-stone-50 px-6 py-20 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
-          <div
-            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
-            aria-hidden="true"
-          />
-          <p className="font-sans text-eyebrow uppercase text-stone-500">
-            Bienestar
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C]">
+            SUI MAGAZINE / BIENESTAR
           </p>
-          <h1 className="mb-6 mt-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
+          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-stone-900 text-balance mb-6">
             El baño como acto de cuidado, no de dependencia.
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
-            La tecnología no debe sustituir el calor humano, sino eliminar las
-            barreras físicas que lo dificultan. Hablamos de dignidad, autonomía
-            y soluciones reales.
+          <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic text-balance">
+            La tecnología encuentra su verdadero valor cuando se adapta a las
+            personas. Exploramos cómo la innovación aplicada a la higiene puede
+            favorecer la autonomía, preservar la intimidad y facilitar el
+            cuidado cotidiano.
           </p>
         </div>
       </section>
 
-      <SiloSubnav siloId="bienestar" />
-
-      {/* 2. Narrativa: la dignidad como punto de partida. */}
-      <section className="bg-white px-6 py-24">
+      {/* INTRODUCCIÓN EDITORIAL */}
+      <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-8 flex items-center gap-4">
-            <span
-              className="font-serif text-4xl text-[#7A8B7C]"
-              aria-hidden="true"
-            >
-              01
-            </span>
-            <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
-              La dignidad en los detalles
-            </h2>
-          </div>
-
-          <div className="space-y-6 font-sans text-body-base text-stone-700">
-            <p>
-              Envejecer o enfrentar una limitación de movilidad no debería
-              significar perder la privacidad en uno de los momentos más
-              íntimos del día. El baño tradicional, con su dependencia del papel
-              y las posturas forzadas, se convierte a menudo en un obstáculo
-              silencioso.
-            </p>
-            <p>
-              El bidé japonés o washlet no es un lujo caprichoso. Es una
-              herramienta de autonomía. El chorro de agua templada sustituye al
-              roce seco, el asiento calefactado evita el choque térmico y el
-              secado suave elimina la necesidad de manipulaciones incómodas. Es,
-              en esencia, devolverle a la persona el control sobre su propio
-              cuerpo.
-            </p>
-          </div>
-
-          <div className="relative mt-12 h-[320px] w-full overflow-hidden rounded-sm md:h-[420px]">
-            <Image
-              src="/images/guia/bano_tradicional.jpg"
-              alt="Baño japonés tradicional con ofuro de madera y luz natural"
-              fill
-              sizes="(min-width: 768px) 768px, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Pull quote: sintetiza el enfoque editorial. */}
-      <section className="bg-stone-50 px-6 py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <div
-            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
-            aria-hidden="true"
-          />
-          <blockquote className="mb-8 text-balance font-serif text-3xl italic leading-tight text-stone-800 md:text-4xl">
-            “La verdadera tecnología no se nota. Solo se nota la dignidad que
-            devuelve.”
-          </blockquote>
-          <div
-            className="mx-auto h-px w-12 bg-[#7A8B7C]"
-            aria-hidden="true"
-          />
-        </div>
-      </section>
-
-      {/* 4. Perfiles prácticos: de la necesidad a la solución concreta. */}
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-8 flex items-center gap-4">
-            <span
-              className="font-serif text-4xl text-[#7A8B7C]"
-              aria-hidden="true"
-            >
-              02
-            </span>
-            <h2 className="text-balance font-serif text-h2 tracking-tight text-stone-900">
-              Encuentra la solución ideal
-            </h2>
-          </div>
-
-          <p className="mb-12 max-w-3xl font-sans text-body-lg text-stone-600">
-            No existe un único producto para todos. La clave está en observar
-            las necesidades reales del día a día. Aquí tienes tres perfiles
-            comunes y la solución que mejor se adapta a ellos.
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C]">
+            Introducción
           </p>
-
-          <ol className="space-y-8">
-            {perfiles.map((perfil) => (
-              <li
-                key={perfil.id}
-                id={perfil.id}
-                className="flex scroll-mt-24 flex-col gap-6 border-t border-stone-200 pt-8 first:border-t-0 first:pt-0 md:flex-row md:gap-10"
-              >
-                <div className="flex-shrink-0 md:w-1/4">
-                  <span
-                    className="font-serif text-5xl text-stone-200"
-                    aria-hidden="true"
-                  >
-                    {perfil.numero}
-                  </span>
-                  <h3 className="mt-2 font-serif text-h3 tracking-tight text-stone-900">
-                    {perfil.titulo}
-                  </h3>
-                </div>
-
-                <dl className="space-y-4 md:w-3/4">
-                  <div>
-                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
-                      La situación
-                    </dt>
-                    <dd className="mt-1 font-sans text-body-base font-medium text-stone-800">
-                      {perfil.situacion}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
-                      La solución recomendada
-                    </dt>
-                    <dd className="mt-1 font-sans text-body-base font-medium text-stone-900">
-                      {perfil.solucion}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="font-sans text-eyebrow uppercase text-stone-500">
-                      Por qué funciona
-                    </dt>
-                    <dd className="mt-1 font-sans text-body-base text-stone-700">
-                      {perfil.porQue}
-                    </dd>
-                  </div>
-                </dl>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* 5. CTA final: orientación para reformas y entornos profesionales. */}
-      <section className="bg-stone-50 px-6 py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-6 text-balance font-serif text-h2 tracking-tight text-stone-900">
-            ¿Necesitas orientación profesional?
+          <h2 className="font-serif text-2xl md:text-3xl tracking-tight text-stone-900 mb-6">
+            La dignidad en los detalles
           </h2>
-          <p className="mb-8 font-sans text-body-base text-stone-600">
-            Si estás reformando un baño para una persona mayor o adaptando un
-            espacio en una residencia, es fundamental evaluar las medidas, las
-            tomas de agua y la electricidad.
+          <p className="text-body-lg text-stone-600 leading-relaxed">
+            La intimidad y la autonomía forman parte esencial del bienestar. Sin
+            embargo, para algunas personas con movilidad reducida o necesidades
+            de asistencia, gestos tan cotidianos como la higiene personal pueden
+            convertirse en un desafío. Un baño poco adaptado, determinados
+            movimientos o la dificultad para utilizar papel higiénico pueden
+            limitar su independencia.
           </p>
-          <Link
-            href="/profesionales"
-            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-          >
-            Hablar con un especialista{" "}
-            <span aria-hidden="true">→</span>
-          </Link>
+          <p className="text-body-lg text-stone-600 leading-relaxed mt-4">
+            Los sistemas de higiene con agua, como los bidés japoneses y los
+            asientos electrónicos, ofrecen nuevas posibilidades. Funciones como
+            el lavado regulable y el secado con aire pueden reducir la necesidad
+            de ciertos movimientos y facilitar la higiene personal. No sustituyen
+            el cuidado humano ni resuelven todas las barreras, pero, cuando se
+            adaptan a las necesidades de cada persona, pueden contribuir a una
+            experiencia más cómoda, íntima y autónoma.
+          </p>
         </div>
       </section>
-    </>
+
+      {/* GRID DE ARTÍCULOS */}
+      <section className="bg-stone-50 px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C] text-center">
+            Explorar
+          </p>
+          <h2 className="font-serif text-2xl md:text-3xl tracking-tight text-stone-900 mb-12 text-center">
+            Cuatro dimensiones del bienestar en el baño
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {bienestarArticles.map((article) => (
+              <Link
+                key={article.number}
+                href={article.href}
+                className="group block bg-white p-8 rounded-sm border border-stone-200 hover:border-[#7A8B7C] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+              >
+                <p className="text-xs font-medium uppercase tracking-widest text-[#7A8B7C] mb-2">
+                  {article.number} / {article.category}
+                </p>
+                <h3 className="font-serif text-xl text-stone-900 mb-3 group-hover:text-[#7A8B7C] transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  {article.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="bg-stone-950 px-6 py-20 text-center">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-stone-400 text-sm uppercase tracking-widest mb-4">
+            Sigue leyendo
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
+            Descubre otras perspectivas en SUI Magazine
+          </h3>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/tecnologia"
+              className="px-6 py-3 border border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white transition-colors rounded-sm text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Tecnología
+            </Link>
+            <Link
+              href="/diseno"
+              className="px-6 py-3 border border-stone-700 text-stone-300 hover:bg-stone-800 hover:text-white transition-colors rounded-sm text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Diseño
+            </Link>
+            <Link
+              href="/"
+              className="px-6 py-3 bg-[#7A8B7C] text-white hover:bg-[#6a7b6c] transition-colors rounded-sm text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              ← Volver a la Home
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

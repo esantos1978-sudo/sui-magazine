@@ -163,26 +163,26 @@ export const silos: Silo[] = [
     },
     subcategories: [
       {
-        label: "Autonomía",
-        href: "/bienestar#autonomia",
+        label: "Autonomía Personal",
+        href: "/bienestar/higiene-personal-movilidad-reducida",
         description:
           "Soluciones que devuelven el control de la higiene íntima sin obras ni ayuda constante.",
       },
       {
         label: "Accesibilidad",
-        href: "/bienestar#dependencia-moderada",
+        href: "/bienestar/diseno-bano-accesible",
         description:
           "Medidas, alturas y mandos pensados para baños seguros y fáciles de usar.",
       },
       {
         label: "Envejecimiento",
-        href: "/bienestar#entorno-profesional",
+        href: "/bienestar/envejecer-en-casa-bano",
         description:
           "Cómo adaptar el baño para acompañar el paso del tiempo con dignidad.",
       },
       {
-        label: "Cuidado",
-        href: "/profesionales",
+        label: "Cuidado y Asistencia",
+        href: "/bienestar/tecnologia-higiene-asistida",
         description:
           "Criterios para familias, cuidadores y entornos sociosanitarios.",
       },
