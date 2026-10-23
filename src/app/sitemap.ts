@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
  * Mapa del sitio de Sui Magazine.
  *
  * Incluye la home, los seis silos, los índices editoriales, las páginas
- * institucionales y los seis artículos publicados. Si se añade una ruta
+ * institucionales y los siete artículos publicados. Si se añade una ruta
  * pública nueva, debe incorporarse también a esta lista.
  *
  * El dominio es provisional: debe sustituirse por el definitivo antes de
@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tecnologia/sostenibilidad",
     "/bienestar",
     "/bienestar/higiene-personal-movilidad-reducida",
+    "/bienestar/diseno-bano-accesible",
     "/diseno",
     "/marcas",
     "/actualidad",
