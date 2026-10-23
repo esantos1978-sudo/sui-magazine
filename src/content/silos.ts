@@ -204,19 +204,19 @@ export const silos: Silo[] = [
     subcategories: [
       {
         label: "Arquitectura",
-        href: "/articulos/bano-espanol-adaptaciones",
+        href: "/diseno/arquitectura",
         description:
           "Distribución, instalaciones y soluciones para integrar el washlet en una reforma.",
       },
       {
         label: "Interiorismo",
-        href: "/diseno#materiales",
+        href: "/diseno/interiorismo-bano-contemporaneo",
         description:
           "Materiales, luz y paleta para un baño sereno que envejece bien.",
       },
       {
         label: "Producto",
-        href: "/seleccion",
+        href: "/diseno/diseno-inodoros-inteligentes",
         description:
           "Selección de modelos por diseño, funcionalidad y relación calidad-precio.",
       },
@@ -303,7 +303,7 @@ export const silos: Silo[] = [
       },
       {
         label: "Tendencias",
-        href: "/diseno#tendencias",
+        href: "/diseno",
         description:
           "Cambios de uso y estética que se consolidan en el baño.",
       },
