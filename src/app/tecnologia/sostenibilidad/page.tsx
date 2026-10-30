@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -30,15 +31,26 @@ export default function SostenibilidadPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* HERO EDITORIAL */}
-      <section className="bg-stone-50 px-6 py-20 md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C]">
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/articulos/sostenibilidad.jpg"
+          alt="Baño con bañera, lavabo de piedra y suelo de cantos rodados, junto a varias plantas de interior"
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-stone-300">
             Tecnología / Sostenibilidad
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-stone-900 text-balance mb-6">
+          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-white text-balance mb-6">
             El verdadero impacto ambiental de los inodoros inteligentes
           </h1>
-          <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic text-balance">
+          <p className="text-lg md:text-xl text-stone-200 leading-relaxed italic text-balance">
             Menos papel higiénico, pero también consumo de agua, electricidad y
             nuevos componentes electrónicos. Analizamos las variables que
             determinan la sostenibilidad de estos sistemas.
