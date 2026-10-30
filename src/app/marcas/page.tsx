@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import SiloSubnav from "@/components/SiloSubnav";
 
@@ -96,19 +97,30 @@ export default function MarcasPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* 1. Hero del directorio: mismo ritmo editorial que el resto del magazine. */}
-      <section className="bg-stone-100 px-6 py-24">
-        <div className="mx-auto max-w-5xl text-center">
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/marcas/hero-marcas.jpg"
+          alt="Showroom editorial con varios modelos de inodoros inteligentes de diferentes fabricantes en un baño de lujo con luz natural y vistas al mar."
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/50" aria-hidden="true" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
           <div
             className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
             aria-hidden="true"
           ></div>
-          <span className="text-eyebrow uppercase tracking-wider text-stone-500">
+          <span className="text-eyebrow uppercase tracking-wider text-stone-300">
             Directorio
           </span>
-          <h1 className="mb-6 mt-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
+          <h1 className="mb-6 mt-4 text-balance font-serif text-h1 tracking-tight text-white">
             Las Marcas
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-200">
             Los arquitectos de la revolución del baño. Desde los pioneros
             japoneses hasta los gigantes europeos y los nuevos disruptores
             tecnológicos.
