@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -30,17 +31,27 @@ export const metadata: Metadata = {
 export default function DisenoArquitecturaPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO EDITORIAL */}
-      <section className="bg-stone-50 px-6 py-20 md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C]">
+      {/* HERO EDITORIAL: imagen a sangre con overlay para texto claro. */}
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/diseno/hero-arquitectura.jpg"
+          alt="Interior arquitectónico de baño contemporáneo con luz natural, materiales nobles y líneas puras."
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-stone-300">
             Diseño / Arquitectura
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-stone-900 text-balance mb-6">
+          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-white text-balance mb-6">
             La arquitectura del baño contemporáneo: espacios que transforman el
             ritual
           </h1>
-          <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic text-balance">
+          <p className="text-lg md:text-xl text-stone-200 leading-relaxed italic text-balance">
             La arquitectura del baño va mucho más allá de la elección de
             sanitarios y revestimientos. Distribución, proporciones, luz y
             tecnología definen un espacio donde la funcionalidad puede convivir

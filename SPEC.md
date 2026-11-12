@@ -6,10 +6,10 @@
 | Campo | Valor |
 |---|---|
 | Proyecto | Sui Magazine |
-| Versión del SPEC | 1.1 |
+| Versión del SPEC | 1.2 |
 | Estado | Vigente |
 | Ámbito | Identidad, diseño, UI, contenido, arquitectura y calidad |
-| Última revisión | Octubre de 2026 |
+| Última revisión | Noviembre de 2026 |
 | Autoridad | Este documento prevalece sobre supuestos, preferencias personales y código legado |
 
 ---
@@ -183,9 +183,9 @@ Se cargan con `next/font/google`, `display: "swap"` y subconjunto `latin`. El `<
 **Reglas tipográficas:**
 
 1. **Titulares siempre en serif.** Un `h1`, `h2`, `h3` o `blockquote` editorial lleva `font-serif`; el cuerpo y la interfaz van en sans.
-2. Los tamaños se eligen de la escala. No se crean tamaños arbitrarios salvo las excepciones editoriales documentadas: numerales `text-4xl`, citas `text-3xl`/`text-4xl`, nombres de marca `text-4xl`/`text-5xl` y manifiesto `text-[100px]` en desktop.
+2. Los tamaños se eligen de la escala. No se crean tamaños arbitrarios salvo las excepciones editoriales documentadas: numerales `text-4xl`, citas `text-3xl`/`text-4xl`, nombres de marca `text-4xl`/`text-5xl`, manifiesto `text-[100px]` en desktop y el H1 del hero editorial con imagen (`text-3xl md:text-5xl`, §3.9).
 3. Los titulares que ocupan más de una línea usan `text-balance` y `tracking-tight`.
-4. Los **eyebrows** van en mayúsculas, con `text-eyebrow` y color `stone-500` o `stone-400`. No se usan para párrafos.
+4. Los **eyebrows** van en mayúsculas, con `text-eyebrow` y color `stone-500` o `stone-400`; sobre imagen, `stone-300` (§3.9). No se usan para párrafos.
 5. El cuerpo largo no supera los **65–75 caracteres por línea**: se consigue con `max-w-3xl` y variantes menores.
 6. No se usa negrita para titulares. El peso 400 es parte de la identidad. La negrita se reserva para énfasis dentro del cuerpo y términos de definición.
 7. No se justifica el texto. Alineación a la izquierda por defecto; centrado solo en heroes, citas y CTA.
@@ -284,12 +284,15 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 | Tipo | Altura | Fondo | Contenido |
 |---|---|---|---|
 | Home | `h-[80vh] min-h-[520px]` | Imagen a sangre + overlay | Eyebrow, H1, entradilla blancos |
-| Hub de categoría | `h-[50vh] min-h-[350px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Implementado por `CategoryHero`; usado en `/tecnologia` y `/actualidad`. |
+| Hub de categoría | `h-[50vh] min-h-[350px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Implementado por `CategoryHero`; usado en `/actualidad` y en las páginas institucionales (`/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto`, `/legal`). |
+| Pilar de sección y artículo editorial | `min-h-[50vh]` (crece con el contenido) | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Patrón canónico: estructura, tipografía y reglas en §3.9. |
 | Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog` y `/diseno`. |
 | Sección | `h-[50vh] min-h-[380px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 | Artículo | `h-[40vh] min-h-[320px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 
-El hero de sección puede incluir una línea salvia de `h-px w-12` antes del eyebrow. El H1 siempre es `font-serif text-h1 tracking-tight` con `text-balance`: `text-stone-900` sobre fondos claros y `text-white` en el hero cinematográfico.
+El hero de sección puede incluir una línea salvia de `h-px w-12` antes del eyebrow. El H1 de los heroes claros es `font-serif text-h1 tracking-tight` con `text-balance` y `text-stone-900`; el del hero editorial con imagen usa la escala `text-3xl md:text-5xl` y `text-white`, según §3.9.
+
+**Regla de precedencia:** todo hero con imagen de fondo se implementa con el patrón de §3.9. Las alturas fijas de esta tabla (`h-[80vh]` de la home, `h-[60vh]` de `/blog` y `/diseno`, `h-[50vh] min-h-[350px]` de `CategoryHero`) describen las implementaciones ya existentes; en páginas nuevas se usa `min-h-[50vh]` para que el hero crezca con el texto.
 
 ### 3.2 Botones y enlaces
 
@@ -456,7 +459,7 @@ En `/guia` las tres fichas de formato (bloque `02`) reutilizan las mismas imáge
 8. Las proporciones canónicas son **4:3** para tarjetas y producto, **panorámica libre con `object-cover`** para atmósfera y **altura de viewport** para heroes.
 9. Las fotos atmosféricas pueden recortarse con `object-cover`; los productos nunca.
 10. No se aplican filtros CSS, duotonos, marcos blancos ni sombras a las imágenes.
-11. **Hero cinematográfico:** Cuando se requiera un impacto visual máximo (como en el índice de artículos), se usará una imagen a sangre con un overlay oscuro (`bg-stone-950/60`) para garantizar la legibilidad del texto blanco. El texto y los eyebrows deben adaptarse a tonos claros (`text-white`, `text-stone-200`, `text-stone-300`).
+11. **Hero editorial:** todo hero con imagen de fondo se construye con el patrón canónico de **§3.9** (contenedor `min-h-[50vh]`, `fill` + `priority` + `sizes="100vw"` + `quality={80}`, overlay `bg-stone-950/60` y texto en tonos claros). No se documentan variantes nuevas aquí para no duplicar la fuente de verdad.
 
 
 ### 3.5 Tablas
@@ -562,7 +565,7 @@ Las tablas son **comparativas editoriales**, no hojas de cálculo. Deben ser leg
 
 **Eyebrow**
 
-Etiqueta superior de 11 px, mayúsculas, `tracking` amplio y color `stone-500`/`stone-400`. Suele ir seguida de un H1/H2 y, opcionalmente, de una línea salvia de `h-px w-12`.
+Etiqueta superior de 11 px, mayúsculas, `tracking` amplio y color `stone-500`/`stone-400`. Suele ir seguida de un H1/H2 y, opcionalmente, de una línea salvia de `h-px w-12`. Sobre imagen de fondo, el eyebrow va en `text-stone-300` con `tracking-widest` (§3.9).
 
 **Número de sección**
 
@@ -660,7 +663,8 @@ Para soportar la arquitectura de seis silos se han creado componentes reutilizab
 - Altura: `h-[50vh] min-h-[350px]`.
 - Usa `next/image` con `fill`, `priority` y `sizes="100vw"`, `object-cover` y overlay `bg-stone-950/60`.
 - Renderiza el único `<h1>` del hub con `font-serif text-h1 tracking-tight text-white`.
-- Se usa a través de `SiloHub` en `/tecnologia` y `/actualidad`.
+- Es la variante de hub del patrón §3.9: mismo overlay y misma jerarquía de color, con el H1 en el token `text-h1` y `min-h-[350px]` para que el hero no colapse en pantallas bajas.
+- Se usa a través de `SiloHub` en `/actualidad` y directamente en `/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto` y `/legal`. `/tecnologia` no lo usa: conserva un hero propio con la misma base visual.
 
 **`SiloGrid`** (`src/components/SiloGrid.tsx`)
 
@@ -687,6 +691,68 @@ Para soportar la arquitectura de seis silos se han creado componentes reutilizab
 - Incluye hero de sección con el único `<h1>`, entradilla, imagen opcional, bloques de contenido (`EditorialSection[]`) y CTA final.
 - Se usa en `/soluciones`, `/sobre-el-magazine`, `/metodologia`, `/contacto` y `/legal`.
 - No sustituye a las plantillas de artículo ni a los hubs de silo.
+
+### 3.9 Patrón: Hero Editorial con Imagen y Overlay
+
+Utilizado en pilares de sección y artículos editoriales para dar impacto visual manteniendo la legibilidad. Sustituye a los heroes planos de `bg-stone-50`/`bg-stone-100` en cualquier página cuyo hero deba tener imagen.
+
+**Estructura:**
+
+- Contenedor: `<section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">`
+- Imagen: componente `next/image` con `fill`, `priority`, `sizes="100vw"`, `quality={80}`, `className="object-cover"`.
+- Overlay: `<div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />` (usar `/50` solo si la imagen base es muy oscura y se necesita preservar detalle).
+- Contenido: `<div className="relative mx-auto max-w-3xl text-center">` (el `relative` es obligatorio para quedar sobre el overlay).
+
+```tsx
+<section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+  <Image
+    src="/images/diseno/hero-arquitectura.jpg"
+    alt="Baño de arquitectura contemporánea con bañera exenta de piedra y luz natural"
+    fill
+    priority
+    sizes="100vw"
+    quality={80}
+    className="object-cover"
+  />
+  <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+
+  <div className="relative mx-auto max-w-3xl text-center">
+    <p className="text-xs font-medium uppercase tracking-widest text-stone-300">
+      Diseño / Arquitectura
+    </p>
+    <h1 className="mb-6 mt-4 font-serif text-3xl tracking-tight text-white text-balance md:text-5xl">
+      El espacio como gesto: arquitectura para el baño
+    </h1>
+    <p className="text-lg italic leading-relaxed text-stone-200 text-balance md:text-xl">
+      Cuando la estructura, la luz y los materiales se piensan juntos.
+    </p>
+  </div>
+</section>
+```
+
+**Tipografía y Colores (Modo Oscuro sobre imagen):**
+
+- Eyebrow: `text-xs font-medium uppercase tracking-widest text-stone-300`
+- H1: `font-serif text-3xl md:text-5xl tracking-tight text-white text-balance`
+- Entradilla: `text-lg md:text-xl text-stone-200 leading-relaxed italic text-balance`
+
+**Reglas:**
+
+- NUNCA usar `<main>` dentro del componente de la página (ya lo provee `layout.tsx`).
+- El `alt` de la imagen debe ser descriptivo y honesto, sin keyword stuffing.
+- La altura es `min-h-[50vh]`, nunca una altura fija: el hero crece con el texto y no recorta la entradilla en móvil.
+- El overlay `bg-stone-950/60` es el valor por defecto; se baja a `/50` únicamente cuando la imagen ya es oscura. No se sube por encima de `/60` sin justificarlo, porque el hero debe seguir leyéndose como fotografía.
+- `quality={80}` es el valor documentado para estas imágenes; no se sube sin justificar el peso.
+- La imagen es contenido editorial, no decoración: no se sustituye por un patrón CSS, un degradado ni una ilustración.
+- El eyebrow puede llevar la línea salvia `h-px w-12` como en `CategoryHero`, pero no es obligatoria en este patrón.
+
+**Dónde se aplica:**
+
+- **Implementación completa** (estructura + overlay + tipografía clara + `quality={80}`): `/bienestar`, `/guia`, `/marcas`, `/articulos/tapa-inteligente`, `/diseno/arquitectura`, `/diseno/interiorismo-bano-contemporaneo` y `/diseno/diseno-inodoros-inteligentes`.
+- **Misma estructura y tipografía, pendientes de añadir `quality={80}` al tocarlas:** `/tecnologia/innovacion`, `/tecnologia/sistemas-inteligentes` y `/tecnologia/sostenibilidad`.
+- **Variante de hub** (`CategoryHero`, H1 con token `text-h1` y `min-h-[350px]`): `/actualidad` a través de `SiloHub`, y las páginas institucionales `/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto` y `/legal`.
+- **Hero propio de hub** con la misma base visual, H1 `text-h1` y `min-h-[50vh] py-20`: `/tecnologia`.
+- **Variantes heredadas de altura fija y texto claro** que no se replican: home (`h-[80vh] min-h-[520px]`), `/blog` y `/diseno` (`h-[60vh] min-h-[400px]`).
 
 
 ---
@@ -970,7 +1036,7 @@ Estas diez reglas son obligatorias. Si una instrucción del usuario entra en con
 
 1. **Lee este SPEC completo antes de tocar código.** No deduzcas la identidad del proyecto a partir de un componente aislado.
 2. **Nunca rompas la paleta `stone`.** El único acento permitido es el Verde Salvia `#7A8B7C`. No introduzcas azules, verdes genéricos, negros puros, dorados ni degradados decorativos.
-3. **Usa siempre el sistema tipográfico definido.** Titulares en Playfair Display (`font-serif`), cuerpo e interfaz en Inter (`font-sans`), con las clases `text-display`, `text-h1`–`text-h3`, `text-body-*`, `text-caption` y `text-eyebrow`. No inventes tamaños ni familias.
+3. **Usa siempre el sistema tipográfico definido.** Titulares en Playfair Display (`font-serif`), cuerpo e interfaz en Inter (`font-sans`), con las clases `text-display`, `text-h1`–`text-h3`, `text-body-*`, `text-caption` y `text-eyebrow`. No inventes tamaños ni familias. La única excepción documentada es el H1 del hero editorial (`text-3xl md:text-5xl`, §3.9).
 4. **Usa siempre `next/image`, nunca `<img>`.** `fill` requiere padre `relative`; `object-cover` para atmósfera y `object-contain` para producto; `alt` descriptivo; `priority` solo en el hero. Migra la excepción de `/seleccion` si tocas esa página.
 5. **Respeta el ritmo y los contenedores.** Secciones `py-24` (o `py-20`/`py-16` según el nivel), laterales `px-6`, lectura `max-w-3xl`, rejillas `max-w-5xl`, chrome `max-w-6xl`. No añadas spacing arbitrario.
 6. **Mantén el código modular y centraliza los datos en arrays tipados.** Define tipos explícitos con JSDoc, evita duplicar contenido y no llenes el JSX de literales repetidos. Componentes de servidor por defecto.
