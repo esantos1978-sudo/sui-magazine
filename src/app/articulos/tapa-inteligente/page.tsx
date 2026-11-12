@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import ArticleJsonLd from "@/components/ArticleJsonLd";
@@ -61,16 +62,26 @@ export default function TapaInteligentePage() {
   return (
     <>
       <ArticleJsonLd article={article} />
-      {/* 1. Hero del artículo. */}
-      <section className="flex h-[40vh] min-h-[320px] items-center justify-center bg-stone-100 px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-500">
+      {/* 1. Hero del artículo: imagen a sangre con overlay y texto claro. */}
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/tapa-inteligente/hero-tapa.jpg"
+          alt="Asiento inteligente de inodoro instalado en un baño luminoso y minimalista, transmitiendo una actualización fácil y elegante."
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-4 font-sans text-eyebrow uppercase text-stone-300">
             Análisis en profundidad · Sui Magazine
           </p>
-          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
+          <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-white">
             La Tapa Inteligente: Transformar tu baño sin obras
           </h1>
-          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
+          <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-200">
             El equilibrio perfecto entre confort y practicidad. Por qué el 70%
             de los hogares españoles eligen esta opción.
           </p>
