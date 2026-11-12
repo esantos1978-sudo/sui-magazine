@@ -279,20 +279,30 @@ const comparisonRows: ComparisonRow[] = [
 export default function GuiaPage() {
   return (
     <>
-      {/* 1. Hero de sección: fondo plano para mantener la calma editorial. */}
-      <section className="flex h-[50vh] min-h-[380px] items-center justify-center bg-stone-100 px-6">
-        <div className="mx-auto max-w-3xl text-center">
+      {/* 1. Hero de sección: imagen a sangre con overlay y texto claro. */}
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/guia/hero-guia.jpg"
+          alt="Interior de baño minimalista y luminoso con líneas claras y materiales naturales."
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl text-center">
           <div
             className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
             aria-hidden="true"
           ></div>
-          <p className="mb-6 text-eyebrow uppercase tracking-wider text-stone-500">
+          <p className="mb-6 text-eyebrow uppercase tracking-wider text-stone-300">
             Guía · Sui Magazine
           </p>
-          <h1 className="text-balance font-serif text-h1 tracking-tight text-stone-900">
+          <h1 className="text-balance font-serif text-h1 tracking-tight text-white">
             La Guía Esencial
           </h1>
-          <p className="mx-auto mt-4 max-w-xl font-sans text-body-lg text-stone-600">
+          <p className="mx-auto mt-4 max-w-xl font-sans text-body-lg text-stone-200">
             Todo lo que necesitas saber sobre los inodoros inteligentes
             japoneses
           </p>
