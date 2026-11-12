@@ -6,7 +6,7 @@
 | Campo | Valor |
 |---|---|
 | Proyecto | Sui Magazine |
-| Versión del SPEC | 1.2 |
+| Versión del SPEC | 1.3 |
 | Estado | Vigente |
 | Ámbito | Identidad, diseño, UI, contenido, arquitectura y calidad |
 | Última revisión | Noviembre de 2026 |
@@ -286,13 +286,13 @@ Toda página se renderiza dentro de `src/components/Layout.tsx`, que aporta el h
 | Home | `h-[80vh] min-h-[520px]` | Imagen a sangre + overlay | Eyebrow, H1, entradilla blancos |
 | Hub de categoría | `h-[50vh] min-h-[350px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Implementado por `CategoryHero`; usado en `/actualidad` y en las páginas institucionales (`/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto`, `/legal`). |
 | Pilar de sección y artículo editorial | `min-h-[50vh]` (crece con el contenido) | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Patrón canónico: estructura, tipografía y reglas en §3.9. |
-| Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/blog` y `/diseno`. |
+| Cinematográfico | `h-[60vh] min-h-[400px]` | Imagen a sangre (`next/image` con `fill`) + overlay `bg-stone-950/60` | Texto en blanco (`text-white` / `text-stone-200`). Eyebrow en `text-stone-300`. Usado en `/diseno`. |
 | Sección | `h-[50vh] min-h-[380px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 | Artículo | `h-[40vh] min-h-[320px]` | `bg-stone-100` | Eyebrow, H1, entradilla centrados, `max-w-3xl` |
 
 El hero de sección puede incluir una línea salvia de `h-px w-12` antes del eyebrow. El H1 de los heroes claros es `font-serif text-h1 tracking-tight` con `text-balance` y `text-stone-900`; el del hero editorial con imagen usa la escala `text-3xl md:text-5xl` y `text-white`, según §3.9.
 
-**Regla de precedencia:** todo hero con imagen de fondo se implementa con el patrón de §3.9. Las alturas fijas de esta tabla (`h-[80vh]` de la home, `h-[60vh]` de `/blog` y `/diseno`, `h-[50vh] min-h-[350px]` de `CategoryHero`) describen las implementaciones ya existentes; en páginas nuevas se usa `min-h-[50vh]` para que el hero crezca con el texto.
+**Regla de precedencia:** todo hero con imagen de fondo se implementa con el patrón de §3.9. Las alturas fijas de esta tabla (`h-[80vh]` de la home, `h-[60vh]` de `/diseno`, `h-[50vh] min-h-[350px]` de `CategoryHero`) describen las implementaciones ya existentes; en páginas nuevas se usa `min-h-[50vh]` para que el hero crezca con el texto.
 
 ### 3.2 Botones y enlaces
 
@@ -676,8 +676,9 @@ Para soportar la arquitectura de seis silos se han creado componentes reutilizab
 
 - Plantilla maestra para páginas de categoría (hubs).
 - Recibe `siloId` y obtiene los datos desde `silos.ts`.
-- Incluye `CategoryHero`, introducción editorial, lista de subcategorías, lecturas satélite opcionales y CTA final.
-- La sección de lecturas solo se renderiza cuando hay artículos asignados al silo.
+- Incluye `CategoryHero`, introducción editorial, lista de subcategorías, lecturas satélite opcionales y CTA final opcional.
+- La sección de lecturas solo se renderiza cuando recibe artículos; queda anclada en `#lecturas` y su antetítulo y titular se personalizan con `readingsEyebrow` y `readingsTitle`.
+- `/actualidad` le pasa el archivo completo del magazine (`articles`) y los rótulos «Archivo del magazine» / «Todas las historias». Es el único hub que omite el CTA: su cierre es el propio archivo.
 
 **`SiloSubnav`** (`src/components/SiloSubnav.tsx`)
 
@@ -752,7 +753,7 @@ Utilizado en pilares de sección y artículos editoriales para dar impacto visua
 - **Misma estructura y tipografía, pendientes de añadir `quality={80}` al tocarlas:** `/tecnologia/innovacion`, `/tecnologia/sistemas-inteligentes` y `/tecnologia/sostenibilidad`.
 - **Variante de hub** (`CategoryHero`, H1 con token `text-h1` y `min-h-[350px]`): `/actualidad` a través de `SiloHub`, y las páginas institucionales `/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto` y `/legal`.
 - **Hero propio de hub** con la misma base visual, H1 `text-h1` y `min-h-[50vh] py-20`: `/tecnologia`.
-- **Variantes heredadas de altura fija y texto claro** que no se replican: home (`h-[80vh] min-h-[520px]`), `/blog` y `/diseno` (`h-[60vh] min-h-[400px]`).
+- **Variantes heredadas de altura fija y texto claro** que no se replican: home (`h-[80vh] min-h-[520px]`) y `/diseno` (`h-[60vh] min-h-[400px]`).
 
 
 ---
@@ -805,8 +806,7 @@ sui-magazine/
 │  │  ├─ bienestar/page.tsx            # página pilar de Bienestar
 │  │  ├─ diseno/page.tsx               # página pilar de Diseño
 │  │  ├─ marcas/page.tsx               # página pilar de Marcas
-│  │  ├─ actualidad/page.tsx           # hub del silo Actualidad
-│  │  ├─ blog/page.tsx                 # índice editorial
+│  │  ├─ actualidad/page.tsx           # hub de Actualidad y archivo de artículos
 │  │  ├─ seleccion/page.tsx
 │  │  ├─ funcionalidades/page.tsx
 │  │  ├─ profesionales/page.tsx
@@ -855,7 +855,7 @@ sui-magazine/
 └─ SPEC.md
 ```
 
-**Rutas actuales:** `/`, `/guia`, `/tecnologia`, `/bienestar`, `/diseno`, `/marcas`, `/actualidad`, `/blog`, `/seleccion`, `/funcionalidades`, `/profesionales`, `/soluciones`, `/sobre-el-magazine`, `/metodologia`, `/contacto`, `/legal` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build.
+**Rutas actuales:** `/`, `/guia`, `/tecnologia`, `/bienestar`, `/diseno`, `/marcas`, `/actualidad`, `/seleccion`, `/funcionalidades`, `/profesionales`, `/soluciones`, `/sobre-el-magazine`, `/metodologia`, `/contacto`, `/legal` y cinco artículos bajo `/articulos/*`. Todas son estáticas y se prerenderizan en build. La antigua ruta `/blog` no se sirve: responde con un 301 permanente a `/actualidad` definido en `next.config.mjs`.
 
 El silo Guías conserva la ruta singular `/guia`. No existe `/guias` ni una carpeta `src/app/guias/`: crear una segunda ruta con el mismo contenido duplicaría la página pilar y rompería la regla de una única URL canónica por contenido.
 
@@ -1084,17 +1084,18 @@ HOME
 ├── BIENESTAR (Autonomía, Accesibilidad, Envejecimiento, Cuidado)
 ├── DISEÑO (Arquitectura, Interiorismo, Producto)
 ├── MARCAS (TOTO, Roca, Geberit, GROHE, Duravit, Otras)
-├── ACTUALIDAD (Lanzamientos, Noticias, Tendencias)
+├── ACTUALIDAD (Lanzamientos, Noticias, Tendencias y archivo de artículos)
 └── FOOTER (Profesional, Soluciones, Sobre el magazine, Metodología, Contacto, Legal)
 ```
 
 **Reglas de aplicación:**
 
-1. Las rutas existentes (`/bienestar`, `/diseno`, `/marcas`, `/blog`, `/guia`, `/seleccion`, `/funcionalidades`, `/profesionales` y `/articulos/*`) **se conservan**; la nueva estructura se añade sin romperlas ni redirigirlas. La ruta canónica del silo Guías es `/guia`; no se crea `/guias`.
+1. Las rutas existentes (`/bienestar`, `/diseno`, `/marcas`, `/actualidad`, `/guia`, `/seleccion`, `/funcionalidades`, `/profesionales` y `/articulos/*`) **se conservan**; la nueva estructura se añade sin romperlas. La ruta canónica del silo Guías es `/guia`; no se crea `/guias`. La única redirección del sitio es `/blog` → `/actualidad`.
 2. Cada silo tiene una página pilar que actúa como hub y enlaza a sus subcategorías y contenidos satélite.
 3. Todo contenido nuevo se asigna a un único silo principal; los enlaces cruzados entre silos son editoriales, nunca duplicaciones de ruta.
 4. La navegación principal refleja los silos; el footer mantiene las rutas institucionales y de servicio.
 5. Toda ruta nueva cumple las reglas de las secciones 4.3, 4.4 y 4.6: metadata propia, un solo H1, arrays tipados y `next/image`.
+6. `/actualidad` es el **único contenedor de contenido dinámico** del magazine: reúne las piezas de actualidad y el archivo completo de artículos (sección `#lecturas`). No existe una sección «Blog» ni se sirve `/blog`: la antigua URL responde con un 301 permanente a `/actualidad`.
 
 ---
 

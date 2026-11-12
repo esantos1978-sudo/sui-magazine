@@ -12,8 +12,21 @@ type SiloHubProps = {
   intro: string[];
   /** Lecturas satélite que se muestran al final del hub. */
   articles?: Article[];
-  /** Llamada a la acción final hacia el contenido pilar relacionado. */
-  cta: {
+  /**
+   * Antetítulo de la sección de lecturas. Por defecto, «Lecturas del silo».
+   * Los hubs que reúnen el archivo completo del magazine lo sobrescriben.
+   */
+  readingsEyebrow?: string;
+  /**
+   * Titular de la sección de lecturas. Por defecto, «Para seguir profundizando».
+   */
+  readingsTitle?: string;
+  /**
+   * Llamada a la acción final hacia el contenido pilar relacionado.
+   * Es opcional: cuando el hub ya cierra con su archivo completo de lecturas,
+   * no necesita un destino adicional.
+   */
+  cta?: {
     /** Antetítulo de la sección. */
     eyebrow: string;
     /** Titular de la llamada a la acción. */
@@ -31,13 +44,15 @@ type SiloHubProps = {
  * Página hub de un silo.
  *
  * Presenta la imagen pilar, los recorridos internos, las lecturas satélite
- * y una llamada a la acción. Se usa en los silos nuevos para que todos
- * compartan la misma jerarquía visual y semántica.
+ * y, opcionalmente, una llamada a la acción. Se usa en los silos nuevos para
+ * que todos compartan la misma jerarquía visual y semántica.
  */
 export default function SiloHub({
   siloId,
   intro,
   articles,
+  readingsEyebrow = "Lecturas del silo",
+  readingsTitle = "Para seguir profundizando",
   cta,
 }: SiloHubProps) {
   const silo = getSilo(siloId);
@@ -116,23 +131,15 @@ export default function SiloHub({
 
       {/* 4. Lecturas satélite del silo. */}
       {articles && articles.length > 0 && (
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="lecturas" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
-            <div className="mb-14 flex flex-col gap-4 border-b border-stone-300 pb-6 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="font-sans text-eyebrow uppercase text-stone-500">
-                  Lecturas del silo
-                </p>
-                <h2 className="mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
-                  Para seguir profundizando
-                </h2>
-              </div>
-              <Link
-                href="/blog"
-                className="inline-block border-b border-stone-300 pb-1 font-sans text-sm text-stone-600 transition hover:border-stone-900 hover:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-              >
-                Ver todo el diario <span aria-hidden="true">→</span>
-              </Link>
+            <div className="mb-14 border-b border-stone-300 pb-6">
+              <p className="font-sans text-eyebrow uppercase text-stone-500">
+                {readingsEyebrow}
+              </p>
+              <h2 className="mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
+                {readingsTitle}
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
@@ -173,29 +180,31 @@ export default function SiloHub({
       )}
 
       {/* 5. CTA final hacia el contenido pilar relacionado. */}
-      <section className="bg-stone-100 px-6 py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <div
-            className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
-            aria-hidden="true"
-          />
-          <p className="font-sans text-eyebrow uppercase text-stone-500">
-            {cta.eyebrow}
-          </p>
-          <h2 className="mb-6 mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
-            {cta.title}
-          </h2>
-          <p className="mb-8 font-sans text-body-base leading-relaxed text-stone-600">
-            {cta.description}
-          </p>
-          <Link
-            href={cta.href}
-            className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-          >
-            {cta.label}
-          </Link>
-        </div>
-      </section>
+      {cta && (
+        <section className="bg-stone-100 px-6 py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <div
+              className="mx-auto mb-8 h-px w-12 bg-[#7A8B7C]"
+              aria-hidden="true"
+            />
+            <p className="font-sans text-eyebrow uppercase text-stone-500">
+              {cta.eyebrow}
+            </p>
+            <h2 className="mb-6 mt-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
+              {cta.title}
+            </h2>
+            <p className="mb-8 font-sans text-body-base leading-relaxed text-stone-600">
+              {cta.description}
+            </p>
+            <Link
+              href={cta.href}
+              className="inline-block border border-stone-900 px-6 py-3 text-sm font-medium tracking-wide text-stone-900 transition hover:bg-stone-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+            >
+              {cta.label}
+            </Link>
+          </div>
+        </section>
+      )}
     </>
   );
 }

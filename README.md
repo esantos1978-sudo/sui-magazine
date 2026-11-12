@@ -18,7 +18,7 @@ Sui Magazine es un magazine editorial digital minimalista, inspirado en el estil
 - **Tipografía editorial:** Playfair Display para titulares e Inter para cuerpo y navegación, cargadas con `next/font` y `display: swap`.
 - **Diseño responsive:** interfaz mobile-first, header sticky, navegación accesible, tablas con scroll horizontal y footer compartido.
 - **SEO técnico base:** `metadata` específica por ruta (título, descripción y URL canónica), `metadataBase`, Open Graph en la home y las páginas editoriales, Twitter Cards, JSON-LD global `WebSite`/`Organization`, JSON-LD `Article` en los cinco artículos, `robots.txt` y `sitemap.xml` generados con la Metadata API de Next.js. Incluye HTML semántico y rutas estáticas.
-- **Contenido editorial completo:** home, guía esencial, bienestar y perfiles, blog, diseño y estética, guía de funcionalidades, ranking 2026 y cinco artículos prácticos sobre instalación, presupuesto, adaptación al baño español, tapa inteligente y sostenibilidad.
+- **Contenido editorial completo:** home, guía esencial, bienestar y perfiles, actualidad (hub y archivo de artículos), diseño y estética, guía de funcionalidades, ranking 2026 y cinco artículos prácticos sobre instalación, presupuesto, adaptación al baño español, tapa inteligente y sostenibilidad.
 - **Ranking de producto:** siete modelos comparados con criterios editoriales, precio orientativo, puntuación, puntos fuertes, limitaciones y perfil recomendado.
 - **Bienestar y perfiles:** narrativa sobre dignidad y autonomía, tres perfiles de cuidado con solución recomendada y CTA de orientación profesional.
 - **Guía técnica por funcionalidades:** ocho características explicadas con utilidad real, modelos de referencia, nivel de precio, tabla comparativa y FAQ.
@@ -61,7 +61,7 @@ sui-magazine/
 │   │   ├── favicon.ico
 │   │   ├── guia/page.tsx                 # Guía esencial del washlet
 │   │   ├── bienestar/page.tsx            # Bienestar, perfiles, autonomía y cuidados
-│   │   ├── blog/page.tsx                 # Índice editorial de todos los artículos
+│   │   ├── actualidad/page.tsx           # Hub de Actualidad y archivo de artículos
 │   │   ├── diseno/page.tsx               # Estética, materiales y tecnología del baño
 │   │   ├── seleccion/page.tsx            # Ranking 2026 de siete modelos
 │   │   ├── funcionalidades/page.tsx      # Guía técnica de ocho funcionalidades
@@ -102,7 +102,7 @@ sui-magazine/
 | `/` | Home editorial: hero, manifiesto, tres formatos y lecturas relacionadas |
 | `/guia` | Qué es un washlet, formatos disponibles, popularidad en España y ventajas |
 | `/bienestar` | Dignidad y autonomía, tres perfiles de cuidado y orientación profesional |
-| `/blog` | Índice editorial de todos los artículos: hero cinematográfico, pieza principal y archivo |
+| `/actualidad` | Hub de actualidad (lanzamientos, noticias y tendencias) y archivo completo de artículos; absorbe el antiguo índice editorial |
 | `/diseno` | Estética y tendencias del baño: principios, materiales, tecnología integrada y lecturas |
 | `/seleccion` | Ranking 2026 de siete modelos, criterios y análisis individuales |
 | `/funcionalidades` | Guía técnica de las 8 funciones clave: utilidad, modelos, precio y comparativa |
@@ -112,6 +112,8 @@ sui-magazine/
 | `/articulos/bano-espanol-adaptaciones` | Cal, enchufes, cisternas empotradas y normativa eléctrica |
 | `/articulos/tapa-inteligente` | Deep dive de la tapa inteligente: materiales, calentamiento y modelos |
 | `/articulos/bide-japones-sostenibilidad` | Impacto ecológico del bidé japonés: papel, agua, residuos y economía circular |
+
+> La antigua ruta `/blog` se retiró al unificar el contenido dinámico en `/actualidad`: responde con un **301 permanente** a `/actualidad` (definido en `next.config.mjs`) y ya no aparece en `sitemap.xml`.
 
 El contenido editorial vive directamente en los archivos TSX y en `src/content/formats.ts`; no hay CMS, base de datos ni rutas de API.
 

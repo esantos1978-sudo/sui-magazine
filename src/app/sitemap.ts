@@ -3,9 +3,10 @@ import type { MetadataRoute } from "next";
 /**
  * Mapa del sitio de Sui Magazine.
  *
- * Incluye la home, los seis silos, los índices editoriales, las páginas
- * institucionales y los artículos publicados. Si se añade una ruta
- * pública nueva, debe incorporarse también a esta lista.
+ * Incluye la home, los seis silos, las páginas institucionales y los
+ * artículos publicados. Si se añade una ruta pública nueva, debe incorporarse
+ * también a esta lista. La antigua ruta `/blog` no se incluye: responde con un
+ * 301 permanente a `/actualidad`.
  *
  * El dominio es provisional: debe sustituirse por el definitivo antes de
  * desplegar en producción.
@@ -33,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/marcas",
     "/marcas/toto",
     "/actualidad",
-    "/blog",
     "/seleccion",
     "/funcionalidades",
     "/profesionales",

@@ -18,8 +18,8 @@ const ARTICLE_DATE_MODIFIED = "2024-01-01";
 
 /**
  * Ficha editorial de un artículo publicado en el magazine.
- * Se comparte entre el índice `/blog`, los hubs de silo y las páginas que
- * necesitan mostrar lecturas relacionadas.
+ * Se comparte entre el archivo de `/actualidad`, los hubs de silo y las
+ * páginas que necesitan mostrar lecturas relacionadas.
  */
 export type Article = {
   /** Titular completo que identifica el artículo. */
@@ -42,7 +42,8 @@ export type Article = {
 
 /**
  * Todos los artículos del magazine, ordenados por prioridad editorial.
- * El primero se presenta como pieza principal en `/blog`.
+ * El orden se respeta en el archivo de `/actualidad` y en las lecturas
+ * relacionadas de cada página.
  */
 export const articles: Article[] = [
   {

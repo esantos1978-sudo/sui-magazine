@@ -6,7 +6,9 @@
  * principal, el footer, la portada y las páginas hub.
  *
  * Las rutas existentes se conservan: `/guia`, `/bienestar`, `/diseno`,
- * `/marcas` y `/blog` siguen siendo válidas y no se redirigen.
+ * `/marcas` y `/actualidad` siguen siendo válidas y no se redirigen.
+ * `/blog` se retiró al unificar el contenido dinámico en `/actualidad`;
+ * la antigua ruta responde con un 301 permanente desde `next.config.mjs`.
  */
 
 /** Identificador estable de cada silo editorial. */
@@ -297,7 +299,7 @@ export const silos: Silo[] = [
       },
       {
         label: "Noticias",
-        href: "/blog",
+        href: "/actualidad#lecturas",
         description:
           "Movimientos de marcas, normativa y contexto del mercado español.",
       },
