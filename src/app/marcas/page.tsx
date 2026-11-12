@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 import SiloSubnav from "@/components/SiloSubnav";
 
@@ -36,6 +37,11 @@ type Brand = {
   description: string;
   /** Modelo que mejor representa su enfoque. */
   iconicModel: string;
+  /**
+   * Ruta de la ficha ampliada de la marca, si ya existe.
+   * Las marcas sin ficha propia se quedan solo con la reseña del directorio.
+   */
+  href?: string;
 };
 
 /**
@@ -50,6 +56,7 @@ const brands: Brand[] = [
     description:
       "El inventor del Washlet en 1980. TOTO no solo fabrica inodoros, define el estándar de la higiene moderna. Su gama Neorest es la cumbre del diseño y la tecnología silenciosa.",
     iconicModel: "Neorest NX2",
+    href: "/marcas/toto",
   },
   {
     id: "roca",
@@ -154,6 +161,15 @@ export default function MarcasPage() {
                 <span>Modelo icónico: {brand.iconicModel}</span>
                 <span aria-hidden="true">→</span>
               </div>
+              {brand.href && (
+                <Link
+                  href={brand.href}
+                  className="mt-6 inline-flex items-center gap-2 border-b border-stone-300 pb-1 font-sans text-sm text-stone-600 transition hover:border-stone-900 hover:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+                >
+                  Ver la ficha de {brand.name}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              )}
             </article>
           ))}
         </div>

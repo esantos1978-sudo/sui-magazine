@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/diseno/interiorismo-bano-contemporaneo",
     "/diseno/diseno-inodoros-inteligentes",
     "/marcas",
+    "/marcas/toto",
     "/actualidad",
     "/blog",
     "/seleccion",
