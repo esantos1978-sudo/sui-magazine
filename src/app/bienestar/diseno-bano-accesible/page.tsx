@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -30,16 +31,26 @@ export const metadata: Metadata = {
 export default function DisenoBanoAccesiblePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO EDITORIAL */}
-      <section className="bg-stone-50 px-6 py-20 md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-[#7A8B7C]">
+      {/* HERO EDITORIAL: imagen a sangre con overlay para texto claro. */}
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden px-6 py-20 md:py-32">
+        <Image
+          src="/images/bienestar/hero-accesibilidad.jpg"
+          alt="Baño contemporáneo diáfano y sin barreras, con luz natural y diseño universal."
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-stone-950/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-xs font-medium uppercase tracking-widest text-stone-300">
             Bienestar / Accesibilidad
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-stone-900 text-balance mb-6">
+          <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-white text-balance mb-6">
             Diseñar sin barreras: cuando la accesibilidad también es buen diseño
           </h1>
-          <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic text-balance">
+          <p className="text-lg md:text-xl text-stone-200 leading-relaxed italic text-balance">
             Un baño accesible no tiene por qué parecer un espacio clínico. La
             arquitectura contemporánea permite integrar funcionalidad, seguridad
             y belleza, siempre que el diseño comience por las necesidades de

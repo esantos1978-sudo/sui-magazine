@@ -749,7 +749,7 @@ Utilizado en pilares de sección y artículos editoriales para dar impacto visua
 
 **Dónde se aplica:**
 
-- **Implementación completa** (estructura + overlay + tipografía clara + `quality={80}`): `/bienestar`, `/guia`, `/marcas`, `/articulos/tapa-inteligente`, `/diseno/arquitectura`, `/diseno/interiorismo-bano-contemporaneo` y `/diseno/diseno-inodoros-inteligentes`.
+- **Implementación completa** (estructura + overlay + tipografía clara + `quality={80}`): `/bienestar` y sus cuatro artículos (`/bienestar/higiene-personal-movilidad-reducida`, `/bienestar/diseno-bano-accesible`, `/bienestar/envejecer-en-casa-bano` y `/bienestar/tecnologia-higiene-asistida`), `/guia`, `/marcas`, `/articulos/tapa-inteligente`, `/diseno/arquitectura`, `/diseno/interiorismo-bano-contemporaneo` y `/diseno/diseno-inodoros-inteligentes`.
 - **Misma estructura y tipografía, pendientes de añadir `quality={80}` al tocarlas:** `/tecnologia/innovacion`, `/tecnologia/sistemas-inteligentes` y `/tecnologia/sostenibilidad`.
 - **Variante de hub** (`CategoryHero`, H1 con token `text-h1` y `min-h-[350px]`): `/actualidad` a través de `SiloHub`, y las páginas institucionales `/sobre-el-magazine`, `/soluciones`, `/metodologia`, `/contacto` y `/legal`.
 - **Hero propio de hub** con la misma base visual, H1 `text-h1` y `min-h-[50vh] py-20`: `/tecnologia`.
