@@ -81,7 +81,7 @@ const products: SelectionProduct[] = [
     price: "Desde ~1.690 €",
     rating: "⭐⭐⭐⭐⭐",
     ratingLabel: "5 de 5",
-    best: "Inyector de titanio bacteriostático y sistema de lavado ciclónico que ahorra hasta un 70% de agua.",
+    best: "Inyector de titanio bacteriostático y sistema de lavado ciclónico que ahorra entre el 37% y el 58% de agua.",
     consider:
       "Requiere sustituir tu váter actual y una mínima intervención de fontanería.",
     idealFor:

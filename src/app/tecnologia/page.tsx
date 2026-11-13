@@ -90,6 +90,16 @@ const silo = getSilo("tecnologia");
 /** Artículos reales del silo, en el orden editorial de `articles.ts`. */
 const latestArticles = getArticlesBySilo("tecnologia");
 
+/**
+ * Titulares propios del hub para las tarjetas de "Últimas publicaciones".
+ * Evitan que un encabezado del hub repita literalmente el H1 del artículo
+ * al que enlaza, sin modificar el titular original en `articles.ts`.
+ */
+const hubCardTitles: Record<string, string> = {
+  "/articulos/bide-japones-sostenibilidad":
+    "Sostenibilidad: el agua como recurso",
+};
+
 export default function TecnologiaPage() {
   return (
     <>
@@ -203,7 +213,7 @@ export default function TecnologiaPage() {
               EN PROFUNDIDAD / SISTEMAS INTELIGENTES
             </p>
             <h2 className="mb-4 text-balance font-serif text-h2 tracking-tight text-stone-900">
-              La tecnología invisible: cómo funciona un inodoro inteligente
+              Anatomía de una tapa inteligente
             </h2>
             <p className="font-sans text-body-base leading-relaxed text-stone-600">
               Un recorrido por los sistemas de lavado, calentamiento, secado y
@@ -262,7 +272,7 @@ export default function TecnologiaPage() {
                   </div>
 
                   <h3 className="mb-3 text-balance font-serif text-h3 tracking-tight text-stone-900 transition-colors group-hover:text-stone-600">
-                    {article.title}
+                    {hubCardTitles[article.href] ?? article.title}
                   </h3>
                   <p className="mb-6 font-sans text-body-base leading-relaxed text-stone-600">
                     {article.excerpt}

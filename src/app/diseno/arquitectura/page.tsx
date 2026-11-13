@@ -349,9 +349,8 @@ export default function DisenoArquitecturaPage() {
               funcionando con el paso del tiempo.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              Porque la mejor tecnología no siempre es la que más destaca, sino la
-              que encuentra su lugar dentro de una arquitectura pensada para
-              vivir.
+              Los mejores baños no se miran, se sienten. La luz entra, el aire
+              circula y el cuerpo se relaja antes de que la mente lo decida.
             </p>
           </section>
         </div>

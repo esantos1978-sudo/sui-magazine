@@ -251,9 +251,9 @@ export default function SistemasInteligentesPage() {
               realmente aporten valor.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              Porque detrás de una experiencia aparentemente sencilla existe una
-              ingeniería diseñada para hacer que la tecnología pase a un segundo
-              plano.
+              La verdadera inteligencia no reside en la cantidad de funciones,
+              sino en la capacidad de anticiparse a lo que necesitas sin que
+              tengas que pedirlo.
             </p>
           </section>
         </div>

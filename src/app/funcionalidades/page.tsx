@@ -94,7 +94,7 @@ const features: Feature[] = [
     label: "Función 06",
     title: "Descarga ciclónica / Ahorro de agua",
     description:
-      "Elimina la cisterna tradicional. Inyecta agua a presión creando un vórtice que barre la taza. Ahorra hasta un 70% de agua (3,8 - 5 litros).",
+      "Elimina la cisterna tradicional. Inyecta agua a presión creando un vórtice que barre la taza. Ahorra entre el 37% y el 58% de agua (3,8 - 5 litros).",
     models:
       "TOTO Neorest (Dual-Max Cyclone), Grohe Sensia Arena (Triple Vortex), Nashi Aldara iPlus 5.",
     price: "Gama alta (solo inodoros completos, desde 1.300 €).",

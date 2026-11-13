@@ -246,10 +246,9 @@ export default function SostenibilidadPage() {
               al evaluar las características que realmente necesitan.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              La innovación responsable no consiste necesariamente en incorporar
-              más tecnología. Consiste en desarrollar soluciones que aporten
-              valor y cuyo impacto pueda comprenderse, medirse y mejorar con el
-              tiempo.
+              Cada litro de agua que no se gasta, cada rollo de papel que no se
+              tala, es un pequeño acto de respeto hacia el entorno que
+              habitamos.
             </p>
           </section>
         </div>

@@ -217,10 +217,12 @@ export default function DisenoBanoAccesiblePage() {
               diseñar con criterios de accesibilidad puede mejorar la experiencia
               de muchas personas, aunque las soluciones específicas deban
               adaptarse a cada caso. La verdadera sofisticación no reside en
-              ocultar las necesidades humanas.
+              ocultar las necesidades humanas, sino en integrarlas con
+              naturalidad.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              Reside en incorporarlas al diseño desde el principio.
+              Un baño bien diseñado no solo evita caídas: devuelve la
+              tranquilidad de moverse por casa sin pensarlo dos veces.
             </p>
           </section>
         </div>

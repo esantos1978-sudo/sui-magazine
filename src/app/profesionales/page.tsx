@@ -67,7 +67,7 @@ const benefits: Benefit[] = [
   },
   {
     title: "Ahorro de materiales",
-    text: "Se elimina drásticamente el consumo de papel y toallitas. Además, los sistemas ciclónicos ahorran hasta un 70% de agua.",
+    text: "Se elimina drásticamente el consumo de papel y toallitas. Además, los sistemas ciclónicos ahorran entre el 37% y el 58% de agua.",
   },
   {
     title: "Mejora de la salud laboral",
@@ -89,7 +89,7 @@ const roiRows: RoiRow[] = [
   {
     concept: "Ahorro de Agua",
     impact:
-      "Los sistemas ciclónicos reducen el consumo hasta en un 70% por descarga.",
+      "Los sistemas ciclónicos reducen el consumo entre el 37% y el 58% por descarga.",
   },
   {
     concept: "Tiempo de Personal",

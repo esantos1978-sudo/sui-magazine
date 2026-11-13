@@ -244,9 +244,9 @@ export default function Home() {
 
                 {/* Titular descriptivo */}
                 <p className="mb-6 text-body-lg leading-relaxed text-stone-700">
-                  El baño invisible: tu inodoro es la mayor decisión ecológica
-                  de tu hogar. Cada año, una familia media tira a la basura el
-                  equivalente a 27 árboles.
+                  El baño invisible: tu inodoro es un paso significativo hacia
+                  la reducción de residuos. Cada año, una familia media tira a
+                  la basura el equivalente a casi 1 árbol maduro.
                 </p>
 
                 {/* Enlace sutil */}

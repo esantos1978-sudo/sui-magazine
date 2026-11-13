@@ -206,12 +206,12 @@ export default function EnvejecerEnCasaBanoPage() {
               de autonomía. Puede ser una manera de crear un entorno más
               flexible, capaz de responder a diferentes circunstancias. El diseño
               accesible, las soluciones de higiene y las pequeñas mejoras del
-              espacio pueden contribuir a esa flexibilidad. Porque envejecer en
-              casa no consiste únicamente en permanecer en un lugar conocido.
+              espacio pueden contribuir a esa flexibilidad. Envejecer en casa
+              no consiste únicamente en permanecer en un lugar conocido.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              También significa conservar, durante el mayor tiempo posible, la
-              capacidad de vivirlo a nuestra manera.
+              Envejecer en casa no significa renunciar a la belleza. Significa
+              adaptar el entorno para que siga siendo un refugio, año tras año.
             </p>
           </section>
         </div>

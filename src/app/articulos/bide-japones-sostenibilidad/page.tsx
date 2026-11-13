@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title:
     "Bidé japonés y sostenibilidad: El impacto real en el planeta | Sui Magazine",
   description:
-    "Descubre cómo los inodoros inteligentes ahorran agua, reducen la deforestación y eliminan las toallitas húmedas. El baño del futuro es ecológico.",
+    "Descubre cómo los inodoros inteligentes ahorran agua, reducen la deforestación y reducen el uso de toallitas húmedas. El baño del futuro es ecológico.",
 };
 
 /** Impacto ambiental del ciclo de vida del papel higiénico. */
@@ -48,7 +48,7 @@ const paperImpacts: PaperImpact[] = [
   },
   {
     title: "Un lujo de agua",
-    text: "Fabricar un solo rollo de papel consume aproximadamente 140 litros de agua. Una familia de cuatro personas puede gastar más de 27.000 litros de agua al año solo en la producción del papel que usa.",
+    text: "Fabricar un solo rollo de papel consume aproximadamente 140 litros de agua. Una familia de cuatro personas puede gastar más de 21.000 litros de agua al año solo en la producción del papel que usa.",
   },
   {
     title: "Químicos y blanqueantes",
@@ -60,11 +60,11 @@ const paperImpacts: PaperImpact[] = [
 const waterBenefits: WaterBenefit[] = [
   {
     title: "Sistemas Tankless y Descarga Ciclónica",
-    text: "Modelos como el Nashi Aldara iPlus 5 o el TOTO Neorest eliminan la cisterna tradicional. Inyectan agua a presión creando un vórtice que limpia la taza usando solo 3,8 litros, frente a los 6-9 litros de un inodoro convencional. Un ahorro de hasta el 70% por descarga.",
+    text: "Modelos como el Nashi Aldara iPlus 5 o el TOTO Neorest eliminan la cisterna tradicional. Inyectan agua a presión creando un vórtice que limpia la taza usando solo 3,8 litros, frente a los 6-9 litros de un inodoro convencional. Un ahorro de entre el 37% y el 58% por descarga.",
   },
   {
     title: "El fin de las toallitas húmedas",
-    text: "Las toallitas 'biodegradables' no se deshacen en el agua y son la principal causa de los 'fatbergs' (montañas de grasa y residuos) que colapsan las alcantarillas de nuestras ciudades. El secado por aire caliente del bidé elimina por completo su necesidad.",
+    text: "Las toallitas 'biodegradables' no se deshacen en el agua y son la principal causa de los 'fatbergs' (montañas de grasa y residuos) que colapsan las alcantarillas de nuestras ciudades. El secado por aire caliente del bidé reduce drásticamente su necesidad.",
   },
   {
     title: "Reducción de residuos plásticos",
@@ -86,7 +86,7 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     concept: "Agua en la cisterna (aprox.)",
-    traditional: "25.000 litros",
+    traditional: "21.000 litros",
     bidet: "9.000 litros (sistemas ciclónicos)",
   },
   {
@@ -107,12 +107,12 @@ export default function BideJaponesSostenibilidadPage() {
             Sostenibilidad · Sui Magazine
           </p>
           <h1 className="mb-4 text-balance font-serif text-h1 tracking-tight text-stone-900">
-            El baño invisible: Tu inodoro es la mayor decisión ecológica de tu
-            hogar
+            El baño invisible: Tu inodoro es un paso significativo hacia la
+            reducción de residuos en el hogar
           </h1>
           <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
-            Cada año, una familia media tira a la basura el equivalente a 27
-            árboles. Hay una forma más amable de ir al baño.
+            Cada año, una familia media tira a la basura el equivalente a casi
+            1 árbol maduro. Hay una forma más amable de ir al baño.
           </p>
         </div>
       </section>

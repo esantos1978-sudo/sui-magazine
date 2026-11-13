@@ -75,7 +75,7 @@ const smartSeatSteps: InstallStep[] = [
   },
   {
     title: "Desliza el asiento inteligente",
-    text: "Coge el washlet y deslízalo horizontalmente sobre la placa base hacia atrás hasta que escuches un “clic” sólido. ¡Ya está anclado!",
+    text: "Coge el washlet y deslízalo horizontalmente sobre la placa base hacia atrás hasta que escuches un “clic” sólido. Ya está anclado.",
   },
   {
     title: "Instala el paso de agua",
@@ -87,7 +87,7 @@ const smartSeatSteps: InstallStep[] = [
   },
   {
     title: "Comprobación final",
-    text: "Abre el agua. El asiento comenzará a cebarse. Una vez acabe, pon tu antebrazo sobre el sensor del asiento para simular que alguien está sentado, y pulsa el botón de lavado. ¡Magia!",
+    text: "Abre el agua. El asiento comenzará a cebarse. Una vez acabe, pon tu antebrazo sobre el sensor del asiento para simular que alguien está sentado, y pulsa el botón de lavado.",
   },
 ];
 
@@ -102,7 +102,7 @@ const commonMistakes: InstallStep[] = [
     text: "Parece obvio, pero aflojar un latiguillo con el agua abierta convertirá tu baño en una piscina en 5 segundos.",
   },
   {
-    title: "Apretar a lo “Hulk”",
+    title: "Apretar de más",
     text: "Las conexiones de fontanería llevan juntas de goma que sellan por presión. Si usas herramientas para apretar las roscas de plástico al máximo, pellizcarás la goma y causarás fugas.",
   },
   {
@@ -111,7 +111,7 @@ const commonMistakes: InstallStep[] = [
   },
   {
     title: "Asustarse al no probar las funciones",
-    text: "El asiento tiene un sensor de piel/peso. Si pulsas el mando de lavado sin estar sentado, no saldrá agua. ¡No pienses que está roto!",
+    text: "El asiento tiene un sensor de piel/peso. Si pulsas el mando de lavado sin estar sentado, no saldrá agua. No está roto.",
   },
 ];
 
@@ -161,8 +161,8 @@ export default function GuiaInstalacionPage() {
             Guía de instalación paso a paso
           </h1>
           <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
-            Cómo montar tu bidé japonés sin estrés. Te prometo que es más fácil
-            de lo que crees.
+            Cómo montar tu bidé japonés sin estrés. Una tarde tranquila y unas
+            pocas herramientas.
           </p>
         </div>
       </section>
@@ -172,11 +172,10 @@ export default function GuiaInstalacionPage() {
         <p className="font-serif text-body-lg text-stone-700">
           Ha llegado el momento. Tu bidé japonés ya está en casa. Seguro que
           estás mirando la caja con una mezcla de emoción y un poquito de
-          vértigo. Respira hondo, saca las herramientas y sígueme. Ya has
-          comprobado que tu baño cumple los requisitos, así que la parte de la
-          incertidumbre ya ha pasado. Ahora solo se trata de encajar unas
-          cuantas piezas. Piensa que es como montar un mueble, pero con un
-          premio final que va a cambiar tu día a día.
+          vértigo. Ya has comprobado que tu baño cumple los requisitos, así que
+          la parte de la incertidumbre ya ha pasado. Ahora solo se trata de
+          encajar unas cuantas piezas. Piensa que es como montar un mueble, pero
+          con una pequeña recompensa cotidiana.
         </p>
       </section>
 
@@ -215,7 +214,7 @@ export default function GuiaInstalacionPage() {
               Herramientas:
             </strong>{" "}
             Llave inglesa, destornillador de estrella, un paño y un cubo
-            pequeño. ¡Ah! Y asegúrate de tener el enchufe estándar de 220V
+            pequeño. Asegúrate también de tener el enchufe estándar de 220V
             cerca.
           </p>
 

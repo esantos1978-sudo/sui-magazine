@@ -82,8 +82,8 @@ export default function TapaInteligentePage() {
             La Tapa Inteligente: Transformar tu baño sin obras
           </h1>
           <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-200">
-            El equilibrio perfecto entre confort y practicidad. Por qué el 70%
-            de los hogares españoles eligen esta opción.
+            El equilibrio perfecto entre confort y practicidad. Por qué cada vez
+            más hogares españoles eligen esta opción.
           </p>
         </div>
       </section>

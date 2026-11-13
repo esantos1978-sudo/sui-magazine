@@ -48,11 +48,11 @@ export type Article = {
 export const articles: Article[] = [
   {
     title:
-      "El baño invisible: tu inodoro es la mayor decisión ecológica de tu hogar",
+      "El baño invisible: tu inodoro es un paso significativo hacia la reducción de residuos en el hogar",
     href: "/articulos/bide-japones-sostenibilidad",
     category: "Sostenibilidad",
     excerpt:
-      "El baño invisible: cómo el inodoro inteligente reduce papel, agua y residuos en el hogar.",
+      "Cómo el lavado con agua reduce el consumo de papel y el impacto ambiental del baño.",
     image: "/images/articulos/sostenibilidad.jpg",
     imageAlt:
       "Baño minimalista con inodoro japonés y materiales sostenibles",

@@ -73,13 +73,13 @@ const budgetTiers: BudgetTier[] = [
     best: "Nashi Deluxe Pro.",
     bestDetail: "Alternativa: Nashi iSmart Pro o Roca Multiclean.",
     gains:
-      "Durabilidad extrema. La Nashi Deluxe Pro usa Resix (soporta >150 kg, puedes sentarte en la tapa cerrada). Secado avanzado y 5 años de garantía.",
+      "Pensada para durar. La Nashi Deluxe Pro usa Resix (soporta >150 kg, puedes sentarte en la tapa cerrada). Secado avanzado y 5 años de garantía.",
     sacrifices:
       "Sigues teniendo “solo” una tapa. El diseño es algo más abultado que un inodoro completo y debes tirar de la cadena a mano.",
   },
   {
     price: "De 600 € a 1.000 €",
-    concept: "El inodoro completo a precio de derribo.",
+    concept: "El paso al inodoro completo.",
     expect:
       "Inodoros japoneses completos (cerámica con tecnología integrada). Retiras el retrete viejo y pones uno nuevo.",
     best: "eQiik Pro (699 €) o eQiik base (599 €).",
@@ -91,14 +91,14 @@ const budgetTiers: BudgetTier[] = [
   },
   {
     price: "Más de 1.000 €",
-    concept: "El lujo asiático total (Zero Contact).",
+    concept: "Cuando la tecnología se vuelve gesto.",
     expect:
       "Inodoros sin cisterna tradicional, materiales antibacterianos y automatización total.",
     best: "Nashi Aldara iPlus 5 (1.690 €).",
     bestDetail:
       "Alternativa: Nashi iAnna (3.500 €) o TOTO Neorest (2.170 €).",
     gains:
-      "La experiencia definitiva. Descarga ciclónica (ahorra 70% agua), apertura por sensor, inyector de titanio, app móvil.",
+      "La versión más refinada de la experiencia. Descarga ciclónica (ahorra entre el 37% y el 58% de agua), apertura por sensor, inyector de titanio, app móvil.",
     sacrifices:
       "Inversión económica considerable. Si eliges TOTO, sacrificas soporte técnico en España.",
   },
@@ -119,8 +119,8 @@ export default function MejoresBidesPresupuestoPage() {
           </h1>
           <p className="mx-auto max-w-2xl font-sans text-body-lg text-stone-600">
             No todo el mundo tiene el mismo presupuesto, pero todos merecen
-            disfrutar de la higiene con agua. Te decimos exactamente qué
-            comprar con tu dinero.
+            disfrutar de la higiene con agua. Hemos ordenado el mercado en cinco
+            franjas de precio: qué cabe esperar en cada una y a qué se renuncia.
           </p>
         </div>
       </section>
@@ -128,10 +128,9 @@ export default function MejoresBidesPresupuestoPage() {
       {/* 2. Introducción: las reglas del juego de esta guía. */}
       <section className="mx-auto max-w-3xl px-6 py-16">
         <p className="font-serif text-body-lg text-stone-700">
-          Vamos a ser directos y prácticos. Hemos organizado el mercado actual
-          en cinco franjas de precio. En cada una te decimos qué puedes esperar
-          de forma realista, cuál es nuestra principal recomendación, qué ganas
-          y qué estás sacrificando por ese precio.
+          El recorrido va del escalón más económico al más alto. En cada franja
+          encontrarás la recomendación principal, con sus ventajas y sus
+          contrapartidas reales.
         </p>
       </section>
 
@@ -166,7 +165,7 @@ export default function MejoresBidesPresupuestoPage() {
           <dl className="grid grid-cols-1 gap-6 border-t border-stone-200 pt-6 md:grid-cols-2">
             <div>
               <dt className="font-sans font-bold text-stone-800">
-                Lo que obtienes:
+                Lo que ganas:
               </dt>
               <dd className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
                 {tier.gains}
@@ -174,7 +173,7 @@ export default function MejoresBidesPresupuestoPage() {
             </div>
             <div>
               <dt className="font-sans font-bold text-stone-800">
-                Lo que sacrificas:
+                Lo que aceptas:
               </dt>
               <dd className="mt-2 font-sans text-sm leading-relaxed text-stone-600">
                 {tier.sacrifices}

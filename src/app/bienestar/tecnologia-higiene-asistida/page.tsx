@@ -243,8 +243,8 @@ export default function TecnologiaHigieneAsistidaPage() {
               valiosa.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              No porque sustituya el cuidado, sino porque puede ayudar a que el
-              cuidado se adapte mejor a cada persona.
+              El cuidado, en su forma más pura, es invisible. Solo se nota en la
+              calma de quien lo recibe.
             </p>
           </section>
         </div>

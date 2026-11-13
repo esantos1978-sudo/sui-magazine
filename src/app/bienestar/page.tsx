@@ -14,14 +14,14 @@ import Link from "next/link";
  * secciones del magazine.
  */
 export const metadata: Metadata = {
-  title: "Bienestar | El baño como acto de cuidado | SUI Magazine",
+  title: "Bienestar | El baño como gesto de cuidado | SUI Magazine",
   description:
     "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
   alternates: {
     canonical: "https://sui-magazine.vercel.app/bienestar",
   },
   openGraph: {
-    title: "Bienestar | El baño como acto de cuidado | SUI Magazine",
+    title: "Bienestar | El baño como gesto de cuidado | SUI Magazine",
     description:
       "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
     locale: "es_ES",
@@ -64,7 +64,7 @@ const bienestarArticles: BienestarArticle[] = [
   {
     number: "03",
     category: "ENVEJECIMIENTO",
-    title: "Envejecer en casa: el baño",
+    title: "Envejecer en casa: el refugio diario",
     description:
       "El baño como espacio clave para el envejecimiento activo y seguro en el hogar. Soluciones que acompañan sin estigmatizar.",
     href: "/bienestar/envejecer-en-casa-bano",
@@ -99,7 +99,7 @@ export default function BienestarPage() {
             SUI MAGAZINE / BIENESTAR
           </p>
           <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-white text-balance mb-6">
-            El baño como acto de cuidado, no de dependencia.
+            El baño como gesto de cuidado.
           </h1>
           <p className="text-lg md:text-xl text-stone-200 leading-relaxed italic text-balance">
             La tecnología encuentra su verdadero valor cuando se adapta a las
@@ -120,12 +120,8 @@ export default function BienestarPage() {
             La dignidad en los detalles
           </h2>
           <p className="text-body-lg text-stone-600 leading-relaxed">
-            La intimidad y la autonomía forman parte esencial del bienestar. Sin
-            embargo, para algunas personas con movilidad reducida o necesidades
-            de asistencia, gestos tan cotidianos como la higiene personal pueden
-            convertirse en un desafío. Un baño poco adaptado, determinados
-            movimientos o la dificultad para utilizar papel higiénico pueden
-            limitar su independencia.
+            El bienestar empieza en lo más íntimo: en el agua templada, en no
+            tener prisa, en poder hacer solos lo que queremos hacer solos.
           </p>
           <p className="text-body-lg text-stone-600 leading-relaxed mt-4">
             Los sistemas de higiene con agua, como los bidés japoneses y los

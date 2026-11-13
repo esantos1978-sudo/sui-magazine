@@ -321,9 +321,8 @@ export default function DisenoProductoPage() {
               necesidades.
             </p>
             <p className="text-body-lg text-stone-600 leading-relaxed mt-4 font-medium text-stone-800">
-              Porque el diseño más valioso no siempre es el que consigue llamar
-              nuestra atención. A veces es el que hace que una experiencia
-              cotidiana resulte más sencilla, cómoda y natural.
+              Una cerámica bien cocida, un borde suave al tacto, un mecanismo
+              que no hace ruido. El lujo, a veces, es solo silencio y precisión.
             </p>
           </section>
         </div>
