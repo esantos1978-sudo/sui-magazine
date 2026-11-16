@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/marcas",
   },
-  title: "Marcas de Inodoros Inteligentes | Sui Magazine",
+  title: "Marcas de Inodoros Inteligentes",
   description:
     "Descubre las marcas líderes en inodoros inteligentes y bidés japoneses: TOTO, Roca, Geberit, GROHE, Duravit y las alternativas emergentes. Análisis y filosofía de diseño.",
   openGraph: {
-    title: "Marcas de Inodoros Inteligentes | Sui Magazine",
+    title: "Marcas de Inodoros Inteligentes",
     description:
       "Directorio editorial de los fabricantes que están transformando el baño: TOTO, Roca, Geberit, GROHE, Duravit y las alternativas emergentes.",
     locale: "es_ES",

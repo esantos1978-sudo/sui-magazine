@@ -6,6 +6,9 @@ import { getArticleByHref } from "@/content/articles";
 
 const article = getArticleByHref("/articulos/guia-instalacion");
 
+/** URL canónica absoluta del artículo: Open Graph exige URLs completas. */
+const ARTICLE_URL = "https://suimagazine.com/articulos/guia-instalacion";
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -13,12 +16,33 @@ const article = getArticleByHref("/articulos/guia-instalacion");
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/articulos/guia-instalacion",
+    canonical: ARTICLE_URL,
   },
-  title:
-    "Guía de instalación de bidé japonés paso a paso | Sui Magazine",
+  title: "Guía de instalación de bidé japonés paso a paso",
   description:
     "Aprende a instalar tu bidé japonés en 30 minutos. Guía completa para accesorios mecánicos, tapas inteligentes e inodoros completos.",
+  openGraph: {
+    title: article.title,
+    description: article.excerpt,
+    url: ARTICLE_URL,
+    siteName: "SUI Magazine",
+    locale: "es_ES",
+    type: "article",
+    images: [
+      {
+        url: `https://suimagazine.com${article.image}`,
+        width: 1024,
+        height: 559,
+        alt: article.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: article.title,
+    description: article.excerpt,
+    images: [`https://suimagazine.com${article.image}`],
+  },
 };
 
 /** Cada paso se compone de un titular breve y su explicación. */

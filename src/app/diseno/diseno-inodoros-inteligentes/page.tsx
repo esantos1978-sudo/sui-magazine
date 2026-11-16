@@ -12,16 +12,16 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title:
-    "Diseño de inodoros inteligentes: ergonomía, formas y tecnología | SUI Magazine",
+    "Diseño de inodoros inteligentes: ergonomía, formas y tecnología",
   description:
     "Exploramos el diseño de los inodoros inteligentes: formas, ergonomía, controles, materiales y tecnología integrada en el baño contemporáneo.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/diseno/diseno-inodoros-inteligentes",
+      "https://suimagazine.com/diseno/diseno-inodoros-inteligentes",
   },
   openGraph: {
     title:
-      "Diseño de inodoros inteligentes: ergonomía, formas y tecnología | SUI Magazine",
+      "Diseño de inodoros inteligentes: ergonomía, formas y tecnología",
     description:
       "Exploramos el diseño de los inodoros inteligentes: formas, ergonomía, controles, materiales y tecnología integrada en el baño contemporáneo.",
     locale: "es_ES",

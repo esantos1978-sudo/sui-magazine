@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/soluciones",
   },
-  title: "Soluciones por Necesidades | Sui Magazine",
+  title: "Soluciones por Necesidades",
   description:
     "Guía rápida para elegir una solución de higiene según tu situación y tu vivienda: autonomía, dependencia, alquiler, reforma o presupuesto ajustado.",
   openGraph: {
-    title: "Soluciones por Necesidades | Sui Magazine",
+    title: "Soluciones por Necesidades",
     description:
       "Una guía rápida para elegir según tu situación y tu vivienda.",
     locale: "es_ES",

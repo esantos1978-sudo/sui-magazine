@@ -12,16 +12,16 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title:
-    "Envejecer en casa: cómo adaptar el baño para mayor autonomía | SUI Magazine",
+    "Envejecer en casa: cómo adaptar el baño para mayor autonomía",
   description:
     "El papel del baño en el envejecimiento en casa: accesibilidad, seguridad, higiene con agua y adaptaciones que pueden facilitar la vida cotidiana.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/bienestar/envejecer-en-casa-bano",
+      "https://suimagazine.com/bienestar/envejecer-en-casa-bano",
   },
   openGraph: {
     title:
-      "Envejecer en casa: cómo adaptar el baño para mayor autonomía | SUI Magazine",
+      "Envejecer en casa: cómo adaptar el baño para mayor autonomía",
     description:
       "El papel del baño en el envejecimiento en casa: accesibilidad, seguridad, higiene con agua y adaptaciones que pueden facilitar la vida cotidiana.",
     locale: "es_ES",

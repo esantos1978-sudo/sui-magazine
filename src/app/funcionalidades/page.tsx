@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     canonical: "/funcionalidades",
   },
   title:
-    "Funcionalidades de bidés japoneses: Guía definitiva | Sui Magazine",
+    "Funcionalidades de bidés japoneses: Guía definitiva",
   description:
     "Descubre qué funciones marcan la diferencia en un inodoro inteligente: luz UV, asiento calefactado, secado avanzado, zero contact y más.",
   openGraph: {
     title:
-      "Funcionalidades de bidés japoneses: Guía definitiva | Sui Magazine",
+      "Funcionalidades de bidés japoneses: Guía definitiva",
     description:
       "Descubre qué funciones marcan la diferencia en un inodoro inteligente: luz UV, asiento calefactado, secado avanzado, zero contact y más.",
     locale: "es_ES",

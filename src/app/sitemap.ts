@@ -12,7 +12,7 @@ import type { MetadataRoute } from "next";
  * desplegar en producción.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sui-magazine.vercel.app";
+  const baseUrl = "https://suimagazine.com";
 
   // Rutas principales, silos, páginas institucionales y artículos.
   const routes = [

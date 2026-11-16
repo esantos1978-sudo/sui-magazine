@@ -14,14 +14,14 @@ import Link from "next/link";
  * secciones del magazine.
  */
 export const metadata: Metadata = {
-  title: "Bienestar | El baño como gesto de cuidado | SUI Magazine",
+  title: "Bienestar | El baño como gesto de cuidado",
   description:
     "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
   alternates: {
-    canonical: "https://sui-magazine.vercel.app/bienestar",
+    canonical: "https://suimagazine.com/bienestar",
   },
   openGraph: {
-    title: "Bienestar | El baño como gesto de cuidado | SUI Magazine",
+    title: "Bienestar | El baño como gesto de cuidado",
     description:
       "La tecnología encuentra su verdadero valor cuando se adapta a las personas. Exploramos cómo la innovación aplicada a la higiene puede favorecer la autonomía y preservar la intimidad.",
     locale: "es_ES",

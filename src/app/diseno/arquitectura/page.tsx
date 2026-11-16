@@ -12,15 +12,15 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title:
-    "La arquitectura del baño contemporáneo: espacios que transforman el ritual | SUI Magazine",
+    "La arquitectura del baño contemporáneo: espacios que transforman el ritual",
   description:
     "La arquitectura del baño va mucho más allá de la elección de sanitarios y revestimientos. Distribución, proporciones, luz y tecnología definen un espacio de bienestar.",
   alternates: {
-    canonical: "https://sui-magazine.vercel.app/diseno/arquitectura",
+    canonical: "https://suimagazine.com/diseno/arquitectura",
   },
   openGraph: {
     title:
-      "La arquitectura del baño contemporáneo: espacios que transforman el ritual | SUI Magazine",
+      "La arquitectura del baño contemporáneo: espacios que transforman el ritual",
     description:
       "La arquitectura del baño va mucho más allá de la elección de sanitarios y revestimientos. Distribución, proporciones, luz y tecnología definen un espacio de bienestar.",
     locale: "es_ES",

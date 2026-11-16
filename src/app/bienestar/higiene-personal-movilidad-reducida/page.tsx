@@ -11,15 +11,15 @@ import Link from "next/link";
  * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
-  title: "Higiene personal y movilidad reducida | Bienestar | SUI Magazine",
+  title: "Higiene personal y movilidad reducida | Bienestar",
   description:
     "La posibilidad de realizar la higiene personal con mayor comodidad e intimidad puede marcar una diferencia importante. Exploramos qué aportan los sistemas de lavado.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/bienestar/higiene-personal-movilidad-reducida",
+      "https://suimagazine.com/bienestar/higiene-personal-movilidad-reducida",
   },
   openGraph: {
-    title: "Higiene personal y movilidad reducida | Bienestar | SUI Magazine",
+    title: "Higiene personal y movilidad reducida | Bienestar",
     description:
       "La posibilidad de realizar la higiene personal con mayor comodidad e intimidad puede marcar una diferencia importante. Exploramos qué aportan los sistemas de lavado.",
     locale: "es_ES",

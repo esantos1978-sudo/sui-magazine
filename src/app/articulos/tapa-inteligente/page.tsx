@@ -7,6 +7,9 @@ import { getArticleByHref } from "@/content/articles";
 
 const article = getArticleByHref("/articulos/tapa-inteligente");
 
+/** URL canónica absoluta del artículo: Open Graph exige URLs completas. */
+const ARTICLE_URL = "https://suimagazine.com/articulos/tapa-inteligente";
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -14,12 +17,33 @@ const article = getArticleByHref("/articulos/tapa-inteligente");
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/articulos/tapa-inteligente",
+    canonical: ARTICLE_URL,
   },
-  title:
-    "Tapa inteligente para inodoro: Guía definitiva y materiales | Sui Magazine",
+  title: "Tapa inteligente para inodoro: Guía definitiva y materiales",
   description:
     "Todo sobre la tapa de bidé japonés: diferencias entre ABS y Resix, calentamiento instantáneo, instalación y los mejores modelos del mercado.",
+  openGraph: {
+    title: article.title,
+    description: article.excerpt,
+    url: ARTICLE_URL,
+    siteName: "SUI Magazine",
+    locale: "es_ES",
+    type: "article",
+    images: [
+      {
+        url: `https://suimagazine.com${article.image}`,
+        width: 1024,
+        height: 559,
+        alt: article.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: article.title,
+    description: article.excerpt,
+    images: [`https://suimagazine.com${article.image}`],
+  },
 };
 
 /** Tarjeta comparativa de materiales. */

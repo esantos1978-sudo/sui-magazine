@@ -4,7 +4,7 @@ import type { SiloId } from "@/content/silos";
  * Dominio de producción. Debe coincidir con `metadataBase` en
  * `src/app/layout.tsx`; si cambia el dominio, actualizar ambos.
  */
-const SITE_URL = "https://sui-magazine.vercel.app";
+const SITE_URL = "https://suimagazine.com";
 
 /**
  * Fechas provisionales para los datos estructurados.
@@ -131,7 +131,9 @@ export function getArticleJsonLd(article: Article) {
       name: "Sui Magazine",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/hero-lujo-negro.jpg`,
+        url: `${SITE_URL}/logo.svg`,
+        width: 200,
+        height: 60,
       },
     },
     datePublished: ARTICLE_DATE_PUBLISHED,

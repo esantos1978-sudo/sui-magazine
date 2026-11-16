@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sobre-el-magazine",
   },
-  title: "Sobre Sui Magazine | El nuevo ritual de la higiene",
+  title: "Sobre el magazine | El nuevo ritual de la higiene",
   description:
-    "Sui Magazine es una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo. Conoce nuestra misión y nuestro equipo.",
+    "SUI Magazine es una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo. Conoce nuestra misión y nuestro equipo.",
   openGraph: {
-    title: "Sobre Sui Magazine | El nuevo ritual de la higiene",
+    title: "Sobre el magazine | El nuevo ritual de la higiene",
     description:
       "Una publicación independiente sobre el ritual del agua, el bienestar y el diseño del baño contemporáneo.",
     locale: "es_ES",

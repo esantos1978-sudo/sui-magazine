@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/tecnologia",
   },
-  title: "La inteligencia detrás del bienestar | Sui Magazine",
+  title: "La inteligencia detrás del bienestar",
   description:
     "Exploramos las tecnologías que transforman la higiene cotidiana: sistemas de lavado, automatización, innovación y eficiencia. Una mirada a cómo la ingeniería redefine nuestra relación con el agua.",
   openGraph: {
-    title: "La inteligencia detrás del bienestar | Sui Magazine",
+    title: "La inteligencia detrás del bienestar",
     description:
       "Sistemas de lavado, automatización, innovación y eficiencia: la ingeniería que redefine el ritual del agua.",
     locale: "es_ES",

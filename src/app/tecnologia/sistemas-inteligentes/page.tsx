@@ -13,14 +13,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/tecnologia/sistemas-inteligentes",
+      "https://suimagazine.com/tecnologia/sistemas-inteligentes",
   },
-  title: "Sistemas Inteligentes | La tecnología invisible | SUI Magazine",
+  title: "Sistemas Inteligentes | La tecnología invisible",
   description:
     "Agua templada, sensores, sistemas de secado y mecanismos de autolimpieza. Descubrimos la ingeniería que transforma un sanitario convencional.",
   openGraph: {
     title:
-      "Sistemas Inteligentes | La tecnología invisible | SUI Magazine",
+      "Sistemas Inteligentes | La tecnología invisible",
     description:
       "Agua templada, sensores, sistemas de secado y mecanismos de autolimpieza. Descubrimos la ingeniería que transforma un sanitario convencional.",
     locale: "es_ES",

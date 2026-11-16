@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/actualidad",
   },
-  title: "Actualidad del baño | Sui Magazine",
+  title: "Actualidad del baño",
   description:
     "Lanzamientos, noticias y tendencias del sector del baño. Contexto editorial para entender hacia dónde va la higiene japonesa en España.",
   openGraph: {
-    title: "Actualidad del baño | Sui Magazine",
+    title: "Actualidad del baño",
     description:
       "Lanzamientos, noticias y tendencias para entender hacia dónde va el baño.",
     locale: "es_ES",

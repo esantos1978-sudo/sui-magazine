@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/guia",
   },
-  title: "La Guía Esencial | Sui Magazine",
+  title: "La Guía Esencial",
   description:
     "Guía completa sobre bidés japoneses y washlets: qué son, cómo funcionan, los tres formatos disponibles y por qué se han vuelto tan populares en España.",
   openGraph: {
-    title: "La Guía Esencial | Sui Magazine",
+    title: "La Guía Esencial",
     description:
       "Todo lo que necesitas saber sobre los inodoros inteligentes japoneses.",
     locale: "es_ES",

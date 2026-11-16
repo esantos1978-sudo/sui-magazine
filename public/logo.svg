@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sui Magazine — logotipo principal (Ruta A: tipografía pura).
+
+  - Serif del sistema (Georgia → Times New Roman → serif) para que el archivo
+    se vea igual abierto directamente, incrustado como <img> o servido desde
+    /public, sin depender de webfonts.
+  - El tracking se implementa con `letter-spacing`. Los navegadores añaden ese
+    espaciado también tras la última letra, de modo que el centro óptico del
+    texto queda desplazado a la izquierda. Por eso el `x` de cada línea suma
+    la mitad del tracking (SUI: 100 + 16/2 = 108; MAGAZINE: 100 + 5.2/2 = 102.6).
+    No "corregir" esos valores sin volver a medir: son los que centran la tinta.
+  - Línea base calculada con la altura de mayúsculas de Georgia (0.71 em) para
+    que el bloque quede ópticamente centrado en el viewBox de 200 × 60.
+  - Fondo transparente; sin degradados, sombras ni adornos.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" role="img" aria-labelledby="sui-logo-title">
+  <title id="sui-logo-title">Sui Magazine</title>
+
+  <text
+    x="108"
+    y="39.97"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="50"
+    font-weight="400"
+    letter-spacing="16"
+    fill="#1C1917"
+  >SUI</text>
+
+  <text
+    x="102.6"
+    y="55.36"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="9"
+    font-weight="400"
+    letter-spacing="5.2"
+    fill="#78716C"
+  >MAGAZINE</text>
+</svg>

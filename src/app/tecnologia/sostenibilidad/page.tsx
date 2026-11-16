@@ -11,15 +11,15 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://sui-magazine.vercel.app/tecnologia/sostenibilidad",
+    canonical: "https://suimagazine.com/tecnologia/sostenibilidad",
   },
   title:
-    "Sostenibilidad | El impacto ambiental de los inodoros inteligentes | SUI Magazine",
+    "Sostenibilidad | El impacto ambiental de los inodoros inteligentes",
   description:
     "Menos papel higiénico, pero también consumo de agua, electricidad y nuevos componentes. Analizamos las variables de su sostenibilidad.",
   openGraph: {
     title:
-      "Sostenibilidad | El impacto ambiental de los inodoros inteligentes | SUI Magazine",
+      "Sostenibilidad | El impacto ambiental de los inodoros inteligentes",
     description:
       "Menos papel higiénico, pero también consumo de agua, electricidad y nuevos componentes. Analizamos las variables de su sostenibilidad.",
     locale: "es_ES",

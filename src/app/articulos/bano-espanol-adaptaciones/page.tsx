@@ -6,6 +6,10 @@ import { getArticleByHref } from "@/content/articles";
 
 const article = getArticleByHref("/articulos/bano-espanol-adaptaciones");
 
+/** URL canónica absoluta del artículo: Open Graph exige URLs completas. */
+const ARTICLE_URL =
+  "https://suimagazine.com/articulos/bano-espanol-adaptaciones";
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -13,12 +17,33 @@ const article = getArticleByHref("/articulos/bano-espanol-adaptaciones");
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/articulos/bano-espanol-adaptaciones",
+    canonical: ARTICLE_URL,
   },
-  title:
-    "Adaptar bidé japonés a baño español: cal, enchufes y obras | Sui Magazine",
+  title: "Adaptar bidé japonés a baño español: cal, enchufes y obras",
   description:
     "Guía real para instalar tu bidé japonés en España. Soluciones para la cal, baños sin enchufe, cisternas empotradas y normativa eléctrica.",
+  openGraph: {
+    title: article.title,
+    description: article.excerpt,
+    url: ARTICLE_URL,
+    siteName: "SUI Magazine",
+    locale: "es_ES",
+    type: "article",
+    images: [
+      {
+        url: `https://suimagazine.com${article.image}`,
+        width: 1024,
+        height: 559,
+        alt: article.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: article.title,
+    description: article.excerpt,
+    images: [`https://suimagazine.com${article.image}`],
+  },
 };
 
 /** Diferencia entre las instalaciones japonesas y las españolas. */

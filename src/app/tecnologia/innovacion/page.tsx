@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/tecnologia/innovacion",
   },
-  title: "Innovación | Del washlet al baño inteligente | SUI Magazine",
+  title: "Innovación | Del washlet al baño inteligente",
   description:
     "De los primeros sistemas de lavado electrónico a los inodoros inteligentes contemporáneos, la evolución de la tecnología japonesa en el baño.",
   openGraph: {
-    title: "Innovación | Del washlet al baño inteligente | SUI Magazine",
+    title: "Innovación | Del washlet al baño inteligente",
     description:
       "De los primeros sistemas de lavado electrónico a los inodoros inteligentes contemporáneos, la evolución de la tecnología japonesa en el baño.",
     locale: "es_ES",

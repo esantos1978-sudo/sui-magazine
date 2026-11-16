@@ -922,40 +922,60 @@ Cada `page.tsx` sigue este orden:
 
 **Implementación actual:**
 
-- **Estado:** Twitter Cards, JSON-LD global (`WebSite`/`Organization`) y JSON-LD dinámico por artículo (`Article`) están implementados.
+- **Estado:** Twitter Cards, manifiesto PWA básico, JSON-LD global (`WebSite`/`Organization`) y JSON-LD dinámico por artículo (`Article`) están implementados.
 - `src/app/layout.tsx` define la metadata raíz:
-  - `metadataBase: new URL("https://sui-magazine.vercel.app")`, que resuelve las URLs relativas de metadata contra el dominio de producción.
-  - `title: "Sui Magazine | El nuevo ritual de la higiene"`.
+  - `metadataBase: new URL("https://suimagazine.com")` (dominio definitivo), que resuelve las URLs relativas de metadata contra producción.
+  - `title` como objeto: `default: "SUI Magazine | Diseño, bienestar y tecnología del baño inteligente"` y `template: "%s | SUI Magazine"`. La home usa el `default`; las páginas hijas declaran su título **sin** el sufijo de marca para que el template no lo duplique.
   - `description` editorial de una frase.
   - `alternates: { canonical: "/" }` para la home.
-  - Open Graph con `title`, `description`, `url`, `siteName`, `locale: "es_ES"`, `type: "website"` e `images` (la foto del hero, `/images/hero-lujo-negro.jpg`, con `width: 1600`, `height: 1066` y `alt`; son las dimensiones reales del archivo).
-- Cada página exporta `metadata` propia con `title`, `description`, `alternates.canonical` y, en la mayoría, `openGraph`. El canónico se declara con ruta relativa (por ejemplo, `canonical: "/guia"`) y `metadataBase` lo convierte en URL absoluta.
+  - Open Graph con `type: "website"`, `locale: "es_ES"`, `url`, `siteName`, `title`, `description` e `images` (`/og-default.jpg`, 1200 × 630, `alt: "SUI Magazine"`).
+  - Twitter Cards `summary_large_image` con la misma imagen social.
+  - `viewport` separado con `themeColor: "#FAFAF9"` y `colorScheme: "light"`.
+  - `manifest: "/manifest.json"`, que enlaza el manifiesto servido desde `public/manifest.json`: `display: "standalone"`, `background_color: "#FAFAF9"`, `theme_color: "#FAFAF9"` e icono `/icon.svg` (`any maskable`).
+- Cada página exporta `metadata` propia con `title`, `description`, `alternates.canonical` y, en la mayoría, `openGraph`. El canónico se declara con ruta relativa (por ejemplo, `canonical: "/guia"`) y `metadataBase` lo convierte en URL absoluta; los cinco artículos lo declaran absoluto para que `og:url` y `canonical` coincidan sin depender del host.
 - El HTML declara `lang="es"`.
-- Los títulos de página siguen el patrón `[Tema] | Sui Magazine`.
+- Los títulos de página no incluyen la firma: el template raíz añade `| SUI Magazine` una sola vez.
 - Los artículos y páginas editoriales usan `type: "article"`; la home usa `website`.
 - `src/app/robots.ts` genera `/robots.txt` con la Metadata API de Next.js: permite todo el sitio, bloquea `/api/` y `/_next/`, y declara el sitemap de producción.
 - `src/app/sitemap.ts` genera `/sitemap.xml` con la home, los seis silos, los índices editoriales, las páginas institucionales y los cinco artículos.
-- `src/app/layout.tsx` incluye un bloque JSON-LD global de tipo `WebSite` con `publisher` de tipo `Organization`. El logo declarado es provisional (`/images/hero-lujo-negro.jpg`) hasta disponer de un logotipo definitivo apto para datos estructurados.
+- `src/app/layout.tsx` incluye un bloque JSON-LD global de tipo `WebSite` con `publisher` de tipo `Organization`; el logo oficial es `/logo.svg` (200 × 60).
 - Las cinco páginas de artículo inyectan un bloque JSON-LD `Article` generado por `getArticleJsonLd()` en `src/content/articles.ts`. Incluye titular, extracto, imagen absoluta, autor, publisher y fechas. Las fechas siguen siendo provisionales (`2024-01-01`) hasta añadir fechas ISO por artículo.
-- `src/app/layout.tsx` configura Twitter Cards con `card: "summary_large_image"`, título, descripción e imagen social (`/images/hero-lujo-negro.jpg`). Next.js resuelve la imagen contra `metadataBase`.
+- La imagen social global es `/og-default.jpg` (1200 × 630, JPEG) y la usan la home y las páginas sin imagen propia.
+- **Open Graph no se fusiona:** en Next.js, el `openGraph` de una página sustituye por completo al del layout. Por eso los cinco artículos declaran un bloque completo: `title`, `description`, `url`, `siteName`, `locale: "es_ES"`, `type: "article"` e `images` con `article.image` en URL absoluta, sus dimensiones reales y `alt: article.imageAlt`; su Twitter Card también es propia. Así cada artículo comparte su portada y no la home.
 
-> **Nota de dominio:** para cambiar el dominio de producción, actualizar la constante `SITE_URL` en `src/content/articles.ts`, `metadataBase` en `src/app/layout.tsx`, y las URLs en `src/app/robots.ts` y `src/app/sitemap.ts`.
+> **Nota de dominio:** el dominio definitivo es `https://suimagazine.com`. Si cambia, actualizar la constante `SITE_URL` en `src/content/articles.ts`, `metadataBase` en `src/app/layout.tsx`, y las URLs de `src/app/robots.ts` y `src/app/sitemap.ts`.
 
 **Contrato mínimo para cualquier página nueva:**
 
 ```ts
 export const metadata: Metadata = {
-  title: "Tema concreto | Sui Magazine",
+  title: "Tema concreto", // el template raíz añade "| SUI Magazine"
   description:
     "Descripción única, en español, de 140–160 caracteres, con la propuesta de valor.",
   alternates: {
     canonical: "/ruta-de-la-pagina",
   },
   openGraph: {
-    title: "Tema concreto | Sui Magazine",
+    title: "Tema concreto",
     description: "Resumen editorial breve y específico.",
+    url: "/ruta-de-la-pagina",
+    siteName: "SUI Magazine",
     locale: "es_ES",
     type: "article", // "website" en home y páginas de directorio
+    images: [
+      {
+        url: "/og-default.jpg", // o la imagen real del contenido
+        width: 1200,
+        height: 630,
+        alt: "Descripción de la imagen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tema concreto",
+    description: "Resumen editorial breve y específico.",
+    images: ["/og-default.jpg"],
   },
 };
 ```
@@ -964,13 +984,14 @@ export const metadata: Metadata = {
 
 1. Un `title` único por ruta; no duplicar el título raíz.
 2. Una `description` única, natural, sin acumulación de palabras clave.
-3. Cada ruta declara su propio `alternates.canonical`; el canónico raíz `/` no debe heredarse en páginas hijas.
+3. Cada ruta declara su propio `alternates.canonical`; el canónico raíz `/` no debe heredarse en páginas hijas. Los artículos usan la URL absoluta de producción.
 4. Los datos estructurados globales (`WebSite` y `Organization`) se declaran una sola vez en el layout raíz. `Article` se genera desde `src/content/articles.ts` y se inyecta en cada página de artículo mediante `<ArticleJsonLd />`. `Product` y `FAQPage` se añadirán en las páginas que correspondan cuando exista contenido que los justifique.
 5. Un solo `<h1>` por página y encabezados jerárquicos.
 6. URLs en minúsculas, con guiones y sin tildes: `/articulos/bano-espanol-adaptaciones`.
 7. Textos alternativos descriptivos; no son un campo de keywords.
 8. No se promete información que no exista en la página.
 9. Al clonar el proyecto, cambiar nombre, dominio (`metadataBase`, `robots.ts`, `sitemap.ts` y `src/content/articles.ts`), descripciones y Open Graph; no dejar referencias a Sui.
+10. Si una ruta declara `openGraph`, debe declarar el bloque completo: `title`, `description`, `url`, `siteName`, `locale`, `type` e `images` (con `width`, `height` y `alt` reales). Next.js no fusiona el Open Graph de página con el del layout: un bloque incompleto elimina la imagen y la URL sociales.
 
 La deuda técnica planificada se detalla en la sección 4.8.
 
@@ -1022,7 +1043,7 @@ El build debe completarse sin errores de TypeScript ni de ESLint. Actualmente to
 
 Las siguientes partidas son decisiones de alcance para una fase posterior, no errores ni bloqueos del estado actual:
 
-- **Imagen Open Graph dedicada por artículo:** sustituir la imagen social global por una pieza específica de cada artículo, con proporción adecuada para `summary_large_image`.
+- **Open Graph completo en páginas de directorio:** las páginas que declaran `openGraph` propio (índices de silo, páginas institucionales y artículos editoriales fuera de `articles.ts`) aún no incluyen `images`, `url` ni `siteName`; como Next.js no fusiona bloques, sus previsualizaciones sociales muestran solo texto. Completarlas con la imagen de su hero o `/og-default.jpg`.
 - **Schema `Product` y `FAQPage`:** añadir datos estructurados de producto en las páginas que comparan modelos y de FAQ en las páginas que ya publican preguntas y respuestas.
 - **Sistema de fechas reales:** incorporar `datePublished` y `dateModified` en formato ISO a cada ficha de `articles.ts`, usar `publishedTime`/`modifiedTime` en la metadata de los artículos y reutilizar esas fechas en `sitemap.ts` y en el JSON-LD `Article`.
 
@@ -1040,7 +1061,7 @@ Estas diez reglas son obligatorias. Si una instrucción del usuario entra en con
 4. **Usa siempre `next/image`, nunca `<img>`.** `fill` requiere padre `relative`; `object-cover` para atmósfera y `object-contain` para producto; `alt` descriptivo; `priority` solo en el hero. Migra la excepción de `/seleccion` si tocas esa página.
 5. **Respeta el ritmo y los contenedores.** Secciones `py-24` (o `py-20`/`py-16` según el nivel), laterales `px-6`, lectura `max-w-3xl`, rejillas `max-w-5xl`, chrome `max-w-6xl`. No añadas spacing arbitrario.
 6. **Mantén el código modular y centraliza los datos en arrays tipados.** Define tipos explícitos con JSDoc, evita duplicar contenido y no llenes el JSX de literales repetidos. Componentes de servidor por defecto.
-7. **Toda ruta debe tener metadata propia y voz Sui.** `title` con patrón `[Tema] | Sui Magazine`, `description` única de 140–160 caracteres, Open Graph y `lang="es"`. Escribe en español de España, con tono cálido, preciso y sin promesas médicas.
+7. **Toda ruta debe tener metadata propia y voz Sui.** `title` con el tema concreto y sin sufijo de marca (el template raíz añade `| SUI Magazine`), `description` única de 140–160 caracteres, Open Graph y `lang="es"`. Escribe en español de España, con tono cálido, preciso y sin promesas médicas.
 8. **La accesibilidad no es opcional.** Un H1 por página, jerarquía correcta, landmarks, `aria-label` en navegaciones, foco visible, tablas con `caption` y `scope`, y decoración con `aria-hidden`.
 9. **No añadas dependencias, componentes cliente ni CSS ad hoc sin necesidad demostrable.** Nada de librerías de UI, iconos, animación o estado si Tailwind y React ya resuelven el problema.
 10. **Cierra el círculo.** Ejecuta `npm run lint` y `npm run build`, verifica 390 px y 1440 px, y actualiza este SPEC si has tomado una decisión de diseño o arquitectura nueva. El código y el SPEC nunca deben contar historias distintas.

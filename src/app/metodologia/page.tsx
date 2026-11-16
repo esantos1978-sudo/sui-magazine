@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/metodologia",
   },
-  title: "Metodología Editorial | Sui Magazine",
+  title: "Metodología Editorial",
   description:
     "El proceso independiente y transparente con el que seleccionamos, probamos y actualizamos los contenidos de Sui Magazine.",
   openGraph: {
-    title: "Metodología Editorial | Sui Magazine",
+    title: "Metodología Editorial",
     description:
       "Cómo trabajamos para ofrecer información rigurosa e independiente sobre el baño y la higiene contemporánea.",
     locale: "es_ES",

@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/seleccion",
   },
-  title: "Ranking 2026: Los Mejores Bidés Japoneses | Sui Magazine",
+  title: "Ranking 2026: Los Mejores Bidés Japoneses",
   description:
     "Análisis riguroso y honesto de los inodoros inteligentes que sí merecen la pena en España: siete modelos comparados por calidad-precio, funcionalidades, materiales y servicio técnico.",
   openGraph: {
-    title: "Ranking 2026: Los Mejores Bidés Japoneses | Sui Magazine",
+    title: "Ranking 2026: Los Mejores Bidés Japoneses",
     description:
       "La Selección 2026: siete inodoros inteligentes analizados sin marketing ni promesas vacías.",
     locale: "es_ES",

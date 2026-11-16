@@ -12,16 +12,16 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title:
-    "Interiorismo de baños modernos: materiales, luz y diseño | SUI Magazine",
+    "Interiorismo de baños modernos: materiales, luz y diseño",
   description:
     "Descubre cómo los materiales, la iluminación y las texturas transforman el interiorismo del baño contemporáneo, integrando tecnología y bienestar.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/diseno/interiorismo-bano-contemporaneo",
+      "https://suimagazine.com/diseno/interiorismo-bano-contemporaneo",
   },
   openGraph: {
     title:
-      "Interiorismo de baños modernos: materiales, luz y diseño | SUI Magazine",
+      "Interiorismo de baños modernos: materiales, luz y diseño",
     description:
       "Descubre cómo los materiales, la iluminación y las texturas transforman el interiorismo del baño contemporáneo, integrando tecnología y bienestar.",
     locale: "es_ES",

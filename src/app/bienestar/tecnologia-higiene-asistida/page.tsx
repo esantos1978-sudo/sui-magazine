@@ -11,16 +11,16 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title:
-    "Tecnología e higiene asistida: soluciones para un cuidado más respetuoso | SUI Magazine",
+    "Tecnología e higiene asistida: soluciones para un cuidado más respetuoso",
   description:
     "Cómo puede ayudar la tecnología de higiene con agua en situaciones de cuidado asistido. Ventajas, límites, accesibilidad y criterios para elegir soluciones adecuadas.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/bienestar/tecnologia-higiene-asistida",
+      "https://suimagazine.com/bienestar/tecnologia-higiene-asistida",
   },
   openGraph: {
     title:
-      "Tecnología e higiene asistida: soluciones para un cuidado más respetuoso | SUI Magazine",
+      "Tecnología e higiene asistida: soluciones para un cuidado más respetuoso",
     description:
       "Cómo puede ayudar la tecnología de higiene con agua en situaciones de cuidado asistido. Ventajas, límites, accesibilidad y criterios para elegir soluciones adecuadas.",
     locale: "es_ES",

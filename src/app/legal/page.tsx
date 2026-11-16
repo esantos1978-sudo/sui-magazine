@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/legal",
   },
-  title: "Aviso Legal y Política de Privacidad | Sui Magazine",
+  title: "Aviso Legal y Política de Privacidad",
   description:
     "Titularidad, política de privacidad, cookies y propiedad intelectual de Sui Magazine. Información transparente sobre el uso de esta publicación.",
   openGraph: {
-    title: "Aviso Legal y Política de Privacidad | Sui Magazine",
+    title: "Aviso Legal y Política de Privacidad",
     description:
       "Titularidad, privacidad, cookies y propiedad intelectual de Sui Magazine.",
     locale: "es_ES",

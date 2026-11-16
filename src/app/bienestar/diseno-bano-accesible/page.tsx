@@ -11,16 +11,16 @@ import Link from "next/link";
  * vuelve a envolver el contenido en otro `<main>`.
  */
 export const metadata: Metadata = {
-  title: "Cómo diseñar un baño accesible sin renunciar al diseño | SUI Magazine",
+  title: "Cómo diseñar un baño accesible sin renunciar al diseño",
   description:
     "Claves para diseñar un baño accesible, funcional y contemporáneo: distribución, apoyos, iluminación, ergonomía y tecnología aplicada a la higiene.",
   alternates: {
     canonical:
-      "https://sui-magazine.vercel.app/bienestar/diseno-bano-accesible",
+      "https://suimagazine.com/bienestar/diseno-bano-accesible",
   },
   openGraph: {
     title:
-      "Cómo diseñar un baño accesible sin renunciar al diseño | SUI Magazine",
+      "Cómo diseñar un baño accesible sin renunciar al diseño",
     description:
       "Claves para diseñar un baño accesible, funcional y contemporáneo: distribución, apoyos, iluminación, ergonomía y tecnología aplicada a la higiene.",
     locale: "es_ES",

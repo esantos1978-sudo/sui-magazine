@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/marcas/toto",
   },
-  title: "TOTO: el estándar silencioso de la higiene | Sui Magazine",
+  title: "TOTO: el estándar silencioso de la higiene",
   description:
     "Ficha editorial de TOTO: historia, filosofía de diseño y tres piezas clave —NEOREST NX2, Washlet G4 y la colección Gallery— dentro del directorio de marcas de Sui Magazine.",
   openGraph: {
-    title: "TOTO: el estándar silencioso de la higiene | Sui Magazine",
+    title: "TOTO: el estándar silencioso de la higiene",
     description:
       "El fabricante japonés que convirtió el inodoro en un objeto de precisión. Retrato de marca y selección de producto en Sui Magazine.",
     locale: "es_ES",

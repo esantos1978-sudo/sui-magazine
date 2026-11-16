@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/profesionales",
   },
   title:
-    "Inodoros inteligentes para residencias y centros | Sui Magazine",
+    "Inodoros inteligentes para residencias y centros",
   description:
     "Soluciones de higiene inteligente para el sector sociosanitario. Mejora la eficiencia, reduce costes y aumenta la dignidad asistencial en tu centro.",
 };

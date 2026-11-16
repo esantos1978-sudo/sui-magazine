@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contacto",
   },
-  title: "Contacto | Sui Magazine",
+  title: "Contacto",
   description:
     "Consultas editoriales, colaboraciones profesionales y prensa. Elige el canal adecuado para hablar con el equipo de Sui Magazine.",
   openGraph: {
-    title: "Contacto | Sui Magazine",
+    title: "Contacto",
     description:
       "Consultas editoriales, colaboraciones profesionales y prensa: elige el canal adecuado.",
     locale: "es_ES",

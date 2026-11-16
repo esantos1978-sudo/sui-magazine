@@ -6,6 +6,10 @@ import { getArticleByHref } from "@/content/articles";
 
 const article = getArticleByHref("/articulos/mejores-bides-presupuesto");
 
+/** URL canónica absoluta del artículo: Open Graph exige URLs completas. */
+const ARTICLE_URL =
+  "https://suimagazine.com/articulos/mejores-bides-presupuesto";
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -13,12 +17,33 @@ const article = getArticleByHref("/articulos/mejores-bides-presupuesto");
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/articulos/mejores-bides-presupuesto",
+    canonical: ARTICLE_URL,
   },
-  title:
-    "Mejores bidés japoneses por presupuesto (2026) | Sui Magazine",
+  title: "Mejores bidés japoneses por presupuesto (2026)",
   description:
     "Guía honesta para elegir el mejor bidé japonés según tu presupuesto. Desde opciones mecánicas por menos de 100€ hasta el lujo asiático.",
+  openGraph: {
+    title: article.title,
+    description: article.excerpt,
+    url: ARTICLE_URL,
+    siteName: "SUI Magazine",
+    locale: "es_ES",
+    type: "article",
+    images: [
+      {
+        url: `https://suimagazine.com${article.image}`,
+        width: 2000,
+        height: 2000,
+        alt: article.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: article.title,
+    description: article.excerpt,
+    images: [`https://suimagazine.com${article.image}`],
+  },
 };
 
 /** Cada franja de precio reúne la recomendación y sus contrapartidas. */

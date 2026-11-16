@@ -6,6 +6,10 @@ import { getArticleByHref } from "@/content/articles";
 
 const article = getArticleByHref("/articulos/bide-japones-sostenibilidad");
 
+/** URL canónica absoluta del artículo: Open Graph exige URLs completas. */
+const ARTICLE_URL =
+  "https://suimagazine.com/articulos/bide-japones-sostenibilidad";
+
 /**
  * El artículo se renderiza dentro del Layout global definido en
  * `src/app/layout.tsx`. No se vuelve a envolver aquí para no duplicar
@@ -13,12 +17,33 @@ const article = getArticleByHref("/articulos/bide-japones-sostenibilidad");
  */
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/articulos/bide-japones-sostenibilidad",
+    canonical: ARTICLE_URL,
   },
-  title:
-    "Bidé japonés y sostenibilidad: El impacto real en el planeta | Sui Magazine",
+  title: "Bidé japonés y sostenibilidad: El impacto real en el planeta",
   description:
     "Descubre cómo los inodoros inteligentes ahorran agua, reducen la deforestación y reducen el uso de toallitas húmedas. El baño del futuro es ecológico.",
+  openGraph: {
+    title: article.title,
+    description: article.excerpt,
+    url: ARTICLE_URL,
+    siteName: "SUI Magazine",
+    locale: "es_ES",
+    type: "article",
+    images: [
+      {
+        url: `https://suimagazine.com${article.image}`,
+        width: 1024,
+        height: 559,
+        alt: article.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: article.title,
+    description: article.excerpt,
+    images: [`https://suimagazine.com${article.image}`],
+  },
 };
 
 /** Impacto ambiental del ciclo de vida del papel higiénico. */
